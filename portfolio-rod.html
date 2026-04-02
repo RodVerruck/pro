@@ -5,12 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rodrigo Verruck — Dev, Produtos & Sistemas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Unbounded:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Unbounded:wght@400;700;900&display=swap"
     rel="stylesheet" media="print" onload="this.media='all'">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;700&family=Roboto+Condensed:wght@700&display=swap"
-    rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Unbounded:wght@400;700;900&display=swap"
+      rel="stylesheet">
+  </noscript>
   <style>
     *,
     *::before,
@@ -50,7 +54,6 @@
       font-family: var(--body);
       overflow-x: hidden;
       cursor: none;
-      transition: background 0.3s, color 0.3s;
     }
 
 
@@ -185,7 +188,7 @@
 
     .intro-sub {
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
       letter-spacing: .12em;
       text-transform: uppercase;
@@ -210,7 +213,7 @@
 
     .intro-hint {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 11px;
       color: var(--muted2);
       letter-spacing: .1em;
       animation: blink .8s step-end infinite;
@@ -233,7 +236,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 20px 24px 0;
+      padding: 20px 28px 16px;
       position: relative;
       z-index: 10;
     }
@@ -267,7 +270,7 @@
       border-radius: 100px;
       padding: 6px 14px;
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 11px;
       color: var(--green);
       letter-spacing: .06em;
     }
@@ -297,7 +300,7 @@
 
     .hdr-city {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 11px;
       color: var(--muted2);
       letter-spacing: .06em;
     }
@@ -306,9 +309,9 @@
     .bento {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      grid-auto-rows: 80px;
-      gap: 12px;
-      padding: 16px 24px 40px;
+      grid-auto-rows: 84px;
+      gap: 14px;
+      padding: 8px 28px 56px;
       max-width: 1400px;
       margin: 0 auto;
     }
@@ -346,33 +349,74 @@
       transform: translateY(-3px);
     }
 
+    .c-proj-sql {
+      border-color: rgba(255, 255, 255, .1);
+    }
+
     .c-hero {
       grid-column: span 5;
       grid-row: span 4;
     }
 
-    .c-mode {
+    .c-stack {
+      background: var(--card2);
+      border-color: rgba(255, 255, 255, .08);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      overflow: hidden;
+      position: relative;
       grid-column: span 3;
-      grid-row: span 3;
+      grid-row: span 4;
+    }
+
+    .floating-stack .tool-pill {
+      animation: floatTag 6s ease-in-out infinite;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      background: var(--card);
+    }
+
+    .floating-stack .tool-pill:nth-child(even) {
+      animation-delay: -3s;
+      animation-duration: 7s;
+    }
+
+    .floating-stack .tool-pill:nth-child(3n) {
+      animation-delay: -1.5s;
+      animation-duration: 5s;
+    }
+
+    @keyframes floatTag {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
     }
 
     .c-years {
-      grid-column: span 2;
+      grid-column: span 3;
       grid-row: span 2;
     }
 
     .c-status {
-      grid-column: span 2;
+      grid-column: span 3;
       grid-row: span 2;
     }
 
     .c-music {
-      grid-column: span 2;
+      grid-column: span 3;
       grid-row: span 2;
     }
 
     .c-terminal {
-      grid-column: span 2;
+      grid-column: span 3;
       grid-row: span 2;
       height: 180px;
       max-height: 180px;
@@ -394,154 +438,95 @@
     }
 
     .c-proj-rpa {
-      grid-column: span 3;
-      grid-row: span 3;
-    }
-
-    .c-proj-sql {
-      grid-column: span 3;
-      grid-row: span 3;
-    }
-
-    .c-skills {
-      grid-column: span 8;
+      grid-column: span 4;
       grid-row: span 3;
     }
 
     .c-contact {
-      grid-column: span 3;
-      grid-row: span 3;
+      grid-column: span 12;
+      grid-row: span 2;
     }
 
     .c-about {
-      grid-column: span 5;
+      grid-column: span 6;
       grid-row: span 3;
     }
 
-    .c-tools {
-      grid-column: span 4;
+    .c-skills {
+      grid-column: span 6;
       grid-row: span 3;
     }
 
     /* HERO */
     .c-hero {
-      background: linear-gradient(135deg, #1a2040 0%, #111624 50%, #0d1020 100%);
+      background: linear-gradient(160deg, #1a2040 0%, #111624 40%, #0d1020 70%, #0a0e1a 100%);
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 28px;
-      border-color: rgba(45, 91, 227, .2);
+      justify-content: center;
+      gap: 10px;
+      padding: 40px 36px;
+      border-color: rgba(45, 91, 227, .25);
+      box-shadow: inset 0 0 80px rgba(45, 91, 227, 0.04);
+    }
+
+    .hero-bg-glow {
+      position: absolute;
+      top: -40%;
+      left: -20%;
+      width: 160%;
+      height: 160%;
+      background: radial-gradient(ellipse at 30% 20%, rgba(107, 147, 255, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 80%, rgba(245, 166, 35, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .c-hero>* {
+      position: relative;
+      z-index: 1;
     }
 
     .hero-eyebrow {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 11px;
       color: #a9b8ff;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      text-align: center;
+      background: rgba(107, 147, 255, 0.08);
+      border: 1px solid rgba(107, 147, 255, 0.15);
+      border-radius: 100px;
+      padding: 6px 16px;
+      display: inline-block;
+      align-self: center;
     }
 
-
     .hero-title {
-      font-family: var(--display);
-      font-size: 32px;
-      font-weight: 900;
-      line-height: .95;
-      letter-spacing: -.03em;
+      font-family: 'Bebas Neue', var(--display);
+      font-size: clamp(42px, 4.8vw, 62px);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       color: var(--text);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
+      text-align: center;
     }
 
     .hero-title em {
       font-style: normal;
       color: var(--accent);
+      text-shadow: 0 0 30px rgba(245, 166, 35, 0.25);
     }
 
     .hero-desc {
-      font-size: 13px;
-      line-height: 1.7;
-      color: var(--muted);
-      max-width: 340px;
-    }
-
-    /* ─── MODOS DO RODRIGO CARD ─── */
-    .c-mode {
-      background: #1e2235;
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
-      border-color: rgba(255, 255, 255, .08);
-      transition: border-color 0.4s, background 0.4s;
-    }
-
-    .mode-header {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .mode-visual {
-      font-size: 64px;
-      text-align: center;
-      margin-bottom: 8px;
-      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .mode-title {
-      font-family: var(--display);
       font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-      text-align: center;
-      margin-bottom: 8px;
-      letter-spacing: -.02em;
-    }
-
-    .mode-desc {
-      font-size: 11px;
-      line-height: 1.6;
+      line-height: 1.75;
       color: var(--muted);
+      max-width: 380px;
+      margin: 0 auto;
       text-align: center;
-      flex: 1;
-    }
-
-    .mode-controls {
-      display: flex;
-      gap: 6px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 12px;
-    }
-
-    .mc-btn {
-      font-family: var(--mono);
-      font-size: 16px;
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--border2);
-      border-radius: 50%;
-      background: rgba(255, 255, 255, .04);
-      transition: all .2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .mc-btn:hover {
-      background: rgba(255, 255, 255, .1);
-      transform: translateY(-2px);
-    }
-
-    .mc-btn.active {
-      border-color: var(--accent);
-      background: rgba(245, 166, 35, .15);
-      transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(245, 166, 35, .3);
     }
 
     /* MISC CARDS */
@@ -563,12 +548,13 @@
     }
 
     .years-label {
-      font-family: var(--mono);
-      font-size: 9px;
-      color: rgba(0, 0, 0, .5);
-      letter-spacing: .1em;
+      font-family: var(--display);
+      font-size: 10px;
+      font-weight: 700;
+      color: rgba(0, 0, 0, .6);
+      letter-spacing: .05em;
       text-transform: uppercase;
-      margin-top: 2px;
+      margin-top: 4px;
     }
 
     .c-status {
@@ -582,7 +568,6 @@
       transition: all 0.3s;
     }
 
-
     .status-title {
       font-family: var(--display);
       font-size: 12px;
@@ -592,322 +577,12 @@
       transition: all 0.3s;
     }
 
-
     .status-sub {
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 11px;
       color: rgba(57, 233, 123, .5);
-      letter-spacing: .06em;
+      letter-spacing: .05em;
       transition: all 0.3s;
-    }
-
-
-    /* ═══ INTERSTELLAR MODE ═══ */
-    body.interstellar-mode {
-      --bg: #00010a;
-      --card: #07080f;
-      --card2: #0a0c18;
-      --border: rgba(180, 200, 255, 0.08);
-      --border2: rgba(180, 200, 255, 0.18);
-      --text: #e8eaf6;
-      --muted: rgba(200, 210, 255, 0.55);
-      --muted2: rgba(200, 210, 255, 0.25);
-      --accent: #c8b8ff;
-      transition: background 1.2s ease, color 1.2s ease;
-    }
-
-    /* Campo estelar CSS puro — zero JS */
-    #star-field {
-      position: fixed;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 2s ease;
-      background-image:
-        radial-gradient(1px 1px at 8% 12%, rgba(255, 255, 255, 0.95) 0%, transparent 100%),
-        radial-gradient(1px 1px at 22% 38%, rgba(200, 210, 255, 0.80) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 37% 7%, rgba(255, 255, 255, 0.90) 0%, transparent 100%),
-        radial-gradient(1px 1px at 51% 58%, rgba(180, 200, 255, 0.70) 0%, transparent 100%),
-        radial-gradient(1px 1px at 66% 22%, rgba(255, 255, 255, 0.95) 0%, transparent 100%),
-        radial-gradient(2px 2px at 78% 68%, rgba(200, 180, 255, 0.60) 0%, transparent 100%),
-        radial-gradient(1px 1px at 88% 43%, rgba(255, 255, 255, 0.80) 0%, transparent 100%),
-        radial-gradient(1px 1px at 13% 77%, rgba(180, 200, 255, 0.70) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 33% 63%, rgba(255, 255, 255, 0.85) 0%, transparent 100%),
-        radial-gradient(1px 1px at 57% 88%, rgba(200, 210, 255, 0.60) 0%, transparent 100%),
-        radial-gradient(1px 1px at 82% 9%, rgba(255, 255, 255, 0.90) 0%, transparent 100%),
-        radial-gradient(1px 1px at 4% 52%, rgba(255, 255, 255, 0.65) 0%, transparent 100%),
-        radial-gradient(1px 1px at 93% 82%, rgba(200, 220, 255, 0.75) 0%, transparent 100%),
-        radial-gradient(2px 2px at 47% 31%, rgba(220, 200, 255, 0.50) 0%, transparent 100%),
-        radial-gradient(1px 1px at 71% 51%, rgba(255, 255, 255, 0.70) 0%, transparent 100%),
-        radial-gradient(1px 1px at 18% 91%, rgba(180, 210, 255, 0.65) 0%, transparent 100%);
-      background-size: 100% 100%;
-    }
-
-    body.interstellar-mode #star-field {
-      opacity: 1;
-    }
-
-    /* Gargantua — buraco negro gigantesco, mostrando apenas as bordas */
-    #gargantua {
-      position: fixed;
-      width: 3000px;
-      height: 3000px;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 2;
-      mix-blend-mode: screen;
-      opacity: 0;
-      bottom: -2600px;
-      right: -2600px;
-      left: auto;
-      top: auto;
-      transform: translateZ(0);
-      /* força composite layer própria */
-      background: radial-gradient(circle,
-          #000 0%, #000 25%,
-          rgba(100, 60, 200, 0.6) 35%,
-          rgba(180, 120, 255, 0.4) 45%,
-          rgba(120, 80, 220, 0.2) 55%,
-          transparent 70%);
-      /* box-shadow removido — era o maior custo */
-      filter: blur(40px);
-      /* filtro fixo, mais barato que box-shadow animado */
-      transition: opacity 1.5s ease;
-      animation: gargantuaPulse 12s ease-in-out infinite;
-      will-change: opacity;
-    }
-
-    @keyframes gargantuaPulse {
-
-      0%,
-      100% {
-        opacity: 0.9;
-      }
-
-      50% {
-        opacity: 1;
-      }
-    }
-
-    body.interstellar-mode #gargantua {
-      opacity: 1;
-    }
-
-    /* Efeito gravitacional nos cards — reage ao mouse */
-    body.interstellar-mode .card {
-      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s, box-shadow 0.4s;
-      transform-style: preserve-3d;
-    }
-
-    /* Wormhole flash de entrada */
-    @keyframes wormholeFlash {
-      0% {
-        opacity: 0;
-      }
-
-      15% {
-        opacity: 1;
-        background: radial-gradient(circle at center, rgba(255, 255, 255, 0.95) 0%, rgba(180, 160, 255, 0.6) 40%, transparent 70%);
-      }
-
-      40% {
-        opacity: 0.6;
-      }
-
-      100% {
-        opacity: 0;
-      }
-    }
-
-    #wormhole-flash {
-      position: fixed;
-      inset: 0;
-      z-index: 9000;
-      pointer-events: none;
-      opacity: 0;
-    }
-
-    #wormhole-flash.active {
-      animation: wormholeFlash 1.8s ease-out forwards;
-    }
-
-    /* Card de anos no modo Interestelar */
-    body.interstellar-mode .c-years {
-      background: #000;
-      border-color: rgba(180, 160, 255, 0.3);
-      cursor: pointer;
-    }
-
-    body.interstellar-mode .years-num {
-      font-family: var(--mono);
-      font-size: 18px;
-      color: #c8b8ff;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 20px rgba(180, 140, 255, 0.6);
-    }
-
-    body.interstellar-mode .years-label {
-      font-family: var(--mono);
-      font-size: 9px;
-      color: rgba(180, 160, 255, 0.5);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    /* Hero no modo Interestelar */
-    body.interstellar-mode .hero-title {
-      text-shadow: 0 0 40px rgba(180, 160, 255, 0.3);
-    }
-
-    body.interstellar-mode .c-hero {
-      background: linear-gradient(135deg, #03020f 0%, #07050e 50%, #0a0818 100%);
-      border-color: rgba(180, 160, 255, 0.15);
-    }
-
-    /* Textos especiais para o modo */
-    .interstellar-quote {
-      display: none;
-    }
-
-    .interstellar-subtitle {
-      display: none;
-    }
-
-    body.interstellar-mode .interstellar-quote {
-      display: block;
-    }
-
-    body.interstellar-mode .interstellar-subtitle {
-      display: block;
-    }
-
-    body.interstellar-mode .hero-eyebrow-default {
-      display: none;
-    }
-
-    body.interstellar-mode .hero-desc-default {
-      display: none;
-    }
-
-
-    body.interstellar-mode .c-status {
-      background: #07051a !important;
-      border-color: rgba(180, 160, 255, 0.25) !important;
-    }
-
-    body.interstellar-mode .status-title {
-      color: #c8b8ff !important;
-      text-shadow: 0 0 12px rgba(180, 140, 255, 0.4) !important;
-      animation: none !important;
-    }
-
-    body.interstellar-mode .status-sub {
-      color: rgba(180, 160, 255, 0.5) !important;
-    }
-
-    body.interstellar-mode .avail-dot {
-      background: #c8b8ff !important;
-      box-shadow: 0 0 8px #c8b8ff !important;
-    }
-
-    body.interstellar-mode .bento .card.c-status {
-      background: #07051a !important;
-      border-color: rgba(180, 160, 255, 0.25) !important;
-      box-shadow: 0 0 20px rgba(140, 100, 255, 0.05) !important;
-    }
-
-    body.interstellar-mode .bento .card.c-status .status-title,
-    body.interstellar-mode .bento .card.c-status .status-normal {
-      color: #c8b8ff !important;
-      text-shadow: 0 0 10px rgba(180, 140, 255, 0.35) !important;
-      animation: none !important;
-    }
-
-    body.interstellar-mode .bento .card.c-status .status-sub,
-    body.interstellar-mode .bento .card.c-status .status-sub-normal {
-      color: rgba(180, 160, 255, 0.45) !important;
-    }
-
-    /* Dot de "disponível" vira roxo */
-    body.interstellar-mode .avail-pill .avail-dot {
-      background: #c8b8ff !important;
-      box-shadow: 0 0 8px rgba(180, 160, 255, 0.8) !important;
-    }
-
-    body.interstellar-mode .avail-pill {
-      border-color: rgba(180, 160, 255, 0.3) !important;
-      background: rgba(180, 160, 255, 0.06) !important;
-      color: #c8b8ff !important;
-    }
-
-    /* Terminal Interestelar */
-    body.interstellar-mode .c-terminal {
-      background: #0a0a15 !important;
-      border-color: rgba(180, 160, 255, 0.2) !important;
-      box-shadow: 0 0 30px rgba(140, 100, 255, 0.1) !important;
-    }
-
-    body.interstellar-mode .term-header {
-      background: #0d0d1a !important;
-      border-bottom-color: rgba(180, 160, 255, 0.15) !important;
-    }
-
-    body.interstellar-mode .term-body {
-      color: #c8b8ff !important;
-      text-shadow: 0 0 8px rgba(180, 140, 255, 0.3) !important;
-    }
-
-    body.interstellar-mode .term-cursor {
-      background: #c8b8ff !important;
-      box-shadow: 0 0 10px #c8b8ff !important;
-    }
-
-    body.interstellar-mode .term-dot:nth-child(1) {
-      background: #ff6b6b !important;
-      box-shadow: 0 0 8px #ff6b6b !important;
-    }
-
-    body.interstellar-mode .term-dot:nth-child(2) {
-      background: #ffd93d !important;
-      box-shadow: 0 0 8px #ffd93d !important;
-    }
-
-    body.interstellar-mode .term-dot:nth-child(3) {
-      background: #6bcf7f !important;
-      box-shadow: 0 0 8px #6bcf7f !important;
-    }
-
-    body.interstellar-mode .skill-fill {
-      background: rgba(180, 160, 255, 0.08) !important;
-    }
-
-    body.interstellar-mode .skill-name,
-    body.interstellar-mode .skill-pct {
-      color: rgba(200, 184, 255, 0.7) !important;
-    }
-
-    body.interstellar-mode .skills-title {
-      color: #c8b8ff !important;
-      text-shadow: 0 0 15px rgba(180, 140, 255, 0.4);
-    }
-
-    body.interstellar-mode .hero-title em {
-      color: #c8b8ff !important;
-      text-shadow: 0 0 20px rgba(180, 140, 255, 0.5);
-    }
-
-    body.interstellar-mode .c-hero {
-      background: linear-gradient(135deg, #03020f 0%, #06040e 50%, #09061a 100%) !important;
-    }
-
-    body.interstellar-mode .c-music {
-      background: #07051a !important;
-      border-color: rgba(180, 160, 255, 0.2) !important;
-    }
-
-    body.interstellar-mode .mbar {
-      background: #c8b8ff !important;
     }
 
     /* TERMINAL */
@@ -945,7 +620,7 @@
     .term-body {
       padding: 14px;
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 11px;
       color: var(--green);
       line-height: 1.6;
       flex: 1;
@@ -1004,7 +679,7 @@
 
     .proj-num {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 11px;
       color: var(--muted);
       letter-spacing: .08em;
       margin-bottom: 8px;
@@ -1012,18 +687,18 @@
 
     .proj-title {
       font-family: var(--display);
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
       letter-spacing: -.02em;
       color: var(--text);
       margin-bottom: 8px;
-      line-height: 1.15;
+      line-height: 1.2;
     }
 
     .proj-desc {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.65;
       flex: 1;
     }
 
@@ -1043,15 +718,14 @@
     /* Tags de Projetos com Alto Contraste */
     .proj-tag {
       font-family: var(--mono);
-      font-size: 8px;
-      letter-spacing: .06em;
+      font-size: 10px;
+      letter-spacing: .05em;
       text-transform: uppercase;
       border: 1px solid rgba(255, 255, 255, 0.15);
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.04);
       border-radius: 100px;
       padding: 4px 10px;
-      color: rgba(255, 255, 255, 0.7);
-      /* Contraste aprovado */
+      color: rgba(255, 255, 255, 0.75);
       transition: background 0.2s, color 0.2s;
     }
 
@@ -1063,11 +737,11 @@
     /* Badge de Status do Projeto */
     .proj-status {
       font-family: var(--mono);
-      font-size: 8px;
-      letter-spacing: .06em;
+      font-size: 10px;
+      letter-spacing: .05em;
       text-transform: uppercase;
-      padding: 3px 8px;
-      border-radius: 3px;
+      padding: 3px 9px;
+      border-radius: 4px;
       font-weight: 600;
       display: inline-block;
       margin-top: 8px;
@@ -1094,7 +768,7 @@
     /* Link do Projeto */
     .proj-link {
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 11px;
       color: var(--accent);
       text-decoration: none;
       display: inline-flex;
@@ -1131,6 +805,7 @@
 
     .c-proj-vant {
       border-color: rgba(107, 147, 255, .2);
+      background: radial-gradient(circle at top left, rgba(107, 147, 255, 0.06), transparent 55%), var(--card);
     }
 
     .c-proj-vant .proj-num {
@@ -1139,6 +814,7 @@
 
     .c-proj-we {
       border-color: rgba(245, 166, 35, .2);
+      background: radial-gradient(circle at top left, rgba(245, 166, 35, 0.05), transparent 55%), var(--card);
     }
 
     .c-proj-we .proj-num {
@@ -1146,7 +822,14 @@
     }
 
     .c-proj-calc {
-      border-color: rgba(255, 110, 180, .2);
+      border-color: rgba(255, 110, 180, .4);
+      background: radial-gradient(circle at top right, rgba(255, 110, 180, 0.08), transparent 60%), var(--card);
+      grid-column: span 8;
+    }
+
+    .c-proj-calc .proj-title {
+      font-size: 24px;
+      color: #ff6eb4;
     }
 
     .c-proj-calc .proj-num {
@@ -1155,6 +838,7 @@
 
     .c-proj-rpa {
       border-color: rgba(57, 233, 123, .2);
+      background: radial-gradient(circle at top left, rgba(57, 233, 123, 0.05), transparent 55%), var(--card);
     }
 
     .c-proj-rpa .proj-num {
@@ -1165,53 +849,101 @@
       border-color: rgba(255, 255, 255, .1);
     }
 
+    .c-proj-rpa {
+      grid-column: span 4;
+      grid-row: span 3;
+    }
+
+    .c-proj-calc {
+      grid-column: span 8;
+      /* Projeto em Destaque */
+      grid-row: span 3;
+    }
+
+    .c-contact {
+      grid-column: span 12;
+      grid-row: span 2;
+    }
+
+    .c-skills {
+      grid-column: span 6;
+      grid-row: span 3;
+    }
+
+    .c-about {
+      grid-column: span 6;
+      grid-row: span 3;
+    }
+
     /* SKILLS, CONTACT, TOOLS, ABOUT */
     .c-skills {
       padding: 24px;
+      background: radial-gradient(circle at bottom right, rgba(245, 166, 35, 0.03), transparent 60%), var(--card);
     }
 
     .skills-title {
       font-family: var(--display);
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      letter-spacing: -.01em;
     }
 
     .skill-rows {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 16px;
     }
 
     .skill-row {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .skill-name {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 11px;
       color: var(--muted);
-      width: 80px;
+      width: 110px;
       flex-shrink: 0;
+      letter-spacing: .02em;
     }
 
     .skill-bar {
       flex: 1;
-      height: 4px;
-      background: rgba(255, 255, 255, .06);
-      border-radius: 2px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 100px;
       overflow: hidden;
+      position: relative;
     }
 
     .skill-fill {
       height: 100%;
-      background: var(--accent);
+      background: linear-gradient(90deg, rgba(245, 166, 35, 0.3), var(--accent));
+      box-shadow: 0 0 8px rgba(245, 166, 35, 0.3);
+      border-radius: 100px;
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 1.2s cubic-bezier(.23, 1, .32, 1);
+    }
+
+    .skill-fill.g {
+      background: linear-gradient(90deg, rgba(57, 233, 123, 0.3), var(--green));
+      box-shadow: 0 0 8px rgba(57, 233, 123, 0.3);
+    }
+
+    .skill-fill.p {
+      background: linear-gradient(90deg, rgba(255, 110, 180, 0.3), var(--pink));
+      box-shadow: 0 0 8px rgba(255, 110, 180, 0.3);
+    }
+
+    .skill-fill.b {
+      background: linear-gradient(90deg, rgba(107, 147, 255, 0.3), var(--blue));
+      box-shadow: 0 0 8px rgba(107, 147, 255, 0.3);
     }
 
     .skill-fill.animated {
@@ -1220,22 +952,25 @@
 
     .skill-pct {
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 11px;
       color: var(--text);
-      opacity: 0.8;
-      width: 30px;
+      opacity: 0.7;
+      width: 34px;
       text-align: right;
       flex-shrink: 0;
     }
 
-    /* Card de Contato - Dark Premium com Glow Azul */
+    /* Card de Contato - Full Width CTA */
     .c-contact {
-      background: var(--card);
-      border-color: rgba(45, 91, 227, 0.3);
-      box-shadow: inset 0 0 40px rgba(45, 91, 227, 0.05);
-      padding: 24px;
+      background: linear-gradient(135deg, var(--card) 0%, #1a1d30 100%);
+      border-color: rgba(45, 91, 227, 0.25);
+      box-shadow: inset 0 0 60px rgba(45, 91, 227, 0.04);
+      padding: 28px 32px;
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 40px;
     }
 
     /* Um brilho sutil no fundo do card */
@@ -1243,57 +978,91 @@
       content: '';
       position: absolute;
       bottom: -50%;
-      right: -50%;
-      width: 200px;
-      height: 200px;
+      right: -30%;
+      width: 300px;
+      height: 300px;
       background: var(--blue);
-      filter: blur(80px);
-      opacity: 0.15;
+      filter: blur(100px);
+      opacity: 0.12;
       pointer-events: none;
     }
 
     .contact-title {
       font-family: var(--display);
-      font-size: 14px;
+      font-size: 22px;
       font-weight: 700;
       color: var(--accent);
-      margin-bottom: 12px;
+      letter-spacing: -.01em;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
+    .contact-links {
+      display: flex;
+      gap: 8px;
+      flex: 1;
+      flex-wrap: wrap;
+    }
 
     .tools-title {
       font-family: var(--display);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--text);
       margin-bottom: 16px;
+      letter-spacing: -.01em;
     }
 
     .clink {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      gap: 6px;
+      padding: 10px 20px;
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 100px;
       text-decoration: none;
-      color: rgba(255, 255, 255, .7);
+      color: rgba(255, 255, 255, .8);
       font-family: var(--mono);
-      font-size: 10px;
-      transition: color .15s;
+      font-size: 12px;
+      font-weight: 700;
+      transition: all .25s ease;
+      background: rgba(255, 255, 255, .03);
     }
 
     .clink:hover {
-      color: #fff;
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(245, 166, 35, .06);
+      transform: translateY(-2px);
     }
 
     .c-music {
-      background: #0f1320;
+      background: radial-gradient(circle at center, #151a2a 0%, #0f1320 100%);
+      border-color: rgba(255, 255, 255, 0.05);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       padding: 16px;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .c-music::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: all 0.3s;
+    }
+
+    .c-music.playing::before {
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
     }
 
     .music-icon {
@@ -1323,22 +1092,23 @@
 
     .music-label {
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 11px;
       color: var(--muted2);
-      letter-spacing: .08em;
+      letter-spacing: .06em;
       text-align: center;
     }
 
     .c-about {
-      padding: 24px;
+      padding: 28px 24px;
       display: flex;
-      gap: 24px;
+      gap: 28px;
       align-items: center;
+      background: radial-gradient(circle at top left, rgba(245, 166, 35, 0.04), transparent 50%), var(--card);
     }
 
     .about-avatar {
-      width: 64px;
-      height: 64px;
+      width: 88px;
+      height: 88px;
       border-radius: 50%;
       flex-shrink: 0;
       background: linear-gradient(135deg, var(--accent), var(--pink));
@@ -1346,10 +1116,10 @@
       align-items: center;
       justify-content: center;
       font-family: var(--display);
-      font-size: 22px;
+      font-size: 28px;
       font-weight: 900;
       color: #000;
-      box-shadow: 0 8px 20px rgba(245, 166, 35, 0.2);
+      box-shadow: 0 8px 24px rgba(245, 166, 35, 0.25);
       animation: avatarFloat 6s ease-in-out infinite;
     }
 
@@ -1369,16 +1139,17 @@
 
     .about-hello {
       font-family: var(--display);
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 700;
       color: var(--accent);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      letter-spacing: -.01em;
     }
 
     .about-bio {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
 
@@ -1389,7 +1160,9 @@
     .tools-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 7px;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
     }
 
     .tool-pill {
@@ -1400,73 +1173,9 @@
       border-radius: 100px;
       padding: 6px 12px;
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 11px;
       color: var(--muted);
       transition: all .15s;
-    }
-
-    /* TOAST, HINT & MODAL */
-    #toast {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%) translateY(-70px);
-      background: rgba(20, 24, 38, .95);
-      border: 1px solid rgba(245, 166, 35, .25);
-      border-radius: 100px;
-      padding: 9px 20px;
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--accent);
-      pointer-events: none;
-      z-index: 9998;
-      transition: transform .3s;
-    }
-
-    /* Estilos do Modo Pai para o toast - MAIOR ESPECIFICIDADE */
-    body.pai-mode #toast {
-      background: #fff0f5 !important;
-      color: #ff69b4 !important;
-      border: 2px solid #ff69b4 !important;
-      box-shadow: 0 4px 8px rgba(255, 105, 180, 0.2) !important;
-      font-family: 'Comic Sans MS', 'Chalkboard SE', cursive !important;
-      font-size: 11px !important;
-      border-radius: 20px !important;
-    }
-
-    #toast.show {
-      transform: translateX(-50%) translateY(0);
-    }
-
-    #hint-box {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(20, 24, 38, .85);
-      border: 1px solid var(--border2);
-      border-radius: 12px;
-      padding: 12px 16px;
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--text);
-      z-index: 9990;
-      backdrop-filter: blur(8px);
-      max-width: 280px;
-      transform: translateY(150px);
-      opacity: 0;
-      transition: all 0.5s;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      line-height: 1.5;
-    }
-
-    #hint-box.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    #hint-box span {
-      color: var(--accent);
-      font-weight: bold;
     }
 
     .rev {
@@ -1552,7 +1261,7 @@
 
     .modal-tag {
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 11px;
       text-transform: uppercase;
       border: 1px solid var(--border2);
       border-radius: 100px;
@@ -1575,16 +1284,84 @@
       transition: transform .15s;
     }
 
-    .modal-link:hover {
-      transform: scale(1.03);
+    /* Bento Grid Mapping - Desktop (Baseado na Referência) */
+    @media(min-width: 901px) {
+      .bento {
+        grid-auto-flow: dense;
+      }
+
+      .c-hero {
+        grid-column: span 5;
+        grid-row: span 4;
+      }
+
+      .c-stack {
+        grid-column: span 3;
+        grid-row: span 4;
+      }
+
+      .c-years {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .c-status {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .c-music {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .c-terminal {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .c-proj-vant {
+        grid-column: span 4;
+        grid-row: span 3;
+      }
+
+      .c-proj-we {
+        grid-column: span 4;
+        grid-row: span 3;
+      }
+
+      .c-proj-calc {
+        grid-column: span 4;
+        grid-row: span 3;
+      }
+
+      .c-proj-rpa {
+        grid-column: span 4;
+        grid-row: span 3;
+      }
+
+      .c-skills {
+        grid-column: span 8;
+        grid-row: span 3;
+      }
+
+      .c-about {
+        grid-column: span 7;
+        grid-row: span 3;
+      }
+
+      .c-contact {
+        grid-column: span 5;
+        grid-row: span 3;
+      }
     }
 
     @media(max-width:900px) {
       .bento {
         grid-template-columns: repeat(6, 1fr);
-        grid-auto-rows: 70px;
-        gap: 8px;
-        padding: 10px 12px 32px;
+        grid-auto-rows: 74px;
+        gap: 10px;
+        padding: 8px 16px 40px;
       }
 
       .c-hero {
@@ -1592,9 +1369,9 @@
         grid-row: span 4;
       }
 
-      .c-mode {
+      .c-stack {
         grid-column: span 6;
-        grid-row: span 4;
+        grid-row: span 3;
       }
 
       .c-years {
@@ -1603,7 +1380,7 @@
       }
 
       .c-status {
-        grid-column: span 6;
+        grid-column: span 3;
         grid-row: span 2;
       }
 
@@ -1620,8 +1397,12 @@
       .c-proj-vant,
       .c-proj-we,
       .c-proj-calc,
-      .c-proj-rpa,
-      .c-proj-sql {
+      .c-proj-rpa {
+        grid-column: span 6;
+        grid-row: span 3;
+      }
+
+      .c-about {
         grid-column: span 6;
         grid-row: span 3;
       }
@@ -1633,746 +1414,9 @@
 
       .c-contact {
         grid-column: span 6;
-        grid-row: span 3;
-      }
-
-      .c-about {
-        grid-column: span 6;
-        grid-row: span 3;
-      }
-
-      .c-tools {
-        grid-column: span 6;
-        grid-row: span 3;
-      }
-
-      #hint-box {
-        display: none;
+        grid-row: span 2;
       }
     }
-
-    /* Transições Globais para Modos */
-    body {
-      transition: background-color 0.8s ease, filter 0.8s ease;
-    }
-
-    /* Modo RPG - Atmosfera Skyrim */
-    #rpg-snow {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0;
-      background-image:
-        radial-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 2px),
-        radial-gradient(rgba(255, 255, 255, 0.4) 1.5px, transparent 2px);
-      background-size: 200px 200px, 300px 300px;
-      background-position: 0 0, 50px 50px;
-      will-change: transform, opacity;
-      transition: opacity 1.5s;
-    }
-
-    body.rpg-mode #rpg-snow {
-      opacity: 1;
-      animation: snowFall 20s linear infinite;
-    }
-
-    @keyframes snowFall {
-      0% {
-        background-position: 0 -200px, 50px -300px;
-      }
-
-      100% {
-        background-position: 100px 100vh, -50px 100vh;
-      }
-    }
-
-    body.rpg-mode .proj-title {
-      font-family: 'Times New Roman', Times, serif;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #fff;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-    }
-
-    /* =========================================
-   MODO PAI: O CAOS CRIATIVO DA ISIS
-   ========================================= */
-    body.pai-mode {
-      --bg: #fff9e6;
-      /* Cor sólida de fundo — gradiente decorativo fica via background-image */
-      --card: #ffffff;
-      --text: #2d3748;
-      --muted: #718096;
-      --border: 3px dashed #ff6b6b;
-      /* Borda de giz de cera vermelho */
-      --border2: 3px dotted #4ecdc4;
-      /* Borda de giz de cera azul */
-      --border3: 3px solid #ffe66d;
-      /* Borda de giz de cera amarelo */
-      background-color: #fff9e6;
-      background-image: radial-gradient(circle at 20% 80%, #ffe66d 0%, transparent 50%), radial-gradient(circle at 80% 20%, #ff6b6b 0%, transparent 50%), radial-gradient(circle at 40% 40%, #4ecdc4 0%, transparent 50%), repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 107, 107, 0.1) 35px, rgba(255, 107, 107, 0.1) 70px);
-      /* Background otimizado para performance de scroll */
-      background-size: 100vw 100vh, 100vw 100vh, 100vw 100vh, 20px 20px;
-      background-position: 0 0, 0 0, 0 0, 0 0;
-      background-repeat: no-repeat, no-repeat, no-repeat, repeat;
-      min-height: 100vh;
-      overflow-x: clip !important;
-      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="%23ff6b6b" stroke="%23000" stroke-width="2"/></svg>') 16 16, auto;
-    }
-
-    html.pai-mode {
-      overflow-x: clip !important;
-      background-color: #fff9e6;
-      background-image: radial-gradient(circle at 20% 80%, #ffe66d 0%, transparent 50%), radial-gradient(circle at 80% 20%, #ff6b6b 0%, transparent 50%), radial-gradient(circle at 40% 40%, #4ecdc4 0%, transparent 50%);
-      background-repeat: no-repeat;
-      background-size: 100vw 100vh, 100vw 100vh, 100vw 100vh;
-    }
-
-    /* Desabilitar cursor customizado original no modo pai */
-    body.pai-mode #cur {
-      display: none;
-    }
-
-    /* Bagunçando os cards com mais personalidade */
-    body.pai-mode .bento {
-      grid-auto-rows: 80px !important;
-      gap: 16px !important;
-      padding: 20px 24px 100px !important;
-    }
-
-    body.pai-mode .bento .card {
-      box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.5);
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      border-radius: 8px;
-      position: relative;
-      overflow: visible;
-    }
-
-    /* Cada card com sua personalidade - rotações sutis */
-    body.pai-mode .c-hero {
-      transform: rotate(-2deg) translateY(3px);
-      border-color: var(--border) !important;
-      background: linear-gradient(135deg, #fff 0%, #ffe6f0 100%) !important;
-    }
-
-    body.pai-mode .c-mode {
-      transform: rotate(1.5deg) translateY(-3px);
-      border-color: var(--border2) !important;
-      background: linear-gradient(135deg, #fff 0%, #e6f7ff 100%) !important;
-    }
-
-    body.pai-mode .c-proj-vant {
-      transform: rotate(-1.5deg) translateY(2px);
-      border-color: var(--border3) !important;
-      background: linear-gradient(135deg, #fff 0%, #fff9e6 100%) !important;
-    }
-
-    body.pai-mode .c-proj-we {
-      transform: rotate(2deg) translateY(-2px);
-      border-color: var(--border) !important;
-      background: linear-gradient(135deg, #fff 0%, #f0fff4 100%) !important;
-    }
-
-    body.pai-mode .c-skills {
-      transform: rotate(-1deg) translateY(1px);
-      border-color: var(--border2) !important;
-      background: linear-gradient(135deg, #fff 0%, #ffe6f6 100%) !important;
-    }
-
-    /* Efeitos hover mais divertidos */
-    body.pai-mode .card:hover {
-      transform: scale(1.08) rotate(0deg) translateY(-10px) !important;
-      z-index: 100;
-      border: 4px solid #ff6b6b !important;
-      box-shadow: 12px 12px 30px rgba(255, 107, 107, 0.3), 0 0 40px rgba(255, 230, 109, 0.4) !important;
-      background: linear-gradient(135deg, #fff 0%, #ffe6f0 100%) !important;
-    }
-
-    /* Adicionar stickers de criança aleatórios */
-    body.pai-mode .card::after {
-      content: '';
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      opacity: 0.7;
-      z-index: 5;
-      pointer-events: none;
-    }
-
-    body.pai-mode .c-hero::after {
-      content: '🍼';
-      font-size: 24px;
-      top: -10px;
-      right: -10px;
-      transform: rotate(15deg);
-    }
-
-    body.pai-mode .c-mode::after {
-      content: '🧸';
-      font-size: 20px;
-      bottom: -8px;
-      left: -8px;
-      transform: rotate(-10deg);
-    }
-
-    body.pai-mode .c-proj-vant::after {
-      content: '🎨';
-      font-size: 18px;
-      top: -5px;
-      left: 20px;
-      transform: rotate(25deg);
-    }
-
-    body.pai-mode .c-proj-we::after {
-      content: '🧩';
-      font-size: 22px;
-      bottom: -5px;
-      right: 15px;
-      transform: rotate(-20deg);
-    }
-
-    /* Escondendo os textos originais e todos os seus filhos (tags internas) */
-    body.pai-mode .hero-title,
-    body.pai-mode .hero-title *,
-    body.pai-mode .hero-desc,
-    body.pai-mode .status-sub,
-    body.pai-mode .proj-title,
-    body.pai-mode .proj-desc {
-      color: transparent !important;
-      position: relative;
-    }
-
-    body.pai-mode .hero-title::before {
-      content: '👶 Pai da Isis\A💻 E também Dev';
-      white-space: pre-wrap;
-      color: #ff6b6b;
-      position: absolute;
-      inset: 0;
-      font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
-      font-weight: bold;
-      font-size: 1.1em;
-      text-shadow: 2px 2px 0px #ffe66d;
-      animation: titleBounce 2s ease-in-out infinite;
-    }
-
-    @keyframes titleBounce {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-3px);
-      }
-    }
-
-    body.pai-mode .hero-desc::before {
-      content: '🧼 Especialista em limpar tela engordurada\A🔧 Consertar brinquedo quebrado\A💻 E nas horas vagas, codar';
-      color: #4ecdc4;
-      position: absolute;
-      inset: 0;
-      font-size: 0.9em;
-      line-height: 1.4;
-      text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
-    }
-
-    body.pai-mode .status-sub::before {
-      content: '📺 ASSISTINDO PEPPA PIG PELA 40ª VEZ 🐷';
-      color: #ff6b6b;
-      position: absolute;
-      inset: 0;
-      font-weight: bold;
-      font-size: 1.2em;
-      text-shadow: 2px 2px 0px #ffe66d;
-      animation: peppaDance 1s ease-in-out infinite;
-    }
-
-    @keyframes peppaDance {
-
-      0%,
-      100% {
-        transform: rotate(-2deg);
-      }
-
-      50% {
-        transform: rotate(2deg);
-      }
-    }
-
-    /* Renomeando os Projetos com mais emoji e personalidade */
-    body.pai-mode .c-proj-vant .proj-title::before {
-      content: '🚀 Brinquedo 1: Vant';
-      color: #ff6b6b;
-      position: absolute;
-      inset: 0;
-      font-weight: bold;
-      text-shadow: 1px 1px 0px #ffe66d;
-    }
-
-    body.pai-mode .c-proj-vant .proj-desc::before {
-      content: '🤖 Aquele negócio de IA que paga as fraldas (e funciona!) 💸';
-      color: #718096;
-      position: absolute;
-      inset: 0;
-      font-size: 0.85em;
-    }
-
-    body.pai-mode .c-proj-we .proj-title::before {
-      content: '🎨 Massinha 2: WeSelect';
-      color: #4ecdc4;
-      position: absolute;
-      inset: 0;
-      font-weight: bold;
-      text-shadow: 1px 1px 0px #ffe66d;
-    }
-
-    body.pai-mode .c-proj-we .proj-desc::before {
-      content: '🍼 Feito entre mamadeiras e deploys às 3h da manhã ☕';
-      color: #718096;
-      position: absolute;
-      inset: 0;
-      font-size: 0.85em;
-    }
-
-    body.pai-mode .c-proj-calc .proj-title::before {
-      content: '🧮 Matemática Divertida';
-      color: #9f7aea;
-      position: absolute;
-      inset: 0;
-      font-weight: bold;
-      text-shadow: 1px 1px 0px #ffe66d;
-    }
-
-    body.pai-mode .c-proj-calc .proj-desc::before {
-      content: '🧮 Pra calcular quantas fraldas cabem no orçamento (spoiler: nunca é suficiente) 🛒';
-      color: #718096;
-      position: absolute;
-      inset: 0;
-      font-size: 0.85em;
-    }
-
-    body.pai-mode .c-proj-rpa .proj-title::before {
-      content: '🤖 Robô das Tarefas Chatas';
-      color: #48bb78;
-      position: absolute;
-      inset: 0;
-      font-weight: bold;
-      text-shadow: 1px 1px 0px #ffe66d;
-    }
-
-    body.pai-mode .c-proj-rpa .proj-desc::before {
-      content: '⚙️ Automatizando coisas pra sobrar tempo pro que importa (tipo trocar fralda) 👶';
-      color: #718096;
-      position: absolute;
-      inset: 0;
-      font-size: 0.85em;
-    }
-
-    /* Cards com sombras coloridas */
-    body.pai-mode .card {
-      box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1), -2px -2px 10px rgba(255, 107, 107, 0.2), 2px 2px 10px rgba(78, 205, 196, 0.2);
-    }
-
-    /* Cursor customizado de lápis de cor */
-    body.pai-mode a,
-    body.pai-mode button,
-    body.pai-mode .clickable,
-    body.pai-mode .card,
-    body.pai-mode * {
-      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z" fill="%23ff6b6b"/></svg>') 12 12, pointer !important;
-    }
-
-    /* Adaptação dos Cards Escuros para o Modo Pai */
-    /* O Terminal vira uma Lousa de Escola */
-    body.pai-mode .c-terminal {
-      background: #2c4c3b !important;
-      /* Verde lousa */
-      border: 6px solid #8b5a2b !important;
-      /* Borda de madeira grossa */
-      border-radius: 4px !important;
-      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15) !important;
-    }
-
-    body.pai-mode .term-header {
-      background: #1e3629 !important;
-      border-bottom: 2px solid #8b5a2b !important;
-    }
-
-    body.pai-mode .term-body {
-      color: #fdfdfd !important;
-      /* Giz branco */
-      font-family: 'Comic Sans MS', 'Chalkboard SE', cursive !important;
-      text-transform: lowercase;
-      opacity: 0.9;
-    }
-
-    /* Card de Status e Música em tons infantis */
-    body.pai-mode .c-status {
-      background: #fff0f5 !important;
-      border: 3px dashed #ff69b4 !important;
-    }
-
-    body.pai-mode .status-title {
-      color: transparent !important;
-      position: relative;
-    }
-
-    body.pai-mode .status-title::before {
-      content: '👶 Pai em Ação';
-      color: #ff1493 !important;
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
-      font-weight: bold;
-      font-size: 12px;
-    }
-
-    body.pai-mode .c-music {
-      background: #e0ffff !important;
-      border: 3px dotted #00ced1 !important;
-    }
-
-    body.pai-mode .music-label {
-      color: #008b8b !important;
-      font-weight: bold;
-    }
-
-    /* Correção de Contraste e Estilização Lúdica dos Cards Inferiores */
-    body.pai-mode .c-skills,
-    body.pai-mode .c-tools {
-      background: #ffffff !important;
-      border-color: var(--border2) !important;
-    }
-
-    /* Forçando cor escura nos textos base */
-    body.pai-mode .skills-title,
-    body.pai-mode .skill-name,
-    body.pai-mode .skill-pct,
-    body.pai-mode .tools-title,
-    body.pai-mode .contact-title {
-      color: #2d3748 !important;
-      font-family: 'Comic Sans MS', 'Chalkboard SE', cursive !important;
-      font-weight: bold;
-    }
-
-    /* Substitui o título das skills */
-    body.pai-mode .skills-title {
-      color: transparent !important;
-      position: relative;
-      margin-bottom: 28px !important;
-    }
-
-    body.pai-mode .skills-title::before {
-      content: '👶 Super Poderes de Pai';
-      color: #ff6b6b !important;
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-family: 'Comic Sans MS', 'Chalkboard SE', cursive !important;
-      font-weight: bold !important;
-      font-size: 20px !important;
-      text-shadow: 2px 2px 0px rgba(255, 182, 193, 0.6);
-      animation: titleBounce 2s ease-in-out infinite;
-    }
-
-    @keyframes titleBounce {
-
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-3px);
-      }
-    }
-
-    /* Melhor formatação das skills no modo pai */
-    body.pai-mode .c-skills {
-      padding: 28px !important;
-      background: linear-gradient(135deg, #fff5f7 0%, #fffef9 100%) !important;
-    }
-
-    body.pai-mode .skill-rows {
-      gap: 18px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    body.pai-mode .skill-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 0;
-      margin: 0;
-      position: relative;
-    }
-
-    /* Nome da skill com ícone */
-    body.pai-mode .skill-name {
-      color: transparent !important;
-      font-family: 'Comic Sans MS', 'Chalkboard SE', cursive !important;
-      font-weight: bold !important;
-      font-size: 14px !important;
-      min-width: 200px;
-      flex-shrink: 0;
-      position: relative;
-      padding-left: 0;
-      text-decoration: none !important;
-    }
-
-    body.pai-mode .skill-row:nth-child(1) .skill-name::before {
-      content: '🍼 Preparo de Mamadeira';
-      position: absolute;
-      left: 0;
-      color: #2d3748;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-
-    body.pai-mode .skill-row:nth-child(2) .skill-name::before {
-      content: '📺 Maratona Peppa Pig';
-      position: absolute;
-      left: 0;
-      color: #2d3748;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-
-    body.pai-mode .skill-row:nth-child(3) .skill-name::before {
-      content: '🔧 Conserto de Brinquedo';
-      position: absolute;
-      left: 0;
-      color: #2d3748;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-
-    body.pai-mode .skill-row:nth-child(4) .skill-name::before {
-      content: '💖 Interpretação de Choro';
-      position: absolute;
-      left: 0;
-      color: #2d3748;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-
-    /* Barra de progresso customizada */
-    body.pai-mode .skill-bar {
-      flex: 1;
-      height: 24px !important;
-      background: rgba(0, 0, 0, 0.05) !important;
-      border-radius: 12px !important;
-      overflow: hidden;
-      position: relative;
-      border: 2px solid rgba(0, 0, 0, 0.1) !important;
-    }
-
-    body.pai-mode .skill-fill {
-      height: 100% !important;
-      border-radius: 10px !important;
-      position: relative;
-      transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
-      animation: shimmer 2s infinite;
-    }
-
-    @keyframes shimmer {
-      0% {
-        filter: brightness(1);
-      }
-
-      50% {
-        filter: brightness(1.1);
-      }
-
-      100% {
-        filter: brightness(1);
-      }
-    }
-
-    /* Cores diferentes para cada skill */
-    body.pai-mode .skill-row:nth-child(1) .skill-fill {
-      background: linear-gradient(90deg, #ffd93d 0%, #ffb347 100%) !important;
-      width: 85.98% !important;
-    }
-
-    body.pai-mode .skill-row:nth-child(2) .skill-fill {
-      background: linear-gradient(90deg, #ff6b9d 0%, #c06c84 100%) !important;
-      width: 80.69% !important;
-    }
-
-    body.pai-mode .skill-row:nth-child(3) .skill-fill {
-      background: linear-gradient(90deg, #6bcf7f 0%, #4ecdc4 100%) !important;
-      width: 70.78% !important;
-    }
-
-    body.pai-mode .skill-row:nth-child(4) .skill-fill {
-      background: linear-gradient(90deg, #a78bfa 0%, #ec4899 100%) !important;
-      width: 85.98% !important;
-    }
-
-    /* Porcentagem */
-    body.pai-mode .skill-pct {
-      color: transparent !important;
-      font-family: 'Comic Sans MS', 'Chalkboard SE', cursive !important;
-      font-weight: bold !important;
-      font-size: 15px !important;
-      min-width: 60px;
-      text-align: right;
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    body.pai-mode .skill-row:nth-child(1) .skill-pct::before {
-      content: '85,98%';
-      position: absolute;
-      right: 0;
-      color: #2d3748;
-    }
-
-    body.pai-mode .skill-row:nth-child(2) .skill-pct::before {
-      content: '80,69%';
-      position: absolute;
-      right: 0;
-      color: #2d3748;
-    }
-
-    body.pai-mode .skill-row:nth-child(3) .skill-pct::before {
-      content: '70,78%';
-      position: absolute;
-      right: 0;
-      color: #2d3748;
-    }
-
-    body.pai-mode .skill-row:nth-child(4) .skill-pct::before {
-      content: '85,98%';
-      position: absolute;
-      right: 0;
-      color: #2d3748;
-    }
-
-    /* Controle de visibilidade das ferramentas */
-    .tool-pill-pai {
-      display: none;
-    }
-
-    body.pai-mode .tool-pill-normal {
-      display: none;
-    }
-
-    body.pai-mode .tool-pill-pai {
-      display: flex;
-    }
-
-    /* As Ferramentas viram "Stickers/Adesivos" */
-    body.pai-mode .tool-pill {
-      background: #fffacd !important;
-      /* Amarelo post-it */
-      color: #d2691e !important;
-      /* Laranja escuro legível */
-      border: 2px solid #ffd700 !important;
-      border-radius: 8px !important;
-      /* Mais quadrado, menos pílula */
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.08) !important;
-      font-family: 'Comic Sans MS', cursive !important;
-      font-weight: bold;
-    }
-
-    /* Card de Contato - Cartolina Colorida */
-    body.pai-mode .c-contact {
-      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%) !important;
-      border: 3px dashed #ff1493 !important;
-    }
-
-    body.pai-mode .clink {
-      color: #4a0e2e !important;
-      border-bottom: 2px dotted #4a0e2e !important;
-      font-family: 'Comic Sans MS', cursive !important;
-      font-weight: bold;
-    }
-
-    body.pai-mode .clink:hover {
-      color: #2d3748 !important;
-    }
-
-    /* Transições e hover no Modo Pai */
-    body.pai-mode .card {
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-        box-shadow 0.3s ease !important;
-    }
-
-    body.pai-mode .card:hover {
-      transform: scale(1.04) translateY(-6px) !important;
-      box-shadow: 8px 8px 24px rgba(255, 107, 107, 0.25),
-        0 0 30px rgba(255, 230, 109, 0.2) !important;
-      border: 3px solid #ff6b6b !important;
-      z-index: 10;
-    }
-
-    /* Hover effect do terminal no modo pai */
-    body.pai-mode .bento .card.c-terminal:hover {
-      transform: scale(1.02) translateY(-3px) !important;
-      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15) !important;
-      border: 6px solid #8b5a2b !important;
-      background: #2c4c3b !important;
-      z-index: 1 !important;
-    }
-
-    /* Desabilitando cursor customizado que causa problemas */
-    body.pai-mode #cur {
-      display: none !important;
-    }
-
-    /* Esconder toast e hints no modo pai */
-    body.pai-mode #toast,
-    body.pai-mode #hint-box {
-      display: none !important;
-    }
-
-    /* Mostrar/ocultar blocos de texto por modo no card Sobre */
-    .about-text-pai {
-      display: none !important;
-    }
-
-    body.pai-mode .c-about .about-text-block .about-text-default {
-      display: none !important;
-      visibility: hidden !important;
-      height: 0 !important;
-      overflow: hidden !important;
-    }
-
-    body.pai-mode .c-about .about-text-block .about-text-pai {
-      display: block !important;
-      visibility: visible !important;
-    }
-
-    body.pai-mode .c-about {
-      background: linear-gradient(135deg, #fff5f7 0%, #fffef9 100%) !important;
-      border: 3px dashed #ff6b6b !important;
-    }
-
-    body.pai-mode .about-text-pai .about-hello {
-      color: #ff6b6b !important;
-      font-family: 'Comic Sans MS', 'Chalkboard SE', cursive !important;
-      font-weight: bold !important;
-      font-size: 16px !important;
-    }
-
-    body.pai-mode .about-text-pai .about-bio {
-      color: #2d3748 !important;
-      font-family: 'Comic Sans MS', 'Chalkboard SE', cursive !important;
-      font-size: 14px !important;
-      line-height: 1.7 !important;
-    }
-
-    /* =========================================
-
-    /* =========================================
 
 
     /* ═══ VHS REWIND EASTER EGG ═══ */
@@ -2962,6 +2006,51 @@
         opacity: 0;
       }
     }
+
+    /* ─── FOOTER ─── */
+    .site-footer {
+      text-align: center;
+      padding: 24px 28px 32px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted2);
+      letter-spacing: .04em;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* ─── ACESSIBILIDADE: REDUZIR MOVIMENTO ─── */
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .rev {
+        opacity: 1;
+        transform: none;
+      }
+
+      .skill-fill {
+        transition: none !important;
+      }
+
+      .about-avatar {
+        animation: none !important;
+      }
+
+      .floating-stack .tool-pill {
+        animation: none !important;
+      }
+
+      #vhs-timecode {
+        animation: none !important;
+      }
+    }
   </style>
 </head>
 
@@ -3011,10 +2100,6 @@
       processo encerrado forçosamente</div>
   </div>
 
-  <div id="gargantua"></div>
-  <div id="star-field"></div>
-  <div id="wormhole-flash"></div>
-
   <div id="cur"></div>
 
   <div id="intro">
@@ -3059,23 +2144,35 @@
       <p class="hero-desc hero-desc-default">De análise de logs no Datadog e queries SQL complexas no expediente, à
         criação de aplicações
         SaaS (Next.js/React) na madrugada.</p>
-      <div class="interstellar-quote">
-        "Do not go gentle into that good night.<br>
-        Old age should burn and rave at close of day;<br>
-        Rage, rage against the dying of the light."<br>
-        — Dylan Thomas · Interstellar, 2014
-      </div>
     </div>
 
-    <div class="card c-mode rev" id="mode-card">
-      <div class="mode-header">Selecione a Personalidade</div>
-      <div class="mode-visual" id="mode-visual">☕</div>
-      <div class="mode-title" id="mode-title">Modo Hiperfoco</div>
-      <div class="mode-desc" id="mode-desc">Não pisca há 40 minutos. O mundo pode acabar, mas a div vai ficar
-        centralizada.</div>
-
-      <div class="mode-controls">
-        <button class="mc-btn active" tabindex="0" onclick="setMode('trabalho')" title="Modo Trabalho">💼</button>
+    <div class="card c-stack rev">
+      <div class="tools-title" style="margin-bottom: 16px;">Stack & Ferramentas</div>
+      <div class="tools-grid floating-stack">
+        <div class="tool-pill">
+          <div class="tool-dot" style="background:#61dafb"></div>React
+        </div>
+        <div class="tool-pill">
+          <div class="tool-dot" style="background:#f5a623"></div>Next.js
+        </div>
+        <div class="tool-pill">
+          <div class="tool-dot" style="background:#3776ab"></div>Python
+        </div>
+        <div class="tool-pill">
+          <div class="tool-dot" style="background:#39e97b"></div>SQL
+        </div>
+        <div class="tool-pill">
+          <div class="tool-dot" style="background:#007acc"></div>TypeScript
+        </div>
+        <div class="tool-pill">
+          <div class="tool-dot" style="background:#06b6d4"></div>TailwindCSS
+        </div>
+        <div class="tool-pill">
+          <div class="tool-dot" style="background:#ff9800"></div>Git
+        </div>
+        <div class="tool-pill">
+          <div class="tool-dot" style="background:#ff6eb4"></div>Figma
+        </div>
       </div>
     </div>
 
@@ -3247,72 +2344,28 @@
       </div>
     </div>
 
-    <div class="card c-tools rev">
-      <div class="tools-title">Ferramentas</div>
-      <div class="tools-grid">
-        <div class="tool-pill tool-pill-normal" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#f5a623"></div>Next.js
-        </div>
-        <div class="tool-pill tool-pill-normal" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#61dafb"></div>React
-        </div>
-        <div class="tool-pill tool-pill-normal" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#3776ab"></div>Python
-        </div>
-        <div class="tool-pill tool-pill-normal" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#ff6eb4"></div>Figma
-        </div>
-        <div class="tool-pill tool-pill-normal" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#39e97b"></div>SQL
-        </div>
-        <div class="tool-pill tool-pill-normal" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#ff9800"></div>Git
-        </div>
-        <div class="tool-pill tool-pill-normal" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#007acc"></div>TypeScript
-        </div>
-        <div class="tool-pill tool-pill-normal" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#06b6d4"></div>TailwindCSS
-        </div>
+    <div class="card c-contact rev">
+      <div class="contact-title">me chama.</div>
+      <div class="contact-links">
+        <a href="mailto:rodrigoverruck@gmail.com" class="clink" onclick="snd('click')">📧 e-mail <span>↗</span></a>
+        <a href="https://www.linkedin.com/in/rodrigo-verruck-104b5a178/" target="_blank" class="clink"
+          onclick="snd('click')">💼 linkedin
+          <span>↗</span></a>
+        <a href="https://github.com/RodVerruck" target="_blank" class="clink" onclick="snd('click')">🐙 github
+          <span>↗</span></a>
       </div>
     </div>
   </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
 
-  <div class="card c-contact rev">
-    <div class="contact-title">me chama.</div>
-    <div class="contact-links">
-      <a href="mailto:rodrigoverruck@gmail.com" class="clink" onclick="snd('click')">📧 e-mail <span>↗</span></a>
-      <a href="https://www.linkedin.com/in/rodrigo-verruck-104b5a178/" target="_blank" class="clink"
-        onclick="snd('click')">💼 linkedin
-        <span>↗</span></a>
-      <a href="https://github.com/RodVerruck" target="_blank" class="clink" onclick="snd('click')">🐙 github
-        <span>↗</span></a>
-    </div>
-  </div>
-
-
-
-  </div>
+  <footer class="site-footer">
+    <span>feito com café, código e madrugadas — rodrigo verruck 2025</span>
+  </footer>
 
   <script>
     // ═══ SISTEMA BASE (CURSOR, A11Y, AUDIO) ═══
     // CURSOR SYSTEM — rAF batched, zero layout thrash
     const cur = document.getElementById('cur');
     let _mx = 0, _my = 0, _curPending = false;
-
-    // Variáveis do Modo Interestelar
-    let interstellarActive = false;
-    let _gravityFrameId = null;
-    let _lastClickTime = 0;
-    let _lightYearInterval = null;
 
     // ═══ CLEANUP MANAGER ═══
     const _intervals = new Set();
@@ -3373,7 +2426,7 @@
         if ('speechSynthesis' in window) window.speechSynthesis.resume();
       }
     });
-    document.querySelectorAll('.clickable, button, a, .mc-btn, .tool-pill, [role="button"]').forEach(el => {
+    document.querySelectorAll('.clickable, button, a, .tool-pill, [role="button"]').forEach(el => {
       el.addEventListener('mouseenter', () => cur.classList.add('big'));
       el.addEventListener('mouseleave', () => cur.classList.remove('big'));
       el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); } });
@@ -3424,6 +2477,19 @@
       g.gain.setValueAtTime(vol, audioCtx.currentTime); g.gain.exponentialRampToValueAtTime(.001, audioCtx.currentTime + d);
       o.start(); o.stop(audioCtx.currentTime + d);
     }
+    const _noiseCache = new Map();
+    function createWhiteNoiseBuffer(duration) {
+      if (!audioCtx) return null;
+      const key = duration.toFixed(2);
+      if (_noiseCache.has(key)) return _noiseCache.get(key);
+      const bufSize = audioCtx.sampleRate * duration;
+      const buf = audioCtx.createBuffer(1, bufSize, audioCtx.sampleRate);
+      const data = buf.getChannelData(0);
+      for (let i = 0; i < bufSize; i++) data[i] = Math.random() * 2 - 1;
+      _noiseCache.set(key, buf);
+      return buf;
+    }
+
     function snd(type) {
       initAudio();
       if (type === 'click') { beep(880, .06, 'square', .12); setTimeout(() => beep(1100, .05, 'square', .08), 50); }
@@ -3436,28 +2502,9 @@
     }
     document.addEventListener('click', initAudio, { once: true });
 
-    function toast(msg) {
-      const t = document.getElementById('toast');
-      if (!t) return;
-
-      t.textContent = msg;
-
-      // Reset de estilos
-      t.style.cssText = '';
-
-      // Estilo especial para o modo pai
-      if (document.body.classList.contains('pai-mode')) {
-        t.style.background = '#fff0f5';
-        t.style.color = '#ff69b4';
-        t.style.border = '2px solid #ff69b4';
-        t.style.fontFamily = "'Comic Sans MS', 'Chalkboard SE', cursive";
-        t.style.fontSize = '11px';
-        t.style.borderRadius = '20px';
-      }
-
-      t.classList.add('show');
-      clearTimeout(t._hideTimer);
-      t._hideTimer = setTimeout(() => t.classList.remove('show'), 3000);
+    function yearsClick() {
+      initAudio();
+      snd('ding');
     }
 
     // ═══ INTRO ═══
@@ -3474,42 +2521,6 @@
     function revealCards() {
       document.querySelectorAll('.rev').forEach((el, i) => setTimeout(() => el.classList.add('on'), i * 60));
       setTimeout(() => document.querySelectorAll('.skill-fill').forEach(b => b.classList.add('animated')), 800);
-    }
-
-    // ═══ SISTEMA DE DICAS (HINTS) IRRERENTES ═══
-    const hints = [
-      "<span>[DICA]</span> 📟 Alguns segredos estão escondidos em lugares óbvios. Tente ser insistente com a localização no header.",
-      "<span>[SEGREDO]</span> 🌌 No Modo Trabalho, o card de anos guarda um portal. Dois cliques rápidos podem te levar para outro lado do buraco negro.",
-      "<span>[DICA CÓSMICA]</span> 🪐 Alguns anos não são medidos em tempo, mas em distância. No Modo Trabalho, experimente duplo clique no card 2+ anos."
-    ];
-    let hintIdx = 0;
-    function startHints() {
-      // Não iniciar hints no modo pai
-      if (document.body.classList.contains('pai-mode')) {
-        return;
-      }
-
-      const box = document.getElementById('hint-box');
-      setInterval(() => {
-        box.classList.remove('show');
-
-        // No modo trabalho, incluir dicas do Interestelar
-        let currentHints = [...hints];
-        if (currentMode === 'trabalho' && !interstellarActive) {
-          // Adicionar dicas específicas do Interestelar no modo trabalho
-          currentHints = [
-            ...hints.slice(0, 5), // Hints gerais
-            "<span>[SEGREDO]</span> 🌌 No Modo Trabalho, o card de anos guarda um portal. Dois cliques rápidos podem te levar para outro lado do buraco negro.",
-            "<span>[DICA CÓSMICA]</span> 🪐 Alguns anos não são medidos em tempo, mas em distância. No Modo Trabalho, experimente duplo clique no card 2+ anos."
-          ];
-        }
-
-        setTimeout(() => {
-          box.innerHTML = currentHints[hintIdx % currentHints.length];
-          box.classList.add('show');
-          hintIdx++;
-        }, 500);
-      }, 12000);
     }
 
     // ═══ EASTER EGGS ═══
@@ -3613,1524 +2624,7 @@
       }
     }
 
-    function yearsClick() {
-      const now = Date.now();
 
-      // Se já está no modo Interestelar, permite desativar de qualquer modo
-      if (interstellarActive) {
-        if (now - _lastClickTime < 400) {
-          // Duplo clique para desativar
-          _lastClickTime = 0;
-          toggleInterstellar();
-          return;
-        }
-        _lastClickTime = now;
-        toggleInterstellar(); // Clique simples também desativa
-        return;
-      }
-
-      // Só permite ativar Interestelar no modo trabalho
-      if (currentMode !== 'trabalho') {
-        if (now - _lastClickTime < 400) {
-          // Duplo clique em outros modos
-          _lastClickTime = 0;  // toast removed
-          return;
-        }
-        _lastClickTime = now;
-        snd('ding');  // toast removed
-        return;
-      }
-
-      if (now - _lastClickTime < 400) {
-        // Duplo clique detectado no modo trabalho
-        _lastClickTime = 0;
-        toggleInterstellar();
-        return;
-      }
-      _lastClickTime = now;
-      snd('ding');  // toast removed
-    }
-
-    function toggleInterstellar() {
-      interstellarActive = !interstellarActive;
-
-      if (interstellarActive) {
-        // Wormhole flash de entrada
-        const flash = document.getElementById('wormhole-flash');
-        flash.classList.add('active');
-        setTimeout(() => flash.classList.remove('active'), 1800);
-
-        // Ativa o modo visual
-        document.body.classList.add('interstellar-mode');
-        document.getElementById('star-field').style.opacity = '1';
-
-        // Inicia gravitational mouse effect
-        startGravityEffect();
-
-        // Inicia contador de anos-luz
-        startLightYearCounter();
-
-        // Muda o modo de áudio se música estiver tocando
-        if (musicOn) {
-          clearMusic(true);
-          musicOn = true;
-          currentMode = 'interstellar';
-          startMusicEngine();
-        } else {
-          currentMode = 'interstellar';
-        }
-
-        // Atualiza o card de modo visualmente
-        const modeCard = document.getElementById('mode-card');
-        modeCard.style.borderColor = '#c8b8ff';
-        modeCard.style.backgroundColor = '#03020f';
-        document.getElementById('mode-visual').textContent = '🪐';
-        document.getElementById('mode-title').textContent = 'Modo Interestelar';
-        document.getElementById('mode-title').style.color = '#c8b8ff';
-        document.getElementById('mode-desc').textContent =
-          'We must confront the reality of interstellar travel. O universo não se importa com os seus deadlines.';  // toast removed
-        snd('ding');
-
-      } else {
-        // Desativa
-        document.body.classList.remove('interstellar-mode');
-        document.getElementById('star-field').style.opacity = '0';
-        stopGravityEffect();
-        stopLightYearCounter();
-        currentMode = 'trabalho';
-        setMode('trabalho');  // toast removed
-      }
-    }
-
-    function startGravityEffect() {
-      // Efeito de perspectiva gravitacional — cards inclinam em direção ao mouse
-      function gravityLoop() {
-        if (!interstellarActive) return;
-        const cards = document.querySelectorAll('.bento .card');
-        cards.forEach(card => {
-          const rect = card.getBoundingClientRect();
-          const cardCX = rect.left + rect.width / 2;
-          const cardCY = rect.top + rect.height / 2;
-          const dx = (_mx - cardCX) / window.innerWidth;
-          const dy = (_my - cardCY) / window.innerHeight;
-          // Distância normalizada — cards mais distantes do mouse inclinam menos
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          const intensity = Math.max(0, 1 - dist * 2.5);
-          const rotX = dy * intensity * -4;
-          const rotY = dx * intensity * 4;
-          const scale = 1 + intensity * 0.015;
-          card.style.transform =
-            `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${scale})`;
-        });
-        _gravityFrameId = requestAnimationFrame(gravityLoop);
-      }
-      gravityLoop();
-    }
-
-    function stopGravityEffect() {
-      if (_gravityFrameId) cancelAnimationFrame(_gravityFrameId);
-      _gravityFrameId = null;
-      // Reset transforms
-      document.querySelectorAll('.bento .card').forEach(card => {
-        card.style.transform = '';
-      });
-    }
-
-    function startLightYearCounter() {
-      // Base: 2+ anos em TI convertidos em distância percorrida pela luz
-      // 2 anos * 365.25 * 24 * 3600 * 299792 km/s = ~18.84 trilhões km ≈ 2 anos-luz
-      const BASE_LY = 2.3847; // anos-luz base
-      const DRIFT = 0.00000001; // deriva temporal (efeito relativístico fake)
-      let current = BASE_LY;
-
-      const yearsNumEl = document.querySelector('.years-num');
-      const yearsLabelEl = document.querySelector('.years-label');
-
-      if (yearsLabelEl) {
-        yearsLabelEl.innerHTML =
-          '<span style="display:block;text-align:center;margin-bottom:2px;">ANOS-LUZ</span>' +
-          '<span style="display:block;text-align:center;opacity:0.6;font-size:7px;">DRIFT ATIVO</span>';
-      }
-
-      _lightYearInterval = setInterval(() => {
-        current += DRIFT;
-        if (yearsNumEl) {
-          yearsNumEl.innerHTML =
-            `<span style="display:inline-block;text-align:center;width:100%;">` +
-            `<span style="display:block;font-size:14px;font-weight:700;">${current.toFixed(7)}</span>` +
-            `</span>`;
-        }
-      }, 100);
-    }
-
-    function stopLightYearCounter() {
-      if (_lightYearInterval) clearInterval(_lightYearInterval);
-      _lightYearInterval = null;
-      // Restaura o card de anos
-      const yearsNumEl = document.querySelector('.years-num');
-      const yearsLabelEl = document.querySelector('.years-label');
-      if (yearsNumEl) yearsNumEl.innerHTML =
-        '<span class="years-normal">2+</span>';
-      if (yearsLabelEl) yearsLabelEl.innerHTML =
-        '<span class="years-label-normal">anos em TI</span>';
-    }
-
-    // ═══ GERENCIADOR DE MODOS DO RODRIGO ═══
-    const MODOS = {
-      trabalho: {
-        emoji: '💼', title: 'Modo Trabalho', color: '#4a90e2', bg: '#1a2332',
-        desc: 'Sessão de foco extremo. Café, headset e problemas complexos. Nada interrompe o flow.'
-      },
-      pai: {
-        emoji: '🍼', title: 'Pai da Isis', color: 'var(--pink)', bg: '#331a26',
-        desc: 'Nível de paciência: Infinito. Resistência a desenhos: +99. Suporte técnico 24/7 para tablets. Gerente de senhas de jogos. Expert em limpar digitais de chocolate na tela.'
-      },
-      rpg: {
-        emoji: '⚔️', title: 'Jogador de RPG', color: 'var(--blue)', bg: '#1a2040',
-        desc: 'Passa 4 horas arrumando a load order de 150 mods no Skyrim pra jogar por 10 minutos antes do jogo fechar sozinho.'
-      },
-      musico: {
-        emoji: '🎸', title: 'Músico', color: 'var(--pink)', bg: '#2d1a1e',
-        desc: 'Acordes que só o cachorro aplaude. Riffs que existem só no quarto. Hoje a melhor guitarra é um MIDI controller.'
-      },
-      'interstellar': {
-        emoji: '🪐',
-        title: 'Modo Interestelar',
-        color: '#c8b8ff',
-        bg: '#03020f',
-        desc: 'We must confront the reality of interstellar travel. O universo não se importa com os seus deadlines.'
-      },
-    };
-
-    let currentMode = 'trabalho';
-
-    function setMode(modeKey) {
-
-      // Limpa sistemas Interestelar ao sair do modo
-      if (currentMode === 'interstellar' && modeKey !== 'interstellar') {
-        document.body.classList.remove('interstellar-mode');
-        stopGravityEffect();
-        stopLightYearCounter();
-        interstellarActive = false;
-      }
-
-      initAudio(); beep(700, 0.1, 'sine', 0.1);
-      currentMode = modeKey;
-      const m = MODOS[modeKey];
-
-      // Remove classes de modos anteriores
-      document.body.classList.remove('trabalho-mode', 'pai-mode', 'rpg-mode', 'musico-mode', 'interstellar-mode');
-      document.documentElement.classList.remove('pai-mode');
-      // Adiciona a classe do modo atual
-      document.body.classList.add(modeKey + '-mode');
-      if (modeKey === 'pai') document.documentElement.classList.add('pai-mode');
-      // Se a música estiver tocando, limpa a anterior e inicia a nova engine
-      if (musicOn) {
-        clearMusic(true);
-        musicOn = true;
-        startMusicEngine();
-
-        const icnNormal = document.querySelector('.music-icon-normal');
-        const lblNormal = document.querySelector('.music-label-normal');
-        icnNormal.textContent = MODOS[modeKey].emoji;
-        icnNormal.style.display = 'inline';
-        lblNormal.textContent = `Tocando: ${MODOS[currentMode].title}`;
-        lblNormal.style.display = 'inline';
-        document.getElementById('music-card').classList.add('playing');
-      }
-
-      // Atualiza Visual
-      const v = document.getElementById('mode-visual');
-      v.style.transform = 'scale(0.5)'; v.style.opacity = '0';
-      setTimeout(() => { v.textContent = m.emoji; v.style.transform = 'scale(1.2)'; v.style.opacity = '1'; setTimeout(() => v.style.transform = 'scale(1)', 150); }, 150);
-
-      document.getElementById('mode-title').textContent = m.title;
-      document.getElementById('mode-title').style.color = m.color;
-      document.getElementById('mode-desc').textContent = m.desc;
-
-      const card = document.getElementById('mode-card');
-      card.style.borderColor = m.color; card.style.backgroundColor = m.bg;
-
-      // Atualiza botões
-      document.querySelectorAll('.mc-btn').forEach(btn => {
-        btn.classList.remove('active');
-        btn.style.borderColor = 'var(--border2)';
-        btn.style.boxShadow = 'none';
-      });
-      const activeBtn = document.querySelector(`.mc-btn[onclick="setMode('${modeKey}')"]`);
-      if (activeBtn) {
-        activeBtn.classList.add('active');
-        activeBtn.style.borderColor = m.color;
-        activeBtn.style.boxShadow = `0 0 15px ${m.color}`;
-      }  // toast removed
-    }
-
-
-    // ═══ MOTOR DE ÁUDIO PROCEDURAL ADAPTATIVO ═══
-    let musicOn = false;
-    let musicTimers = [];
-    let musicNodes = [];
-    let animFrameId = null;
-    let mbarElements = [];
-    let vinylAngle = 0;
-    let beatStep = 0;
-
-    function clearMusic(stopCompletely = true) {
-      _engineRunning = false; // ← ADICIONAR ESTA LINHA PRIMEIRO
-      // Limpa timers e nodes
-      musicTimers.forEach(t => clearTimeout(t)); musicTimers = [];
-
-      if (stopCompletely) {
-        // Para completamente - encerra todos os osciladores
-        musicNodes.forEach(n => { try { n.stop(); } catch (e) { } }); musicNodes = [];
-        cancelAnimationFrame(animFrameId);
-        animFrameId = null;
-      } else {
-        // Transição suave - apenas limpa timers, mantém nodes ativos para próxima engine
-        // Não para os osciladores ativos, permite transição contínua
-        musicNodes = []; // Limpa referência mas não para os nós
-      }
-
-      // Limpa o reverb para liberar memória
-      // É recriado na próxima vez que o modo for ativado
-      reverbNode = null;
-      masterCompressor = null;
-
-      // Limpa cache de noise ao parar completamente
-      if (stopCompletely) _noiseCache.clear();
-    }
-
-    function stopAllMusic() {
-      clearMusic();
-      // Garante que o reverb seja limpo mesmo se clearMusic for chamado com stopCompletely = false
-      reverbNode = null;
-      masterCompressor = null;
-    }
-
-    function createOsc(type, freq, attack, release, vol, filterFreq = null) {
-      if (!audioCtx) return;
-      const comp = getMasterCompressor();
-      const o = audioCtx.createOscillator(), g = audioCtx.createGain();
-      if (filterFreq) {
-        const f = audioCtx.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = filterFreq;
-        o.connect(f); f.connect(g);
-      } else { o.connect(g); }
-      g.connect(comp || audioCtx.destination);
-      o.type = type; o.frequency.value = freq;
-
-      const now = audioCtx.currentTime;
-      // ENVELOPE ANTI-CLICK: setTargetAtTime faz um decaimento natural e seguro para 0
-      g.gain.setValueAtTime(0, now);
-      g.gain.linearRampToValueAtTime(vol, now + attack);
-      g.gain.setTargetAtTime(0, now + attack, release / 4);
-
-      o.start(now);
-      o.stop(now + attack + release + 0.2); // Margem de segurança antes do stop
-
-      musicNodes.push(o);
-      o.onended = () => {
-        const idxO = musicNodes.indexOf(o);
-        if (idxO > -1) musicNodes.splice(idxO, 1);
-      };
-    }
-
-    function createNoise(type, length, vol, filterFreq) {
-      if (!audioCtx) return;
-      const comp = getMasterCompressor();
-      const bufSize = audioCtx.sampleRate * length, buf = audioCtx.createBuffer(1, bufSize, audioCtx.sampleRate), data = buf.getChannelData(0);
-      for (let i = 0; i < bufSize; i++) data[i] = Math.random() * 2 - 1;
-      const noise = audioCtx.createBufferSource(), f = audioCtx.createBiquadFilter(), g = audioCtx.createGain();
-      noise.buffer = buf; f.type = type; f.frequency.value = filterFreq;
-      noise.connect(f); f.connect(g); g.connect(comp || audioCtx.destination);
-
-      const now = audioCtx.currentTime;
-      g.gain.setValueAtTime(0, now);
-      g.gain.linearRampToValueAtTime(vol, now + 0.05); // Ataque suave no ruído
-      g.gain.setTargetAtTime(0, now + 0.05, length / 3);
-
-      noise.start(now);
-      musicNodes.push(noise);
-      noise.onended = () => {
-        const index = musicNodes.indexOf(noise);
-        if (index > -1) musicNodes.splice(index, 1);
-      };
-    }
-
-    function playDrum(drumType) {
-      if (drumType === 'kick') { createOsc('sine', 120, 0.01, 0.2, 0.6); createOsc('square', 80, 0.01, 0.1, 0.2, 200); }
-      if (drumType === 'metalKick') { createOsc('sine', 100, 0.01, 0.1, 0.8); createOsc('sawtooth', 60, 0.01, 0.05, 0.3, 300); }
-      if (drumType === 'snare') { createNoise('bandpass', 0.2, 0.4, 1500); createOsc('triangle', 200, 0.01, 0.15, 0.3); }
-      if (drumType === 'hat') { createNoise('highpass', 0.05, 0.1, 6000); }
-      if (drumType === 'epicKick') { createOsc('sine', 60, 0.05, 1.5, 0.8); createNoise('lowpass', 1.0, 0.3, 400); }
-    }
-
-    // ─── VHS REWIND SYSTEM ───
-
-    function triggerVHSRewind() {
-      if (_vhsActive) return;
-      _vhsActive = true;
-
-      initAudio();
-
-      // Som de rebobinar — chirp mecânico ascendente + ruído de motor
-      playVHSRewindSound();
-
-      // Tremor no bento
-      document.body.classList.add('vhs-rewinding');
-      setTimeout(() => document.body.classList.remove('vhs-rewinding'), 1200);
-
-      // Abre o overlay
-      const overlay = document.getElementById('vhs-overlay');
-      overlay.classList.add('active');
-
-      // Inicia timecode correndo ao contrário
-      startVHSTimecode();
-
-      // Anima o conteúdo da fita subindo
-      setTimeout(() => {
-        const tape = document.getElementById('vhs-tape-content');
-        tape.classList.add('rewinding');
-      }, 300);
-
-      // Após o rewind, mostra tela de PLAY
-      setTimeout(() => {
-        const tape = document.getElementById('vhs-tape-content');
-        tape.classList.remove('rewinding');
-        tape.style.display = 'none';
-
-        const status = document.getElementById('vhs-status');
-        status.style.display = 'none';
-
-        const playScreen = document.getElementById('vhs-play-screen');
-        playScreen.classList.add('show');
-
-        stopVHSTimecode();
-
-        // Som de "clique" mecânico — fita parou
-        if (audioCtx) {
-          createNoise('bandpass', 0.1, 0.3, 800);
-          beep(120, 0.15, 'square', 0.2);
-        }
-      }, 2000);
-
-      // Fecha ao pressionar qualquer tecla ou clicar
-      const exitVHS = () => {
-        if (!_vhsActive) return;
-        playVHSPlaySound();
-        closeVHSRewind();
-        document.removeEventListener('keydown', exitVHS);
-        document.removeEventListener('click', exitVHS);
-      };
-
-      setTimeout(() => {
-        document.addEventListener('keydown', exitVHS);
-        document.addEventListener('click', exitVHS);
-      }, 2200);
-    }
-
-    function closeVHSRewind() {
-      _vhsActive = false;
-      stopVHSTimecode();
-
-      const overlay = document.getElementById('vhs-overlay');
-      overlay.style.transition = 'opacity 0.4s';
-      overlay.style.opacity = '0';
-
-      setTimeout(() => {
-        overlay.classList.remove('active');
-        overlay.style.opacity = '';
-        overlay.style.transition = '';
-
-        // Reset estado interno
-        document.getElementById('vhs-tape-content').classList.remove('rewinding');
-        document.getElementById('vhs-tape-content').style.display = '';
-        document.getElementById('vhs-status').style.display = '';
-        document.getElementById('vhs-play-screen').classList.remove('show');
-      }, 420);
-    }
-
-    function startVHSTimecode() {
-      // Timecode correndo ao contrário (simula rebobinar)
-      let h = 1, m = 23, s = 47, f = 12;
-      const el = document.getElementById('vhs-timecode');
-
-      _vhsTimecodeInterval = setInterval(() => {
-        f -= 3;
-        if (f < 0) { f = 29; s--; }
-        if (s < 0) { s = 59; m--; }
-        if (m < 0) { m = 59; h--; }
-        if (h < 0) { h = 0; m = 0; s = 0; f = 0; }
-        const pad = n => String(n).padStart(2, '0');
-        el.textContent = `${pad(h)}:${pad(m)}:${pad(s)}:${pad(f)}`;
-      }, 40);
-    }
-
-    function stopVHSTimecode() {
-      clearInterval(_vhsTimecodeInterval);
-      _vhsTimecodeInterval = null;
-    }
-
-    function playVHSRewindSound() {
-      if (!audioCtx) return;
-      const now = audioCtx.currentTime;
-
-      // Ruído de motor da fita (loop de noise filtrado)
-      const motorBuffer = createWhiteNoiseBuffer(1.5);
-      const motor = audioCtx.createBufferSource();
-      motor.buffer = motorBuffer;
-      const motorFilter = audioCtx.createBiquadFilter();
-      motorFilter.type = 'bandpass';
-      motorFilter.frequency.value = 1200;
-      motorFilter.Q.value = 2;
-      const motorGain = audioCtx.createGain();
-      motorGain.gain.setValueAtTime(0, now);
-      motorGain.gain.linearRampToValueAtTime(0.15, now + 0.1);
-      motorGain.gain.setValueAtTime(0.15, now + 1.2);
-      motorGain.gain.exponentialRampToValueAtTime(0.001, now + 1.5);
-      motorGain.gain.linearRampToValueAtTime(0, now + 1.5); // Chega ao zero absoluto
-
-      motor.connect(motorFilter);
-      motorFilter.connect(motorGain);
-      motorGain.connect(audioCtx.destination);
-      motor.start(now);
-      motor.stop(now + 1.6); // Stop seguro
-
-      // Chirp ascendente acelerado — característica do rewind
-      const chirp = audioCtx.createOscillator();
-      const chirpGain = audioCtx.createGain();
-      chirp.type = 'sawtooth';
-      chirp.frequency.setValueAtTime(80, now);
-      chirp.frequency.exponentialRampToValueAtTime(3200, now + 1.4);
-      chirpGain.gain.setValueAtTime(0, now);
-      chirpGain.gain.linearRampToValueAtTime(0.08, now + 0.05);
-      chirpGain.gain.setValueAtTime(0.08, now + 1.2);
-      chirpGain.gain.exponentialRampToValueAtTime(0.001, now + 1.5);
-      chirpGain.gain.linearRampToValueAtTime(0, now + 1.5); // Chega ao zero absoluto
-
-      const chirpFilter = audioCtx.createBiquadFilter();
-      chirpFilter.type = 'highpass';
-      chirpFilter.frequency.value = 400;
-      chirp.connect(chirpFilter);
-      chirpFilter.connect(chirpGain);
-      chirpGain.connect(audioCtx.destination);
-      chirp.start(now);
-      chirp.stop(now + 1.6); // Stop seguro
-
-      // Clicks mecânicos irregulares (sprockets da fita)
-      [0.05, 0.12, 0.21, 0.33, 0.48, 0.65, 0.85, 1.1].forEach(t => {
-        setTimeout(() => {
-          if (!audioCtx) return;
-          createNoise('highpass', 0.04, 0.12, 4000);
-          beep(200 + Math.random() * 400, 0.03, 'square', 0.06);
-        }, t * 1000);
-      });
-    }
-
-    function playVHSPlaySound() {
-      if (!audioCtx) return;
-      // Clique mecânico de "PLAY" pressionado
-      createNoise('bandpass', 0.06, 0.2, 600);
-      beep(180, 0.08, 'square', 0.15);
-      setTimeout(() => beep(240, 0.06, 'square', 0.1), 80);
-    }
-
-
-    // ─── BSOD SYSTEM ───
-
-    function triggerBSOD() {
-      if (_bsodActive) return;
-      _bsodActive = true;
-
-      initAudio();
-
-      // Flash branco de entrada
-      const flash = document.getElementById('bsod-flash');
-      flash.classList.add('active');
-
-      // Som de crash crítico
-      playBSODSound();
-
-      // Gera o QR fake
-      generateFakeBSODQR();
-
-      // Abre o overlay após o flash
-      setTimeout(() => {
-        document.getElementById('bsod-overlay').classList.add('active');
-        startBSODProgress();
-      }, 120);
-    }
-
-    function startBSODProgress() {
-      const fill = document.getElementById('bsod-progress-fill');
-      const pct = document.getElementById('bsod-progress-pct');
-      const body = document.getElementById('bsod-body');
-
-      // A barra vai rápido até um número, trava, avança de novo, trava em 97%
-      const stages = [
-        { target: 13, speed: 80, stall: 0 },
-        { target: 27, speed: 60, stall: 800 },
-        { target: 51, speed: 90, stall: 0 },
-        { target: 68, speed: 40, stall: 1200 }, // trava aqui por 1.2s
-        { target: 79, speed: 70, stall: 0 },
-        { target: 94, speed: 30, stall: 2000 }, // trava aqui por 2s
-        { target: 97, speed: 80, stall: 0 },
-        // Para em 97% — nunca chega a 100%
-      ];
-
-      let current = 0;
-      let stageIdx = 0;
-
-      // Frases que aparecem conforme a barra avança
-      const messages = {
-        13: 'Coletando logs de erro...',
-        27: 'Analisando stack trace...',
-        51: 'Tentando recuperar caffeine.dll...',
-        68: 'Procurando motivação para continuar...',
-        79: 'Quase lá. Talvez.',
-        94: 'Calculando quando isso vai acabar...',
-        97: 'Por favor, não desligue o computador.'
-      };
-
-      function runStage() {
-        if (stageIdx >= stages.length) {
-          // Travou em 97% — espera 4s e fecha sozinho
-          setTimeout(() => {
-            body.innerHTML = `Estamos coletando algumas informações sobre o erro e
-              então reiniciaremos para você.
-              Reiniciando em 3 segundos...`;
-
-            let countdown = 3;
-            const cdInterval = setInterval(() => {
-              countdown--;
-              if (countdown <= 0) {
-                clearInterval(cdInterval);
-                closeBSOD();
-              } else {
-                body.innerHTML = `Estamos coletando algumas informações sobre o erro e
-                  então reiniciaremos para você.
-                  Reiniciando em ${countdown} segundo${countdown !== 1 ? 's' : ''}...`;
-              }
-            }, 1000);
-          }, 4000);
-          return;
-        }
-
-        const stage = stages[stageIdx];
-
-        // Avança até o target desta etapa
-        _bsodProgressInterval = setInterval(() => {
-          current++;
-          fill.style.width = current + '%';
-          pct.textContent = current + '%';
-
-          // Atualiza mensagem nos marcos
-          if (messages[current]) {
-            body.innerHTML = `Estamos coletando algumas informações sobre o erro e
-              então reiniciaremos para você.
-              ${current}% concluído — ${messages[current]}`;
-
-            // Beep suave a cada marco
-            if (audioCtx) beep(440 + current * 3, 0.04, 'square', 0.05);
-          }
-
-          if (current >= stage.target) {
-            clearInterval(_bsodProgressInterval);
-
-            // Stall desta etapa
-            setTimeout(() => {
-              stageIdx++;
-              runStage();
-            }, stage.stall);
-          }
-        }, stage.speed);
-      }
-
-      runStage();
-    }
-
-    function closeBSOD() {
-      _bsodActive = false;
-      clearInterval(_bsodProgressInterval);
-
-      // Som de boot de retorno
-      if (audioCtx) {
-        [220, 330, 440, 550].forEach((f, i) =>
-          setTimeout(() => beep(f, 0.1, 'sine', 0.12), i * 80)
-        );
-      }
-
-      const overlay = document.getElementById('bsod-overlay');
-      overlay.style.transition = 'opacity 0.3s';
-      overlay.style.opacity = '0';
-
-      setTimeout(() => {
-        overlay.classList.remove('active');
-        overlay.style.opacity = '';
-        overlay.style.transition = '';
-
-        // Reset da barra
-        document.getElementById('bsod-progress-fill').style.width = '0%';
-        document.getElementById('bsod-progress-pct').textContent = '0%';
-        document.getElementById('bsod-body').innerHTML = `
-          Estamos coletando algumas informações sobre o erro e
-          então reiniciaremos para você.
-          0% concluído`;  // toast removed
-      }, 320);
-    }
-
-    function playBSODSound() {
-      if (!audioCtx) return;
-      const now = audioCtx.currentTime;
-
-      // Crash: burst de noise branco + tom grave abrupto
-      const crashBuffer = createWhiteNoiseBuffer(0.3);
-      const crashNoise = audioCtx.createBufferSource();
-      crashNoise.buffer = crashBuffer;
-
-      const crashFilter = audioCtx.createBiquadFilter();
-      crashFilter.type = 'lowpass';
-      crashFilter.frequency.value = 600;
-
-      const crashGain = audioCtx.createGain();
-      crashGain.gain.setValueAtTime(0.6, now);
-      crashGain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
-      crashGain.gain.linearRampToValueAtTime(0, now + 0.3); // Chega ao zero absoluto
-
-      crashNoise.connect(crashFilter);
-      crashFilter.connect(crashGain);
-      crashGain.connect(audioCtx.destination);
-      crashNoise.start(now);
-      crashNoise.stop(now + 0.4); // Stop seguro
-
-      // Tom grave de "sistema morreu"
-      const deathOsc = audioCtx.createOscillator();
-      const deathGain = audioCtx.createGain();
-      deathOsc.type = 'square';
-      deathOsc.frequency.setValueAtTime(80, now);
-      deathOsc.frequency.exponentialRampToValueAtTime(40, now + 0.4);
-      deathGain.gain.setValueAtTime(0.3, now);
-      deathGain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
-      deathGain.gain.linearRampToValueAtTime(0, now + 0.5); // Chega ao zero absoluto
-
-      deathOsc.connect(deathGain);
-      deathGain.connect(audioCtx.destination);
-      deathOsc.start(now);
-      deathOsc.stop(now + 0.6); // Stop seguro
-
-      // "Glitch" de frequências altas logo depois
-      setTimeout(() => {
-        if (!audioCtx) return;
-        [2000, 1500, 800, 400].forEach((f, i) => {
-          setTimeout(() => beep(f, 0.04, 'sawtooth', 0.08), i * 40);
-        });
-      }, 100);
-    }
-
-    function generateFakeBSODQR() {
-      // Gera um padrão de QR code falso mas visualmente convincente
-      const qr = document.getElementById('bsod-qr');
-      qr.innerHTML = '';
-
-      // Padrão fixo que parece um QR real (cantos obrigatórios + centro aleatório)
-      const pattern = [
-        1, 1, 1, 1, 1, 1, 1,
-        1, 0, 0, 0, 0, 0, 1,
-        1, 0, 1, 0, 1, 0, 1,
-        1, 0, 0, 0, 0, 0, 1,
-        1, 1, 1, 1, 1, 1, 1,
-        0, 1, 0, 1, 0, 1, 0,
-        1, 0, 1, 0, 1, 0, 1,
-      ];
-
-      pattern.forEach((isDark, i) => {
-        // Centro aleatório, bordas fixas
-        const isEdge = i < 7 || i > 40 || i % 7 === 0 || i % 7 === 6;
-        const cell = document.createElement('div');
-        cell.className = 'bsod-qr-cell' + ((isEdge ? isDark : Math.random() > 0.45) ? ' dark' : '');
-        qr.appendChild(cell);
-      });
-    }
-
-    // Engines específicos
-
-
-
-
-
-    function engineTrabalho() {
-      // MIDNIGHT SAX v2.0 - 16 Bar Loop (Alta Complexidade, Baixa CPU)
-      const bpm = 80;
-      const tick = 60000 / (bpm * 4); // Semicolcheias (~187.5ms)
-
-      // Expandimos o loop para 16 compassos para criar uma jornada musical mais longa
-      const bar = Math.floor(beatStep / 16) % 16;
-      const stepInBar = beatStep % 16;
-
-      // 1. RUÍDO DE VINIL E FOLEY (Texturas)
-      if (stepInBar === 0) {
-        createNoise('highpass', 3.0, 0.005, 4000);
-      }
-      // Foley: Pequeno sino de vento/cidade muito raro e com eco (Compasso 7 e 15)
-      if ((bar === 7 || bar === 15) && stepInBar === 8) {
-        createOsc('sine', 1200 + Math.random() * 400, 0.05, 2.0, 0.015, 3000);
-        setTimeout(() => createOsc('sine', 1500, 0.1, 1.5, 0.01, 2000), 200);
-      }
-
-      // Progressão Lo-fi R&B (Fm11 -> Cm11 -> Dbmaj9 -> Ebmaj9) repetida 4x
-      const progressions = [
-        { root: 43.65, chord: [174.61, 207.65, 261.63, 311.13] }, // Fm11
-        { root: 43.65, chord: [174.61, 207.65, 261.63, 311.13] },
-        { root: 32.70, chord: [130.81, 155.56, 196.00, 233.08] }, // Cm11
-        { root: 32.70, chord: [130.81, 155.56, 196.00, 233.08] },
-        { root: 34.65, chord: [138.59, 174.61, 207.65, 261.63] }, // Dbmaj9
-        { root: 34.65, chord: [138.59, 174.61, 207.65, 261.63] },
-        { root: 38.89, chord: [155.56, 196.00, 233.08, 277.18] }, // Ebmaj9
-        { root: 38.89, chord: [155.56, 196.00, 233.08, 277.18] }
-      ];
-      // Como temos 16 compassos, usamos módulo 8 para repetir a harmonia
-      const current = progressions[bar % 8];
-
-      // Agrupamento para poupar RAM e aplicar Swing
-      const isSwing = (stepInBar % 2 !== 0);
-      const swingDelay = isSwing ? 35 : 0; // Swing acentuado de R&B
-
-      setTimeout(() => {
-        // 2. BATERIA ORGÂNICA COM GHOST NOTES
-        // Bumbo principal e sub-bumbo
-        if (stepInBar === 0 || stepInBar === 11 || (bar % 4 === 3 && stepInBar === 8)) {
-          createOsc('sine', 45, 0.02, 0.4, 0.25, 100);
-          createNoise('lowpass', 0.1, 0.15, 150);
-        }
-        // Caixa/Snap com reverb implícito
-        if (stepInBar === 4 || stepInBar === 12) {
-          createNoise('bandpass', 0.05, 0.2, 2000);
-          createOsc('triangle', 400, 0.01, 0.05, 0.04);
-        }
-        // Ghost Note na caixa (Batida super fraca e fora de tempo)
-        if (stepInBar === 7 || stepInBar === 15) {
-          if (Math.random() < 0.4) createNoise('bandpass', 0.03, 0.05, 1500);
-        }
-
-        // Hi-hats dinâmicos
-        if (stepInBar % 2 === 0) {
-          const hatVol = (stepInBar === 4 || stepInBar === 12) ? 0.01 : 0.03;
-          createNoise('highpass', 0.05, hatVol, 6000);
-        } else if (Math.random() < 0.5) { // Hi-hat ghost note
-          createNoise('highpass', 0.03, 0.015, 7000);
-        }
-
-        // 3. SUB-BASS (Corte cirúrgico)
-        if (stepInBar === 0 || stepInBar === 11 || stepInBar === 14) {
-          let bassNote = current.root;
-          if (stepInBar === 14) bassNote = current.root * 1.5;
-          createOsc('sine', bassNote, 0.05, 0.5, 0.25, 200);
-        }
-
-        // 4. TECLADOS / RHODES COM FLOREIOS
-        if (stepInBar === 2 || (bar % 2 === 1 && stepInBar === 10)) {
-          const chordVol = (stepInBar === 2) ? 0.04 : 0.02;
-          current.chord.forEach(note => {
-            createOsc('triangle', note, 0.02, 0.8, chordVol, 600);
-          });
-        }
-        // Floreio de Piano (Arpejo cristalino apenas no compasso 3 e 11)
-        if ((bar === 3 || bar === 11) && stepInBar === 14) {
-          createOsc('sine', current.chord[2] * 2, 0.02, 0.6, 0.02, 1000);
-          setTimeout(() => createOsc('sine', current.chord[3] * 2, 0.02, 0.8, 0.02, 1200), 60);
-        }
-      }, swingDelay);
-
-      // 5. SOLO DE SAXOFONE DUPLO (16 Compassos)
-      // Estrutura de dados: b=bar, s=stepInBar, n=nota(Hz), d=duração, v=volume
-      const saxMelody = [
-        // Frase 1 (Calma, registro médio) - Compassos 4 a 7
-        { b: 4, s: 2, n: 349.23, d: 0.4, v: 0.12 }, // F4
-        { b: 4, s: 6, n: 415.30, d: 0.4, v: 0.13 }, // Ab4
-        { b: 4, s: 8, n: 466.16, d: 0.6, v: 0.14 }, // Bb4
-        { b: 5, s: 0, n: 523.25, d: 1.5, v: 0.15 }, // C5
-        { b: 5, s: 10, n: 466.16, d: 0.4, v: 0.12 }, // Bb4
-        { b: 6, s: 2, n: 415.30, d: 0.4, v: 0.13 }, // Ab4
-        { b: 6, s: 4, n: 349.23, d: 0.4, v: 0.12 }, // F4
-        { b: 6, s: 12, n: 311.13, d: 0.4, v: 0.10 }, // Eb4
-        { b: 7, s: 0, n: 349.23, d: 2.0, v: 0.13 }, // F4 (repousa)
-
-        // Frase 2 (Emotiva, registro agudo) - Compassos 12 a 15
-        { b: 12, s: 4, n: 523.25, d: 0.4, v: 0.13 }, // C5
-        { b: 12, s: 6, n: 622.25, d: 0.4, v: 0.14 }, // Eb5
-        { b: 12, s: 8, n: 698.46, d: 0.8, v: 0.16 }, // F5 (pico de emoção)
-        { b: 13, s: 0, n: 622.25, d: 1.2, v: 0.14 }, // Eb5
-        { b: 13, s: 12, n: 523.25, d: 0.4, v: 0.12 },// C5
-        { b: 14, s: 0, n: 466.16, d: 0.3, v: 0.13 }, // Bb4 (descida rápida)
-        { b: 14, s: 2, n: 415.30, d: 0.3, v: 0.12 }, // Ab4
-        { b: 14, s: 4, n: 349.23, d: 0.5, v: 0.13 }, // F4
-        { b: 15, s: 0, n: 349.23, d: 2.5, v: 0.14 }  // F4 (fade out com longo vibrato)
-      ];
-
-      // Procura se tem alguma nota de saxofone para o compasso e tick exato atual
-      const hit = saxMelody.find(m => m.b === bar && m.s === stepInBar);
-
-      if (hit) {
-        // Aciona o Sintetizador de Saxofone com as dinâmicas especificadas
-        createSaxOsc(hit.n, hit.d, hit.v);
-      }
-
-      // 2. TEXTURA RÍTMICA (Tick de Relógio de Quartzo - Som Limpo)
-      if (stepInBar % 4 === 0) {
-        // Substituído o 'noise' por uma onda 'triangle' (Sino minúsculo e cristalino)
-        createOsc('triangle', 3500, 0.005, 0.03, 0.015);
-      }
-
-      // 7. SWEEP DE TRANSIÇÃO (O Vento Grave)
-      // Cria expectativa para a virada do loop longo sem gerar chiado agudo
-      if (bar === 7 || bar === 15) {
-        if (stepInBar === 0) {
-          // Usando 'lowpass' para soar como um trovão distante em vez de estática
-          createNoise('lowpass', 4.0, 0.02, 250);
-        }
-      }
-
-      beatStep++;
-      musicTimers.push(setTimeout(engineTrabalho, tick));
-    }
-
-    // ═══ INFRAESTRUTURA DE ÁUDIO CINEMATOGRÁFICO ═══
-
-    // Cache do reverb — criado uma vez, reutilizado
-    let reverbNode = null;
-    let chorusLFO = null;
-    let masterCompressor = null;
-
-    let _reverbCreating = false;
-
-    function getOrCreateReverb() {
-      if (!audioCtx) return null;
-      if (reverbNode) return reverbNode;
-      if (_reverbCreating) return null; // Evita criação paralela
-      _reverbCreating = true;
-
-      // Cria em microtask para não bloquear o thread atual
-      Promise.resolve().then(() => {
-        if (reverbNode) { _reverbCreating = false; return; }
-        const sampleRate = audioCtx.sampleRate;
-        const duration = 3.0; // Reduzido de 4s para 3s — menos memória, mesma qualidade
-        const decay = 2.8;
-        const bufferSize = sampleRate * duration;
-        const impulse = audioCtx.createBuffer(2, bufferSize, sampleRate);
-
-        for (let channel = 0; channel < 2; channel++) {
-          const channelData = impulse.getChannelData(channel);
-          const offset = channel === 0 ? 0 : Math.floor(sampleRate * 0.012);
-          for (let i = 0; i < bufferSize; i++) {
-            const idx = Math.max(0, i - offset);
-            channelData[i] = (Math.random() * 2 - 1) *
-              Math.pow(1 - idx / bufferSize, decay);
-          }
-        }
-        reverbNode = audioCtx.createConvolver();
-        reverbNode.buffer = impulse;
-        reverbNode.connect(audioCtx.destination);
-        _reverbCreating = false;
-      });
-
-      return null; // Retorna null na primeira chamada; nas próximas já estará pronto
-    }
-
-    function getMasterCompressor() {
-      if (!audioCtx) return null;
-      if (masterCompressor) return masterCompressor;
-
-      masterCompressor = audioCtx.createDynamicsCompressor();
-      // Configuração suave de masterização (Bus Compression)
-      masterCompressor.threshold.value = -10; // Era -18. Evita puxar o ruído de fundo
-      masterCompressor.knee.value = 12; // Curva bem suave
-      masterCompressor.ratio.value = 3; // Menos esmagamento
-      masterCompressor.attack.value = 0.02;
-      masterCompressor.release.value = 0.25;
-
-      masterCompressor.connect(audioCtx.destination);
-      return masterCompressor;
-    }
-
-    // Oscilador Moog: sawtooth + suboscilador + detune em cents
-    // Conecta ao reverb (wet) E ao compressor (dry) simultaneamente
-    function createMoogOsc(freq, attack, release, vol, detuneCents, filterCutoff, reverbMix) {
-      if (!audioCtx) return;
-
-      const now = audioCtx.currentTime;
-      const reverb = getOrCreateReverb();
-      const comp = getMasterCompressor();
-
-      // Oscilador principal
-      const osc = audioCtx.createOscillator();
-      osc.type = 'sawtooth';
-      osc.frequency.value = freq;
-      osc.detune.value = detuneCents || 0;
-
-      // Sub-oscilador (oitava abaixo, senoide) para corpo
-      const sub = audioCtx.createOscillator();
-      sub.type = 'sine';
-      sub.frequency.value = freq * 0.5;
-
-      // Filtro passa-baixa estilo Moog ladder
-      const filter = audioCtx.createBiquadFilter();
-      filter.type = 'lowpass';
-      filter.Q.value = 3.5;
-      filter.frequency.setValueAtTime(80, now);
-      filter.frequency.linearRampToValueAtTime(
-        filterCutoff || 800, now + attack * 0.6
-      );
-      filter.frequency.exponentialRampToValueAtTime(
-        (filterCutoff || 800) * 0.3, now + release * 0.7
-      );
-      filter.frequency.linearRampToValueAtTime(0, now + release); // Chega ao zero absoluto
-
-      // Envelope de amplitude
-      const gainMain = audioCtx.createGain();
-      gainMain.gain.setValueAtTime(0, now);
-      gainMain.gain.linearRampToValueAtTime(vol, now + attack);
-      gainMain.gain.exponentialRampToValueAtTime(0.001, now + release * 0.95);
-      gainMain.gain.linearRampToValueAtTime(0, now + release); // Chega ao zero absoluto
-
-      const gainSub = audioCtx.createGain();
-      gainSub.gain.setValueAtTime(0, now);
-      gainSub.gain.linearRampToValueAtTime(vol * 0.4, now + attack * 1.2);
-      gainSub.gain.exponentialRampToValueAtTime(0.001, now + release * 1.05);
-      gainSub.gain.linearRampToValueAtTime(0, now + release * 1.1); // Chega ao zero absoluto
-
-      // Splitter dry/wet para o reverb
-      const dryGain = audioCtx.createGain();
-      dryGain.gain.value = 1 - (reverbMix || 0.4);
-
-      const wetGain = audioCtx.createGain();
-      wetGain.gain.value = reverbMix || 0.4;
-
-      // Roteamento
-      osc.connect(filter);
-      filter.connect(gainMain);
-      gainMain.connect(dryGain);
-      gainMain.connect(wetGain);
-      if (comp) dryGain.connect(comp);
-      if (reverb) wetGain.connect(reverb);
-
-      sub.connect(gainSub);
-      gainSub.connect(dryGain);
-
-      osc.start(now);
-      osc.stop(now + release + 0.05); // Stop seguro
-      sub.start(now);
-      sub.stop(now + release * 1.1 + 0.05); // Stop seguro
-
-      // Cleanup da memória
-      musicNodes.push(osc, sub);
-      osc.onended = () => {
-        const idxO = musicNodes.indexOf(osc);
-        if (idxO > -1) musicNodes.splice(idxO, 1);
-        const idxS = musicNodes.indexOf(sub);
-        if (idxS > -1) musicNodes.splice(idxS, 1);
-      };
-      sub.onended = () => {
-        const index = musicNodes.indexOf(sub);
-        if (index > -1) musicNodes.splice(index, 1);
-      };
-    }
-
-    // Sintetizador de Saxofone (Expressivo com Vibrato e Swell)
-    function createSaxOsc(freq, duration, vol) {
-      if (!audioCtx) return;
-      const now = audioCtx.currentTime;
-      const reverb = getOrCreateReverb();
-
-      // O corpo do som do sax (Sawtooth rica em harmônicos)
-      const osc = audioCtx.createOscillator();
-      osc.type = 'sawtooth';
-      osc.frequency.value = freq;
-
-      // O Sopro (Filtro que abre e fecha)
-      const filter = audioCtx.createBiquadFilter();
-      filter.type = 'lowpass';
-      filter.Q.value = 2.5; // Ressonância no "bocal"
-      filter.frequency.setValueAtTime(300, now);
-      filter.frequency.linearRampToValueAtTime(2500, now + 0.15); // O ar ganhando força
-      filter.frequency.exponentialRampToValueAtTime(600, now + duration);
-
-      // Vibrato Humano (LFO)
-      const lfo = audioCtx.createOscillator();
-      lfo.type = 'sine';
-      lfo.frequency.value = 5.5; // ~5.5Hz é o vibrato natural de um saxofonista
-      const lfoGain = audioCtx.createGain();
-      lfoGain.gain.setValueAtTime(0, now);
-      lfoGain.gain.linearRampToValueAtTime(15, now + 0.3); // O vibrato entra aos poucos
-
-      // Envelope de Volume Suavizado (Anti-Click)
-      const gain = audioCtx.createGain();
-      gain.gain.setValueAtTime(0, now);
-      gain.gain.linearRampToValueAtTime(vol, now + 0.05); // Ataque rápido mas sem estalo
-      gain.gain.exponentialRampToValueAtTime(0.001, now + duration - 0.05);
-      gain.gain.linearRampToValueAtTime(0, now + duration); // Garante que a corda de áudio foi solta
-
-      // Roteamento
-      lfo.connect(lfoGain);
-      lfoGain.connect(osc.detune); // O LFO desafina a nota sutilmente
-
-      osc.connect(filter);
-      filter.connect(gain);
-      const comp = getMasterCompressor();
-      gain.connect(comp || audioCtx.destination);
-
-      // Muito reverb para som de "cidade vazia"
-      if (reverb) {
-        const wetGain = audioCtx.createGain();
-        wetGain.gain.value = 0.7;
-        gain.connect(wetGain);
-        wetGain.connect(reverb);
-      }
-
-      osc.start(now); osc.stop(now + duration + 0.1);
-      lfo.start(now); lfo.stop(now + duration + 0.1);
-
-      // Cleanup da memória
-      musicNodes.push(osc, lfo);
-      osc.onended = () => {
-        let idx = musicNodes.indexOf(osc); if (idx > -1) musicNodes.splice(idx, 1);
-        idx = musicNodes.indexOf(lfo); if (idx > -1) musicNodes.splice(idx, 1);
-      };
-    }
-
-    // Pad de cordas — otimizado e com timbre "Warm Analogue" (sem chiado)
-    function createStringPad(freqs, attack, release, vol, reverbMix) {
-      if (!audioCtx) return;
-      const detunes = [-5, 0, 5]; // Chorus de 3 vozes
-      freqs.forEach(freq => {
-        detunes.forEach(detune => {
-          createMoogOsc(
-            freq,
-            attack + Math.random() * 0.3,
-            release,
-            vol / detunes.length,
-            detune,
-            250 + Math.random() * 100, // FILTRO FECHADO AQUI: Remove o "frizz" agudo e deixa o som quente
-            0.65
-          );
-        });
-      });
-    }
-
-    // Ruído de fundo atmosférico com reverb longo
-    function createAtmoNoise(duration, vol, filterFreq) {
-      if (!audioCtx) return;
-
-      const bufSize = audioCtx.sampleRate * duration;
-      const buf = audioCtx.createBuffer(1, bufSize, audioCtx.sampleRate);
-      const data = buf.getChannelData(0);
-      for (let i = 0; i < bufSize; i++) data[i] = Math.random() * 2 - 1;
-
-      const noise = audioCtx.createBufferSource();
-      noise.buffer = buf;
-
-      const filter = audioCtx.createBiquadFilter();
-      filter.type = 'bandpass';
-      filter.frequency.value = filterFreq || 300;
-      filter.Q.value = 0.8;
-
-      const gain = audioCtx.createGain();
-      const now = audioCtx.currentTime;
-      gain.gain.setValueAtTime(0, now);
-      gain.gain.linearRampToValueAtTime(vol, now + 1.5);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
-
-      const reverb = getOrCreateReverb();
-      const wetGain = audioCtx.createGain();
-      wetGain.gain.value = 0.8;
-
-      noise.connect(filter);
-      filter.connect(gain);
-      gain.connect(wetGain);
-      if (reverb) wetGain.connect(reverb);
-
-      noise.start(now);
-      musicNodes.push(noise);
-      noise.onended = () => {
-        const index = musicNodes.indexOf(noise);
-        if (index > -1) musicNodes.splice(index, 1);
-      };
-    }
-
-    function engineInterstellar() {
-      // Tempo muito lento — o tempo não significa nada perto de Gargantua
-      const bpm = 52;
-      const tick = 60000 / (bpm * 2); // ~576ms por tick
-
-      const bar = Math.floor(beatStep / 16) % 8;
-      const stepInBar = beatStep % 16;
-
-      // ─── PROGRESSÃO HARMÔNICA ───
-      // Baseada em "Cornfield Chase" e "No Time For Caution"
-      // C — Am — F — G, mas muito lenta e esticada
-      const harmony = [
-        { root: 65.41, fifth: 98.00, third: 82.41 }, // F
-        { root: 55.00, fifth: 82.41, third: 65.41 }, // Am
-        { root: 65.41, fifth: 98.00, third: 82.41 }, // F
-        { root: 49.00, fifth: 73.42, third: 61.74 }, // G
-        { root: 65.41, fifth: 98.00, third: 82.41 }, // F (repete, mais pesado)
-        { root: 55.00, fifth: 82.41, third: 65.41 }, // Am
-        { root: 43.65, fifth: 65.41, third: 55.00 }, // C (resolução)
-        { root: 49.00, fifth: 73.42, third: 61.74 }, // G (tensão final)
-      ];
-      const chord = harmony[bar];
-
-      // ─── ÓRGÃO DE TUBOS ───
-      // Sine + Square misturados = timbre de órgão de tubos realista
-      // Toca no início do compasso e sustenta
-      if (stepInBar === 0) {
-        const orgVol = 0.18;
-        const orgRelease = tick * 14 / 1000; // sustenta quase o compasso inteiro
-
-        // Fundamental (oitava baixa)
-        createMoogOsc(chord.root, 0.3, orgRelease, orgVol * 0.7, 0, 800, 0.6);
-        createMoogOsc(chord.fifth, 0.4, orgRelease, orgVol * 0.5, 0, 700, 0.6);
-        createMoogOsc(chord.third, 0.5, orgRelease, orgVol * 0.4, 0, 600, 0.65);
-
-        // Oitava acima (o "brilho" do órgão)
-        createMoogOsc(chord.root * 2, 0.6, orgRelease, orgVol * 0.35, 5, 1200, 0.55);
-        createMoogOsc(chord.fifth * 2, 0.7, orgRelease, orgVol * 0.25, -5, 1000, 0.6);
-
-        // Subcontrabaixo (duas oitavas abaixo — o "peso" do órgão)
-        if (audioCtx) {
-          const sub = audioCtx.createOscillator();
-          const subGain = audioCtx.createGain();
-          const subFilter = audioCtx.createBiquadFilter();
-          subFilter.type = 'lowpass';
-          subFilter.frequency.value = 120;
-          sub.type = 'sine';
-          sub.frequency.value = chord.root / 2;
-          const now = audioCtx.currentTime;
-          subGain.gain.setValueAtTime(0, now);
-          subGain.gain.linearRampToValueAtTime(0.4, now + 0.8);
-          subGain.gain.exponentialRampToValueAtTime(0.001, now + orgRelease * 0.9);
-          sub.connect(subFilter);
-          subFilter.connect(subGain);
-          subGain.connect(audioCtx.destination);
-          sub.start(now);
-          sub.stop(now + orgRelease);
-          musicNodes.push(sub);
-          sub.onended = () => {
-            const i = musicNodes.indexOf(sub);
-            if (i > -1) musicNodes.splice(i, 1);
-          };
-        }
-      }
-
-      // ─── TÍMPANOS ───
-      // Golpe grave de percussão com noise filtrado baixo — característico do filme
-      if (stepInBar === 0 && bar % 2 === 0) {
-        // Timpani hit = noise lowpass breve + sine grave
-        createNoise('lowpass', 0.8, 0.5, 180);
-        createOsc('sine', 55 + (bar * 3), 0.05, 1.5, 0.45);
-        createOsc('sine', 45 + (bar * 2), 0.08, 2.0, 0.3, 100);
-      }
-
-      // Segundo golpe mais suave no beat 8 (criando o ritmo de 2 por compasso)
-      if (stepInBar === 8 && bar >= 2) {
-        createNoise('lowpass', 0.5, 0.25, 200);
-        createOsc('sine', 50, 0.06, 1.2, 0.2);
-      }
-
-      // ─── DRONE CÓSMICO ───
-      // Ruído rosa muito suave — a "respiração" do universo
-      // Entra gradualmente a partir do compasso 2
-      if (beatStep >= 32 && beatStep % 32 === 0) {
-        if (audioCtx) {
-          const droneBuffer = createWhiteNoiseBuffer(8.0);
-          const droneNoise = audioCtx.createBufferSource();
-          droneNoise.buffer = droneBuffer;
-          const droneFilter = audioCtx.createBiquadFilter();
-          droneFilter.type = 'lowpass';
-          droneFilter.frequency.value = 80;
-          droneFilter.Q.value = 0.5;
-          const droneGain = audioCtx.createGain();
-          const now = audioCtx.currentTime;
-          droneGain.gain.setValueAtTime(0, now);
-          droneGain.gain.linearRampToValueAtTime(0.06, now + 3.0);
-          droneGain.gain.exponentialRampToValueAtTime(0.001, now + 7.5);
-          droneNoise.connect(droneFilter);
-          droneFilter.connect(droneGain);
-          droneGain.connect(audioCtx.destination);
-          droneNoise.start(now);
-          musicNodes.push(droneNoise);
-          droneNoise.onended = () => {
-            const i = musicNodes.indexOf(droneNoise);
-            if (i > -1) musicNodes.splice(i, 1);
-          };
-        }
-      }
-
-      // ─── MELODIA ESPARSA (Cornfield Chase feel) ───
-      // Aparece apenas a partir do compasso 4, uma nota por compasso
-      if (beatStep >= 64 && stepInBar === 4) {
-        const melodyMap = [
-          261.63, // C5 — esperança
-          220.00, // A4 — melancolia
-          261.63, // C5
-          196.00, // G4 — dúvida
-          293.66, // D5 — ascensão
-          246.94, // B4 — tensão
-          261.63, // C5 — resolução
-          220.00, // A4 — partida
-        ];
-        const note = melodyMap[bar];
-        // Tom de piano/vibrafone: triangle com release longo
-        createOsc('triangle', note, 0.08, 3.5, 0.1, 2000);
-        createOsc('sine', note, 0.10, 4.0, 0.06, 1500);
-        // Eco suave
-        setTimeout(() => {
-          createOsc('triangle', note, 0.08, 2.5, 0.04, 1800);
-        }, tick * 4);
-      }
-
-      beatStep++;
-      musicTimers.push(setTimeout(engineInterstellar, tick));
-    }
-
-    let _engineRunning = false;
-
-    function startMusicEngine() {
-      if (_engineRunning) return;
-      _engineRunning = true;
-      beatStep = 0;
-
-      // Reinicia a animação das barras se a música estiver ligada
-      if (musicOn && !animFrameId) {
-        animVinylLoop();
-      }
-
-      if (currentMode === 'trabalho') engineTrabalho();
-      else if (currentMode === 'interstellar') engineInterstellar();
-    }
-
-    let lastVinylFrame = 0;
-    let _vinylBeat = 0;
-    function animVinylLoop(timestamp) {
-      if (!musicOn) return;
-      if (timestamp - lastVinylFrame >= 80) { // ~12fps suficiente para barras
-        _vinylBeat++;
-        const mColor = MODOS[currentMode]?.color || 'var(--accent)';
-        const isInterstellar = currentMode === 'interstellar';
-        mbarElements.forEach((b, i) => {
-          let h;
-          if (isMusico) h = 5 + Math.random() * 20;
-          else if (isRpg) h = (_vinylBeat % 8 < 2) ? 22 : 2 + Math.random() * 5;
-          else if (isInterstellar) h = 2 + Math.sin((_vinylBeat + i) * 0.3) * 6;
-          // Barras sobem e descem em onda senoidal — simula gravidade de maré
-          else h = 3 + Math.random() * 9;
-          b.style.height = h + 'px';
-          b.style.background = h > 15 ? 'var(--text,#f0ece4)' : mColor;
-        });
-        lastVinylFrame = timestamp;
-      }
-      animFrameId = requestAnimationFrame(animVinylLoop);
-    }
-
-    // Event listener do music card
-    document.getElementById('music-card').addEventListener('click', () => {
-      musicOn = !musicOn;
-      if (mbarElements.length === 0) mbarElements = document.querySelectorAll('#music-bars .mbar');
-      const icnNormal = document.querySelector('.music-icon-normal');
-      const lblNormal = document.querySelector('.music-label-normal');
-
-      if (musicOn) {
-        icnNormal.textContent = MODOS[currentMode].emoji;
-        icnNormal.style.display = 'inline';
-        lblNormal.textContent = `Tocando: ${MODOS[currentMode].title}`;
-        lblNormal.style.display = 'inline';
-        document.getElementById('music-card').classList.add('playing');
-        startMusicEngine();  // toast removed
-      } else {
-        clearMusic();
-        icnNormal.textContent = '🎵';
-        icnNormal.style.display = 'inline';
-        lblNormal.textContent = "vibin' off";
-        lblNormal.style.display = 'inline';
-        document.getElementById('music-card').classList.remove('playing');
-        mbarElements.forEach(b => { b.style.height = '4px'; b.style.background = 'var(--accent)'; });
-        beep(440, .08, 'square', .1); setTimeout(() => beep(330, .1, 'square', .08), 70);  // toast removed
-      }
-    });
-
-    // ═══ MODALS ═══
-
-
-    // Inicia com o setup certo visualmente
-    setMode('trabalho');
-
-
-
-    // ═══ EASTER EGG: MODO MÚSICO (PEDAIS DE GUITARRA) ═══
-    // Escala Pentatônica Menor de Mi (E Minor) para solos de rock rápidos
-    const notasGuitarra = [164.81, 196.00, 220.00, 246.94, 293.66, 329.63, 392.00, 440.00];
-
-    document.querySelectorAll('.tool-pill').forEach((pill, index) => {
-      pill.addEventListener('mouseenter', () => {
-        if (currentMode !== 'musico') return;
-        initAudio(); // Garante que o contexto de áudio exista/acorde
-        if (audioCtx.state === 'suspended') return; // Se o navegador bloquear (falta de clique prévio), aborta a nota em silêncio sem quebrar o JS
-
-        // Animação visual de pedal pressionado
-        pill.style.transform = 'translateY(4px) scale(0.95)';
-        pill.style.boxShadow = 'inset 0 0 10px rgba(0,0,0,0.5)';
-        setTimeout(() => {
-          pill.style.transform = '';
-          pill.style.boxShadow = '';
-        }, 150);
-
-        // Toca uma nota de guitarra distorcida
-        const freq = notasGuitarra[index % notasGuitarra.length];
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-
-        osc.type = 'sawtooth'; // Som de guitarra drive
-        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-
-        gain.gain.setValueAtTime(0, audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(0.15, audioCtx.currentTime + 0.02); // Ataque rápido (palhetada)
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5); // Sustain curto
-
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-
-        osc.start();
-        osc.stop(audioCtx.currentTime + 0.6);
-      });
-    });
-
-    // ═══ SISTEMA DE LOGS DINÂMICOS DO TERMINAL ═══
-
-    const logsDivertidos = [
-      { text: "[sys] compilando café em código...", color: "#61dafb", opacity: 0.6 },
-      { text: "> café conectado. produtivo por 5min.", color: "#39e97b", opacity: 0.8 },
-      { text: "[info] deadline se aproximando...", color: "#f5a623", opacity: 0.7 },
-      { text: "> fingindo urgência. funcionando.", color: "#61dafb", opacity: 0.8 },
-      { text: "[sys] caos organizado em progresso...", color: "#f5a623", opacity: 0.5 },
-      { text: "> testando se usuário está prestando atenção...", color: "#9b59b6", opacity: 0.7 },
-      { text: "> usuário não está. continuando.", color: "#39e97b", opacity: 0.8 },
-      { text: "[warn] meme levels: dangerous", color: "#ff6b6b", opacity: 0.6 },
-      { text: "> deploy em produção? claro que não!", color: "#ff6b6b", opacity: 0.7 },
-      { text: "[sys] git push --force confirmado", color: "#ff6b6b", opacity: 0.5 },
-      { text: "> rezando para não quebrar nada...", color: "#9b59b6", opacity: 0.8 },
-    ];
-
-    // Logs específicos do modo pai
-
-
-    // Logs do modo Interestelar - falas do filme
-    const logsInterstellar = [
-      { text: "[COOPER] Mankind was born on Earth. It was never meant to die here.", color: "#c8b8ff", opacity: 0.8 },
-      { text: "[BRAND] We must look to the stars.", color: "#c8b8ff", opacity: 0.7 },
-      { text: "[MURPH] Dad, you should have left me.", color: "#a8b8ff", opacity: 0.6 },
-      { text: "[COOPER] We're not meant to save the world. We're meant to leave it.", color: "#c8b8ff", opacity: 0.8 },
-      { text: "[ROMILLY] It's not possible.", color: "#b8c8ff", opacity: 0.7 },
-      { text: "[BRAND] No, it's necessary.", color: "#c8b8ff", opacity: 0.8 },
-      { text: "[TARS] Definition: 'Love' isn't something we invented.", color: "#d8e8ff", opacity: 0.6 },
-      { text: "[COOPER] That's one way to look at it.", color: "#c8b8ff", opacity: 0.7 },
-      { text: "[MURPH] You said you'd come back.", color: "#a8b8ff", opacity: 0.6 },
-      { text: "[COOPER] I promised.", color: "#c8b8ff", opacity: 0.8 },
-      { text: "[BRAND] They're not beings. They're us.", color: "#b8c8ff", opacity: 0.7 },
-      { text: "[COOPER] How do you know?", color: "#c8b8ff", opacity: 0.8 },
-      { text: "[BRAND] I'm just like you.", color: "#d8e8ff", opacity: 0.6 },
-      { text: "[TARS] I have a cue word I can use to indicate my honesty.", color: "#b8c8ff", opacity: 0.7 },
-      { text: "[COOPER] What is it?", color: "#c8b8ff", opacity: 0.8 },
-      { text: "[TARS] 'Honesty'.", color: "#d8e8ff", opacity: 0.6 },
-      { text: "[MURPH] You're my ghost.", color: "#a8b8ff", opacity: 0.7 },
-      { text: "[COOPER] I'm coming back.", color: "#c8b8ff", opacity: 0.8 },
-      { text: "[BRAND] Don't leave me.", color: "#b8c8ff", opacity: 0.6 },
-      { text: "[ROMILLY] See you on the other side, Coop.", color: "#d8e8ff", opacity: 0.7 },
-      { text: "[COOPER] Love, TARS, is the one thing that transcends dimensions.", color: "#c8b8ff", opacity: 0.8 },
-      { text: "[TARS] Affirmative.", color: "#b8c8ff", opacity: 0.6 },
-      { text: "[MURPH] You have to go. You have to.", color: "#a8b8ff", opacity: 0.7 },
-      { text: "[COOPER] I'll be back.", color: "#c8b8ff", opacity: 0.8 }
-    ];
-
-
-
-
-
-    let logInterval;
-    let terminalAtivo = true;
-
-    function atualizarLogTerminal() {
-
-      if (!terminalAtivo) {
-        return;
-      }
-
-      const termElement = document.getElementById('term-text');
-      if (!termElement) {
-        return;
-      }
-
-
-      // Escolhe o array de mensagens baseado no modo atual
-      let logsAtuais;
-      if (document.body.classList.contains('interstellar-mode')) {
-        logsAtuais = logsInterstellar;
-      } else {
-        logsAtuais = logsDivertidos;
-      }
-      const logAleatorio = logsAtuais[Math.floor(Math.random() * logsAtuais.length)];
-
-      // Cria o elemento do log
-      const novoLog = document.createElement('div');
-      novoLog.style.opacity = logAleatorio.opacity;
-      novoLog.style.marginBottom = '4px';
-      if (logAleatorio.color !== 'inherit') {
-        novoLog.style.color = logAleatorio.color;
-      }
-      novoLog.textContent = logAleatorio.text;
-
-      // Simplesmente adiciona no final antes do último span
-      const ultimoSpan = termElement.querySelector('span:last-of-type');
-      if (ultimoSpan) {
-        termElement.insertBefore(novoLog, ultimoSpan);
-      } else {
-        termElement.appendChild(novoLog);
-      }
-
-      // Remove logs antigos se tiver mais de 4 (reduzido para caber melhor)
-      const todosLogs = termElement.querySelectorAll('div');
-
-      if (todosLogs.length > 4) {
-        const logsParaRemover = Array.from(todosLogs).slice(0, todosLogs.length - 4);
-        logsParaRemover.forEach(log => log.remove());
-      }
-
-      // Efeito de fade in sutil
-      novoLog.style.opacity = '0';
-      setTimeout(() => {
-        novoLog.style.transition = 'opacity 0.5s ease-in';
-        novoLog.style.opacity = logAleatorio.opacity.toString();
-
-        // Auto-scroll para a mensagem mais recente
-        termElement.scrollTop = termElement.scrollHeight;
-      }, 10);
-
-    }
-
-    // Inicia o sistema de logs dinâmicos
-    function iniciarLogsDinamicos() {
-      if (logInterval) clearInterval(logInterval);
-
-      // Notebooks fracos: detectar via hardwareConcurrency
-      // menos de 4 cores = aumentar intervalo para 8s
-      const isSlow = navigator.hardwareConcurrency
-        ? navigator.hardwareConcurrency < 4
-        : false;
-      const intervalMs = isSlow ? 8000 : 4000;
-
-      logInterval = _setInterval(() => {
-        atualizarLogTerminal();
-      }, intervalMs);
-
-      setTimeout(() => atualizarLogTerminal(), 2000);
-    }
 
     // Inicia quando a página carregar
     document.addEventListener('DOMContentLoaded', () => {
@@ -5138,9 +2632,68 @@
       // Inicializa as barras de música
       mbarElements = document.querySelectorAll('#music-bars .mbar');
 
+      // ═══ SIMPLE MUSIC SYSTEM ═══
+      let musicOn = false;
+      let animFrameId = null;
+      let mbarElements = [];
+
+      function toggleMusic() {
+        initAudio();
+        musicOn = !musicOn;
+        const card = document.getElementById('music-card');
+        const icon = document.querySelector('.music-icon-normal');
+        const label = document.querySelector('.music-label-normal');
+
+        if (musicOn) {
+          card.classList.add('playing');
+          icon.textContent = '';
+          label.textContent = 'som ligado';
+          startMusicEngine();
+          snd('ding');
+        } else {
+          card.classList.remove('playing');
+          icon.textContent = '';
+          label.textContent = 'som desligado';
+          clearMusic();
+          snd('pop');
+        }
+      }
+
+      function startMusicEngine() {
+        if (!musicOn) return;
+        animVinylLoop();
+      }
+
+      function clearMusic(stopAnimation = false) {
+        if (stopAnimation && animFrameId) {
+          cancelAnimationFrame(animFrameId);
+          animFrameId = null;
+        }
+        if (mbarElements.length) {
+          mbarElements.forEach(bar => bar.style.height = '4px');
+        }
+      }
+
+      function animVinylLoop(timestamp = 0) {
+        if (!musicOn) return;
+        if (timestamp - lastVinylFrame >= 80) {
+          mbarElements.forEach((b, i) => {
+            const h = 5 + Math.random() * 20;
+            b.style.height = h + 'px';
+          });
+          lastVinylFrame = timestamp;
+        }
+        animFrameId = requestAnimationFrame(animVinylLoop);
+      }
+
+      let lastVinylFrame = 0;
+
+      // Music card click handler
+      document.getElementById('music-card')?.addEventListener('click', toggleMusic);
 
       setTimeout(() => {
-        iniciarLogsDinamicos();
+        // iniciarLogsDinamicos(); // Desativado: Função inexistente no escopo atual
+        // startHints() removed
       }, 3000);
     });
 
@@ -5154,7 +2707,9 @@
         window.terminalReativar = setTimeout(() => {
           terminalAtivo = true;
           // Adiciona um log para indicar que reativou
-          setTimeout(() => atualizarLogTerminal(), 500);
+          setTimeout(() => {
+            // atualizarLogTerminal(); // Desativado: Função inexistente no escopo atual
+          }, 500);
         }, 15000);
       }
     });
@@ -5168,17 +2723,137 @@
         clearTimeout(window.terminalReativar);
         window.terminalReativar = setTimeout(() => {
           terminalAtivo = true;
-          setTimeout(() => atualizarLogTerminal(), 500);
+          setTimeout(() => {
+            // atualizarLogTerminal(); // Desativado: Função inexistente no escopo atual
+          }, 500);
         }, 15000);
       }
     });
 
     // Força uma atualização inicial para testar
     setTimeout(() => {
-      if (terminalAtivo) {
-        atualizarLogTerminal();
+      if (typeof terminalAtivo !== 'undefined' && terminalAtivo) {
+        // atualizarLogTerminal(); // Desativado: Função inexistente no escopo atual
       }
     }, 1000);
+
+    // ═══ EASTER EGG FUNCTIONS ═══
+    function triggerVHSRewind() {
+      if (_vhsActive) return;
+      _vhsActive = true;
+      initAudio();
+
+      const overlay = document.getElementById('vhs-overlay');
+      const tapeContent = document.getElementById('vhs-tape-content');
+      const timecode = document.getElementById('vhs-timecode');
+      const playScreen = document.getElementById('vhs-play-screen');
+
+      // Mostra overlay
+      overlay.classList.add('active');
+      document.body.classList.add('vhs-rewinding');
+
+      // Animação do timecode
+      let frames = 0;
+      const totalFrames = 120;
+      _vhsTimecodeInterval = setInterval(() => {
+        frames++;
+        const hours = Math.floor(frames / 3600).toString().padStart(2, '0');
+        const minutes = Math.floor((frames % 3600) / 60).toString().padStart(2, '0');
+        const seconds = (frames % 60).toString().padStart(2, '0');
+        const frames2 = (frames % 30).toString().padStart(2, '0');
+        timecode.textContent = `${hours}:${minutes}:${seconds}:${frames2}`;
+
+        if (frames >= totalFrames) {
+          clearInterval(_vhsTimecodeInterval);
+          tapeContent.classList.add('rewinding');
+
+          setTimeout(() => {
+            // Mostra tela de play
+            playScreen.classList.add('show');
+
+            // Espera interação do usuário
+            const handleResume = () => {
+              document.removeEventListener('keydown', handleResume);
+              document.removeEventListener('click', handleResume);
+
+              overlay.classList.remove('active');
+              document.body.classList.remove('vhs-rewinding');
+              tapeContent.classList.remove('rewinding');
+              playScreen.classList.remove('show');
+              _vhsActive = false;
+
+              // Reseta timecode
+              timecode.textContent = '00:00:00:00';
+            };
+
+            setTimeout(() => {
+              document.addEventListener('keydown', handleResume);
+              document.addEventListener('click', handleResume);
+            }, 500);
+          }, 1200);
+        }
+      }, 10);
+
+      // Som de rewind
+      snd('error');
+    }
+
+    function triggerBSOD() {
+      if (_bsodActive) return;
+      _bsodActive = true;
+      initAudio();
+
+      const overlay = document.getElementById('bsod-overlay');
+      const flash = document.getElementById('bsod-flash');
+      const progressFill = document.getElementById('bsod-progress-fill');
+      const progressPct = document.getElementById('bsod-progress-pct');
+      const qr = document.getElementById('bsod-qr');
+
+      // Flash branco
+      flash.classList.add('active');
+
+      setTimeout(() => {
+        flash.classList.remove('active');
+        overlay.classList.add('active');
+
+        // Gera QR fake
+        qr.innerHTML = '';
+        for (let i = 0; i < 49; i++) {
+          const cell = document.createElement('div');
+          cell.className = 'bsod-qr-cell';
+          if (Math.random() > 0.3) cell.classList.add('dark');
+          qr.appendChild(cell);
+        }
+
+        // Animação da barra de progresso
+        let progress = 0;
+        _bsodProgressInterval = setInterval(() => {
+          progress += Math.random() * 3;
+          if (progress > 100) progress = 100;
+
+          progressFill.style.width = progress + '%';
+          progressPct.textContent = Math.floor(progress) + '%';
+
+          if (progress >= 100) {
+            clearInterval(_bsodProgressInterval);
+
+            // Reinicia após 3 segundos
+            setTimeout(() => {
+              overlay.classList.remove('active');
+              _bsodActive = false;
+
+              // Reseta progress
+              progressFill.style.width = '0%';
+              progressPct.textContent = '0%';
+            }, 3000);
+          }
+        }, 100);
+
+      }, 300);
+
+      // Som de erro
+      snd('error');
+    }
   </script>
 
 </body>

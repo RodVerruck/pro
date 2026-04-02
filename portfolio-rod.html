@@ -442,55 +442,6 @@
       margin-bottom: 12px;
     }
 
-    /* Hero eyebrow por modo */
-    body.pai-mode .hero-eyebrow,
-    body.rpg-mode .hero-eyebrow,
-    body.musico-mode .hero-eyebrow {
-      color: transparent !important;
-      font-size: 0;
-      line-height: 0;
-      margin-bottom: 20px !important;
-    }
-
-    body.pai-mode .hero-eyebrow::before {
-      content: 'Entre LEGO, Perguntas e Deploys';
-      display: inline-block;
-      color: #ff4f8b !important;
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px dashed rgba(255, 79, 139, 0.45);
-      border-radius: 999px;
-      padding: 4px 10px;
-      font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
-      font-size: 12px;
-      font-weight: bold;
-      text-transform: none;
-      letter-spacing: 0.3px;
-      line-height: 1.25;
-    }
-
-    body.rpg-mode .hero-eyebrow::before {
-      content: 'Guerreiro do Front-End · Mago do Python';
-      display: block;
-      color: var(--text);
-      font-family: 'Times New Roman', Times, serif;
-      font-size: 10px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      line-height: 1.35;
-    }
-
-    body.musico-mode .hero-eyebrow::before {
-      content: 'Full Stack · Rock & Deploy';
-      display: block;
-      color: var(--text);
-      font-family: var(--mono);
-      font-size: 10px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      line-height: 1.35;
-    }
 
     .hero-title {
       font-family: var(--display);
@@ -1309,46 +1260,6 @@
       margin-bottom: 12px;
     }
 
-    /* Contact card por modo */
-    body.pai-mode .contact-title,
-    body.rpg-mode .contact-title,
-    body.musico-mode .contact-title {
-      color: transparent !important;
-      font-size: 0;
-      line-height: 0;
-    }
-
-    body.pai-mode .contact-title::before {
-      content: 'manda msg (no horário da soneca)';
-      display: block;
-      color: #2d3748 !important;
-      font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
-      font-size: 14px;
-      font-weight: bold;
-      line-height: 1.35;
-    }
-
-    body.rpg-mode .contact-title::before {
-      content: 'envia um pergaminho.';
-      display: block;
-      color: var(--text);
-      font-family: 'Times New Roman', Times, serif;
-      font-size: 14px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      line-height: 1.35;
-    }
-
-    body.musico-mode .contact-title::before {
-      content: 'vem pro backstage.';
-      display: block;
-      color: var(--text);
-      font-family: var(--mono);
-      font-size: 14px;
-      font-weight: bold;
-      line-height: 1.35;
-    }
 
     .tools-title {
       font-family: var(--display);
@@ -1470,65 +1381,6 @@
       line-height: 1.6;
     }
 
-    /* About card por modo */
-    body.rpg-mode .about-hello,
-    body.musico-mode .about-hello {
-      color: transparent !important;
-      font-size: 0;
-      line-height: 0;
-      margin-bottom: 12px;
-    }
-
-    body.rpg-mode .about-hello::before {
-      content: '⚔️ O Dev-Dragonborn';
-      display: block;
-      color: var(--text);
-      font-family: 'Times New Roman', Times, serif;
-      font-size: 18px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      line-height: 1.35;
-    }
-
-    body.musico-mode .about-hello::before {
-      content: '🎸 Full Stack · Rock & Deploy';
-      display: block;
-      color: var(--text);
-      font-family: var(--mono);
-      font-size: 18px;
-      font-weight: bold;
-      line-height: 1.35;
-    }
-
-    body.rpg-mode .about-bio,
-    body.musico-mode .about-bio {
-      color: transparent !important;
-      font-size: 0;
-      line-height: 0;
-      margin: 0;
-    }
-
-
-    body.rpg-mode .about-bio::before {
-      content: '🗡️ Guerreiro do Front-End · Mago do Python. Nascido entre monitores e pergaminhos, especialista em desatar nós entre Produto e Negócio. Otimizo processos com feitiços de Python e runas de SQL, e atualmente forjo minha transição para o Front-end construindo artefatos mágicos com IA.';
-      display: block;
-      color: var(--text);
-      font-family: 'Times New Roman', Times, serif;
-      font-size: 13px;
-      line-height: 1.6;
-      white-space: normal;
-    }
-
-    body.musico-mode .about-bio::before {
-      content: '🎸 Toco solos de teclado mecânico. Meu DAW é o VS Code. Especialista em desatar nós entre riffs e negócios. Otimizo processos com Python e SQL, e atualmente estou mixando minha transição para o Front-end construindo ferramentas reais com IA.';
-      display: block;
-      color: var(--text);
-      font-family: var(--mono);
-      font-size: 13px;
-      line-height: 1.6;
-      white-space: normal;
-    }
 
     .c-tools {
       padding: 20px 24px;
@@ -2519,564 +2371,9 @@
     }
 
     /* =========================================
-       MODO RPG: O DOVAHKIIN DO FRONT-END
-       ========================================= */
-    body.rpg-mode {
-      --bg: #0c0c0c;
-      /* Fundo de caverna */
-      --card: #141414;
-      --text: #e6d5b8;
-      /* Cor de pergaminho/ouro velho */
-      --muted: #8a7d65;
-      --border: rgba(212, 175, 55, 0.3);
-      /* Ouro suave */
-      --border2: rgba(212, 175, 55, 0.6);
-      --accent: #d4af37;
-      /* Dourado mágico */
-    }
-
-    /* Estilo de textura de pedra/ferro nos cards */
-    body.rpg-mode .bento .card {
-      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8), 0 5px 15px rgba(0, 0, 0, 0.5);
-      border-radius: 4px;
-      /* Bordas mais afiadas, medievais */
-      background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
-    }
-
-    /* Hover de Loot Épico */
-    body.rpg-mode .card.clickable:hover {
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.2), inset 0 0 20px rgba(212, 175, 55, 0.1);
-      border-color: #d4af37;
-    }
-
-    /* Tipografia Épica */
-    body.rpg-mode .hero-title,
-    body.rpg-mode .proj-title,
-    body.rpg-mode .skills-title,
-    body.rpg-mode .contact-title {
-      font-family: 'Times New Roman', Times, serif;
-      /* Fonte Clássica */
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-    }
-
-    /* Skills RPG */
-    body.rpg-mode .skills-title {
-      color: transparent !important;
-      position: relative;
-      margin-bottom: 28px !important;
-    }
-
-    body.rpg-mode .skills-title::before {
-      content: '🗡️ Atributos do Herói';
-      color: var(--text) !important;
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-family: 'Times New Roman', Times, serif;
-      font-weight: bold !important;
-      font-size: 20px !important;
-      text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
-      animation: titleBounce 2s ease-in-out infinite;
-    }
-
-    body.rpg-mode .skill-name {
-      color: transparent !important;
-      position: relative;
-      min-width: 200px;
-    }
-
-    body.rpg-mode .skill-row:nth-child(1) .skill-name::before {
-      content: '🗡️ Conjuração de React';
-      position: absolute;
-      left: 0;
-      top: -2px;
-      color: var(--text);
-      font-family: 'Times New Roman', Times, serif;
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    body.rpg-mode .skill-row:nth-child(2) .skill-name::before {
-      content: '📜 Grimório de Python';
-      position: absolute;
-      left: 0;
-      top: -2px;
-      color: var(--text);
-      font-family: 'Times New Roman', Times, serif;
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    body.rpg-mode .skill-row:nth-child(3) .skill-name::before {
-      content: '⚙️ Runa da Automação';
-      position: absolute;
-      left: 0;
-      top: -2px;
-      color: var(--text);
-      font-family: 'Times New Roman', Times, serif;
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    body.rpg-mode .skill-row:nth-child(4) .skill-name::before {
-      content: '🤖 Bênção da IA';
-      position: absolute;
-      left: 0;
-      top: -2px;
-      color: var(--text);
-      font-family: 'Times New Roman', Times, serif;
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    /* Espaçamento e alinhamento RPG */
-    body.rpg-mode .skill-rows {
-      gap: 20px !important;
-    }
-
-    body.rpg-mode .skill-row {
-      padding: 0;
-      align-items: center;
-      display: flex;
-      gap: 12px;
-    }
-
-    /* XP bars douradas no RPG */
-    body.rpg-mode .skill-bar {
-      background: rgba(212, 175, 55, 0.2) !important;
-      border: 1px solid rgba(212, 175, 55, 0.4) !important;
-      height: 8px !important;
-      border-radius: 4px !important;
-    }
-
-    body.rpg-mode .skill-fill {
-      background: linear-gradient(90deg, #d4af37 0%, #f4e4bc 100%) !important;
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.6) !important;
-      border-radius: 3px !important;
-    }
-
-    body.rpg-mode .skill-pct {
-      color: transparent !important;
-      position: relative;
-      font-family: 'Times New Roman', Times, serif;
-      font-weight: bold;
-      min-width: 110px !important;
-      flex-shrink: 0;
-    }
-
-    body.rpg-mode .skill-row:nth-child(1) .skill-pct::before {
-      content: 'XP: 850/1000';
-      position: absolute;
-      right: 0;
-      top: -2px;
-      color: #d4af37;
-      text-shadow: 0 0 6px rgba(212, 175, 55, 0.8);
-      font-size: 11px;
-    }
-
-    body.rpg-mode .skill-row:nth-child(2) .skill-pct::before {
-      content: 'XP: 800/1000';
-      position: absolute;
-      right: 0;
-      top: -2px;
-      color: #d4af37;
-      text-shadow: 0 0 6px rgba(212, 175, 55, 0.8);
-      font-size: 11px;
-    }
-
-    body.rpg-mode .skill-row:nth-child(3) .skill-pct::before {
-      content: 'XP: 700/1000';
-      position: absolute;
-      right: 0;
-      top: -2px;
-      color: #d4af37;
-      text-shadow: 0 0 6px rgba(212, 175, 55, 0.8);
-      font-size: 11px;
-    }
-
-    body.rpg-mode .skill-row:nth-child(4) .skill-pct::before {
-      content: 'XP: 800/1000';
-      position: absolute;
-      right: 0;
-      top: -2px;
-      color: #d4af37;
-      text-shadow: 0 0 6px rgba(212, 175, 55, 0.8);
-      font-size: 11px;
-    }
-
-    /* Skills Músico */
-    body.musico-mode .skills-title {
-      color: transparent !important;
-      position: relative;
-      margin-bottom: 28px !important;
-    }
-
-    body.musico-mode .skills-title::before {
-      content: '🎸 Setlist de Skills';
-      color: var(--text) !important;
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-family: var(--mono);
-      font-weight: bold !important;
-      font-size: 20px !important;
-      text-shadow: 0 0 8px var(--accent);
-      animation: titleBounce 2s ease-in-out infinite;
-    }
-
-    body.musico-mode .skill-name {
-      color: transparent !important;
-      position: relative;
-      min-width: 200px;
-    }
-
-    body.musico-mode .skill-row:nth-child(1) .skill-name::before {
-      content: '🎸 React (Riff Pesado)';
-      position: absolute;
-      left: 0;
-      top: -2px;
-      color: var(--text);
-      font-family: var(--mono);
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    body.musico-mode .skill-row:nth-child(2) .skill-name::before {
-      content: '🎸 Python (Bass Line)';
-      position: absolute;
-      left: 0;
-      top: -2px;
-      color: var(--text);
-      font-family: var(--mono);
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    body.musico-mode .skill-row:nth-child(3) .skill-name::before {
-      content: '🎛️ Automação (Pedal FX)';
-      position: absolute;
-      left: 0;
-      top: -2px;
-      color: var(--text);
-      font-family: var(--mono);
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    body.musico-mode .skill-row:nth-child(4) .skill-name::before {
-      content: '🎤 Prompt Eng (Letra)';
-      position: absolute;
-      left: 0;
-      top: -2px;
-      color: var(--text);
-      font-family: var(--mono);
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    /* Espaçamento e alinhamento Músico */
-    body.musico-mode .skill-rows {
-      gap: 20px !important;
-    }
-
-    body.musico-mode .skill-row {
-      padding: 0;
-      align-items: center;
-      display: flex;
-      gap: 12px;
-    }
-
-    /* Bars neon no modo Músico */
-    body.musico-mode .skill-bar {
-      background: rgba(0, 243, 255, 0.1) !important;
-      border: 1px solid rgba(0, 243, 255, 0.3) !important;
-      height: 8px !important;
-      border-radius: 4px !important;
-    }
-
-    body.musico-mode .skill-fill {
-      background: linear-gradient(90deg, #00f3ff 0%, #ff007f 100%) !important;
-      box-shadow: 0 0 15px rgba(0, 243, 255, 0.8) !important;
-      border-radius: 3px !important;
-    }
-
-    body.musico-mode .skill-pct {
-      color: transparent !important;
-      position: relative;
-      font-family: var(--mono);
-      font-weight: bold;
-      min-width: 110px !important;
-      flex-shrink: 0;
-    }
-
-    body.musico-mode .skill-row:nth-child(1) .skill-pct::before {
-      content: '85% LOUD';
-      position: absolute;
-      right: 0;
-      top: -2px;
-      color: #00f3ff;
-      text-shadow: 0 0 6px rgba(0, 243, 255, 0.8);
-      font-size: 11px;
-    }
-
-    body.musico-mode .skill-row:nth-child(2) .skill-pct::before {
-      content: '80% GROOVE';
-      position: absolute;
-      right: 0;
-      top: -2px;
-      color: #00f3ff;
-      text-shadow: 0 0 6px rgba(0, 243, 255, 0.8);
-      font-size: 11px;
-    }
-
-    body.musico-mode .skill-row:nth-child(3) .skill-pct::before {
-      content: '70% FX';
-      position: absolute;
-      right: 0;
-      top: -2px;
-      color: #ff007f;
-      text-shadow: 0 0 6px rgba(255, 0, 127, 0.8);
-      font-size: 11px;
-    }
-
-    body.musico-mode .skill-row:nth-child(4) .skill-pct::before {
-      content: '80% VOCAL';
-      position: absolute;
-      right: 0;
-      top: -2px;
-      color: #00f3ff;
-      text-shadow: 0 0 6px rgba(0, 243, 255, 0.8);
-      font-size: 11px;
-    }
-
-    /* Substituição de Textos (A Jornada) */
-    body.rpg-mode .hero-title,
-    body.rpg-mode .hero-desc,
-    body.rpg-mode .proj-title,
-    body.rpg-mode .proj-num,
-    body.rpg-mode .hero-title *,
-    body.rpg-mode .hero-desc *,
-    body.rpg-mode .proj-title *,
-    body.rpg-mode .proj-num * {
-      color: transparent !important;
-      position: relative;
-      text-shadow: none !important;
-    }
-
-    body.rpg-mode .hero-title::before {
-      content: 'DRAGONBORN\A DO FRONT-END.';
-      white-space: pre-wrap;
-      color: var(--text) !important;
-      position: absolute;
-      inset: 0;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
-    }
-
-    body.rpg-mode .hero-desc::before {
-      content: 'Gerenciando 150 mods na load order do código. Resolvendo quests de UI e derrotando bugs de nível Boss em produção.';
-      color: var(--muted);
-      position: absolute;
-      inset: 0;
-      font-family: sans-serif;
-      text-transform: none;
-      letter-spacing: 0;
-    }
-
-    /* Quests (Projetos) */
-    body.rpg-mode .c-proj-vant .proj-num::before {
-      content: 'QUEST PRINCIPAL';
-      color: var(--accent);
-      position: absolute;
-      inset: 0;
-    }
-
-    body.rpg-mode .c-proj-vant .proj-title::before {
-      content: 'O Pergaminho de Vant';
-      color: var(--text);
-      position: absolute;
-      inset: 0;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
-    }
-
-    body.rpg-mode .c-proj-we .proj-num::before {
-      content: 'GUILDA DOS MERCADORES';
-      color: var(--accent);
-      position: absolute;
-      inset: 0;
-    }
-
-    body.rpg-mode .c-proj-we .proj-title::before {
-      content: 'WeSelect: A Caçada';
-      color: var(--text);
-      position: absolute;
-      inset: 0;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
-    }
-
-    body.rpg-mode .c-proj-calc .proj-num::before {
-      content: 'QUEST SECUNDÁRIA';
-      color: var(--accent);
-      position: absolute;
-      inset: 0;
-    }
-
-    body.rpg-mode .c-proj-calc .proj-title::before {
-      content: 'O Ábaco do Tributo (CLT)';
-      color: var(--text);
-      position: absolute;
-      inset: 0;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
-    }
 
     /* =========================================
-   MODO MÚSICO: ROCK & CODE
-   ========================================= */
-    body.musico-mode {
-      --bg: #0a0a0a;
-      /* Preto fosco palco */
-      --card: #121212;
-      --text: #ffffff;
-      --muted: #aaaaaa;
-      --border: #333333;
-      --border2: #ff007f;
-      /* Neon Magenta */
-      --accent: #00f3ff;
-      /* Neon Ciano */
-      background-image: repeating-linear-gradient(45deg, #0a0a0a 25%, transparent 25%, transparent 75%, #0a0a0a 75%, #0a0a0a), repeating-linear-gradient(45deg, #0a0a0a 25%, #0d0d0d 25%, #0d0d0d 75%, #0a0a0a 75%, #0a0a0a);
-      background-position: 0 0, 2px 2px;
-      background-size: 4px 4px;
-      /* Textura de grade de Amplificador */
-    }
 
-    /* Efeito de Luzes de Palco Neon nos Cards */
-    body.musico-mode .bento .card {
-      border-radius: 2px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
-      transition: all 0.1s;
-      /* Transição super rápida estilo estroboscópio */
-    }
-
-    body.musico-mode .card.clickable:hover {
-      box-shadow: 0 0 20px var(--accent), inset 0 0 10px var(--accent);
-      border-color: var(--accent);
-      transform: scale(1.02);
-    }
-
-    /* Tipografia Grunge/Neon */
-    body.musico-mode .hero-title {
-      text-transform: uppercase;
-      font-style: italic;
-      text-shadow: 2px 2px 0px var(--border2), -2px -2px 0px var(--accent);
-    }
-
-    /* Substituição de Textos (Discografia) */
-    body.musico-mode .hero-title,
-    body.musico-mode .hero-desc,
-    body.musico-mode .proj-title,
-    body.musico-mode .proj-num,
-    body.musico-mode .status-sub,
-    body.musico-mode .hero-title *,
-    body.musico-mode .hero-desc *,
-    body.musico-mode .proj-title *,
-    body.musico-mode .proj-num *,
-    body.musico-mode .status-sub * {
-      color: transparent !important;
-      position: relative;
-      text-shadow: none !important;
-    }
-
-    body.musico-mode .hero-title::before {
-      content: 'DISTORÇÃO E\A PROBLEMAS.\A DEPLOY.';
-      white-space: pre-wrap;
-      color: #fff !important;
-      position: absolute;
-      inset: 0;
-      text-shadow: 2px 2px 0px var(--border2), -2px -2px 0px var(--accent) !important;
-    }
-
-    body.musico-mode .hero-desc::before {
-      content: 'Tirando solos no teclado mecânico. A melhor guitarra hoje em dia é um controlador MIDI, e o melhor palco é o ambiente de produção.';
-      color: var(--muted);
-      position: absolute;
-      inset: 0;
-    }
-
-    body.musico-mode .status-sub::before {
-      content: 'AFINANDO O BANCO DE DADOS...';
-      color: var(--accent);
-      position: absolute;
-      inset: 0;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    /* Álbuns (Projetos) */
-    body.musico-mode .c-proj-vant .proj-num::before {
-      content: 'ÁLBUM DE ESTÚDIO';
-      color: var(--border2);
-      position: absolute;
-      inset: 0;
-    }
-
-    body.musico-mode .c-proj-vant .proj-title::before {
-      content: 'The Vant AI Sessions';
-      color: var(--text);
-      position: absolute;
-      inset: 0;
-      text-shadow: 0 0 5px var(--text);
-    }
-
-    body.musico-mode .c-proj-we .proj-num::before {
-      content: 'EP AO VIVO';
-      color: var(--border2);
-      position: absolute;
-      inset: 0;
-    }
-
-    body.musico-mode .c-proj-we .proj-title::before {
-      content: 'WeSelect Unplugged';
-      color: var(--text);
-      position: absolute;
-      inset: 0;
-    }
-
-    body.musico-mode .c-proj-calc .proj-num::before {
-      content: 'SINGLE';
-      color: var(--accent);
-      position: absolute;
-      inset: 0;
-    }
-
-    body.musico-mode .c-proj-calc .proj-title::before {
-      content: 'CLT vs PJ (Remastered)';
-      color: var(--text);
-      position: absolute;
-      inset: 0;
-    }
-
-    /* ─── PROJETOS VISÍVEIS APENAS NO MODO TRABALHO ─── */
-    body.pai-mode .c-proj-vant,
-    body.pai-mode .c-proj-we,
-    body.pai-mode .c-proj-calc,
-    body.pai-mode .c-proj-rpa,
-    body.rpg-mode .c-proj-vant,
-    body.rpg-mode .c-proj-we,
-    body.rpg-mode .c-proj-calc,
-    body.rpg-mode .c-proj-rpa,
-    body.musico-mode .c-proj-vant,
-    body.musico-mode .c-proj-we,
-    body.musico-mode .c-proj-calc,
-    body.musico-mode .c-proj-rpa {
-      display: none;
-    }
-
-    body.pai-mode .c-skills,
-    body.rpg-mode .c-skills,
-    body.musico-mode .c-skills {
-      grid-column: span 12;
-    }
 
     /* ═══ VHS REWIND EASTER EGG ═══ */
 
@@ -3714,15 +3011,11 @@
       processo encerrado forçosamente</div>
   </div>
 
-  <div id="rpg-snow"></div>
   <div id="gargantua"></div>
   <div id="star-field"></div>
   <div id="wormhole-flash"></div>
 
-  <div id="portal-flash"></div>
   <div id="cur"></div>
-  <div id="toast"></div>
-  <div id="hint-box"></div>
 
   <div id="intro">
     <div class="intro-logo">RODRIGO<span>.</span></div>
@@ -3951,12 +3244,6 @@
             Front-end construindo ferramentas reais com IA.<br><span
               style="font-family:var(--mono);font-size:8px;opacity:0.3;">// check the datadog logs</span></p>
         </div>
-        <div class="about-text-pai">
-          <div class="about-hello">👶 Gerente de Projetos Familiares & Código</div>
-          <p class="about-bio">Especialista em merge conflicts entre Peppa Pig e PRs. Otimizando pipelines de deploy
-            enquanto ensino o ABC. Transformando caos infantil em features funcionais.<br><span
-              style="font-family:var(--mono);font-size:8px;opacity:0.5;">// currentTask: everything</span></p>
-        </div>
       </div>
     </div>
 
@@ -3987,32 +3274,14 @@
         <div class="tool-pill tool-pill-normal" tabindex="0" role="button" onclick="snd('pop')">
           <div class="tool-dot" style="background:#06b6d4"></div>TailwindCSS
         </div>
-        <div class="tool-pill tool-pill-pai" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#ff6b6b"></div>Paciência
         </div>
-        <div class="tool-pill tool-pill-pai" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#4ecdc4"></div>Café
         </div>
-        <div class="tool-pill tool-pill-pai" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#9f7aea"></div>LEGO
         </div>
-        <div class="tool-pill tool-pill-pai" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#f6ad55"></div>Músicas Infantis
         </div>
-        <div class="tool-pill tool-pill-pai" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#48bb78"></div>Soneca Estratégica
         </div>
-        <div class="tool-pill tool-pill-pai" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#ed64a6"></div>Lenço Umedecido
         </div>
-        <div class="tool-pill tool-pill-pai" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#667eea"></div>Responder "Por quê?"
         </div>
-        <div class="tool-pill tool-pill-pai" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#fc8181"></div>Deploy às 3AM
         </div>
-        <div class="tool-pill tool-pill-pai" tabindex="0" role="button" onclick="snd('pop')">
-          <div class="tool-dot" style="background:#ff69b4"></div>Amor
         </div>
       </div>
     </div>
@@ -4197,7 +3466,7 @@
     function dismissIntro() {
       const introEl = document.getElementById('intro'); if (introEl.classList.contains('gone')) return;
       initAudio(); prog = 100; fill.style.width = '100%'; snd('boot');
-      setTimeout(() => { introEl.classList.add('gone'); setTimeout(() => revealCards(), 200); startHints(); }, 400);
+      setTimeout(() => { introEl.classList.add('gone'); setTimeout(() => revealCards(), 200); }, 400);
     }
     document.addEventListener('click', () => { if (!document.getElementById('intro').classList.contains('gone')) dismissIntro(); });
     document.addEventListener('keydown', () => { if (!document.getElementById('intro').classList.contains('gone')) dismissIntro(); });
@@ -5083,246 +4352,10 @@
     }
 
     // Engines específicos
-    function enginePai() {
-      const bpm = 75; const tick = 60000 / (bpm * 2);
 
-      // Estrutura em seções: Introdução -> Desenvolvimento -> Clímax -> Resolução
-      const section = Math.floor(beatStep / 32) % 4;
-      const sectionProgress = (beatStep % 32) / 32;
+    
 
-      // Base melódica que evolui com as seções
-      const storyChords = [
-        [[261.6, 329.6, 392.0], [293.6, 369.9, 440.0]], // Introdução suave
-        [[329.6, 415.3, 493.8], [349.2, 440.0, 523.2]], // Desenvolvimento
-        [[392.0, 493.8, 587.3], [440.0, 554.3, 659.2]], // Clímax mais brilhante
-        [[293.6, 369.9, 440.0], [261.6, 329.6, 392.0]]  // Resolução calma
-      ];
-
-      // Harpa principal - varia com a seção
-      if (beatStep % 8 === 0) {
-        const currentChords = storyChords[section];
-        const chord = currentChords[Math.floor(beatStep / 16) % currentChords.length];
-        const volume = 0.06 + (sectionProgress * 0.04); // Crescimento gradual
-        chord.forEach((f, i) => setTimeout(() => createOsc('sine', f, volume, 2.5, 0.03), i * 150));
-      }
-
-      // Melodia principal - mais presente no clímax
-      if (beatStep % 6 === 0) {
-        const melodyNotes = [
-          [523.2, 587.3, 659.2, 698.4], // Introdução
-          [587.3, 659.2, 698.4, 783.9], // Desenvolvimento  
-          [659.2, 698.4, 783.9, 880.0], // Clímax
-          [523.2, 587.3, 659.2, 698.4]  // Resolução
-        ];
-        const notes = melodyNotes[section];
-        const note = notes[Math.floor(beatStep / 12) % notes.length];
-        const intensity = section === 2 ? 0.08 : 0.04; // Mais intenso no clímax
-        createOsc('triangle', note, intensity, 1.2, 0.02);
-      }
-
-      // Sinos mágicos - mais frequentes no clímax
-      if (beatStep % (section === 2 ? 2 : 4) === 0) {
-        const fairyNotes = [783.9, 880.0, 987.7, 1046.5];
-        const note = fairyNotes[(beatStep + section) % 4];
-        createOsc('sine', note, 0.02, 1.8, 0.01);
-      }
-
-      // Contra-canto - aparece no desenvolvimento
-      if (section >= 1 && beatStep % 12 === 6) {
-        const counterNotes = [392.0, 440.0, 493.8, 523.2];
-        const note = counterNotes[Math.floor(beatStep / 24) % 4];
-        createOsc('sawtooth', note * 0.5, 0.03, 1.0, 0.01);
-      }
-
-      // Transições especiais entre seções
-      if (beatStep % 32 === 28) {
-        // Glissando ascendente no clímax
-        for (let i = 0; i < 5; i++) {
-          setTimeout(() => createOsc('sine', 523.2 + (i * 100), 0.01, 0.5, 0.01), i * 50);
-        }
-      }
-
-      beatStep++;
-      musicTimers.push(setTimeout(enginePai, tick));
-    }
-
-    function engineRpg() {
-      // Tempo de marcha épica (mais lento e pesado)
-      const bpm = 65;
-      const tick = 60000 / (bpm * 4); // ~230ms por tick
-
-      // Progresso dos acordes (D minor épico: Dm -> F -> C -> Dm)
-      const bar = Math.floor(beatStep / 16) % 4;
-
-      // 1. TAIKO DRUM / BUMBO ÉPICO DA GUERRA (Bate forte no tempo 1)
-      if (beatStep % 16 === 0) {
-        playDrum('epicKick');
-        // Adiciona um rumble de tremor (som de dragão / avalanche ao longe)
-        createNoise('lowpass', 2.0, 0.5, 120);
-      }
-      // Batida secundária (marcha militar) para dar o ritmo
-      if (beatStep % 16 === 12) {
-        createOsc('sine', 60, 0.05, 0.8, 0.4);
-      }
-
-      // 2. CORAL NÓRDICO / CORDAS GRAVES (Pad de fundo contínuo)
-      // Usamos sawtooth com filtro passa-baixa forte para tirar o som de "videogame"
-      if (beatStep % 16 === 0) {
-        const chords = [
-          [73.42, 110.00, 146.83], // Dm (Ré, Lá, Ré)
-          [87.31, 130.81, 174.61], // F  (Fá, Dó, Fá)
-          [65.41, 98.00, 130.81],  // C  (Dó, Sol, Dó)
-          [73.42, 110.00, 146.83]  // Dm (Retorna pro épico)
-        ];
-        const chord = chords[bar];
-
-        // O Segredo: Simulando múltiplas vozes (detune) para dar efeito orquestral
-        chord.forEach(freq => {
-          createOsc('sawtooth', freq, 1.5, 3.5, 0.06, 300); // Voz central grave
-          createOsc('sawtooth', freq * 1.006, 1.2, 3.5, 0.03, 350); // Voz levemente mais aguda
-          createOsc('sawtooth', freq * 0.994, 1.8, 3.5, 0.03, 250); // Voz levemente mais grave
-        });
-      }
-
-      // 3. TROMPAS / MELODIA PRINCIPAL (Motif "Sons of Skyrim")
-      // Uma grade sequenciadora simples para desenhar a melodia
-      const melody = [
-        [146.83, 0, 0, 0, 174.61, 0, 146.83, 0, 220.00, 0, 0, 0, 0, 0, 0, 0], // Dm
-        [174.61, 0, 0, 0, 220.00, 0, 174.61, 0, 261.63, 0, 0, 0, 0, 0, 0, 0], // F
-        [130.81, 0, 0, 0, 146.83, 0, 196.00, 0, 146.83, 0, 0, 0, 0, 0, 0, 0], // C
-        [146.83, 0, 0, 0, 220.00, 0, 0, 0, 293.66, 0, 0, 0, 261.63, 0, 174.61, 0] // Dm -> Tensão subindo
-      ];
-
-      const note = melody[bar][beatStep % 16];
-      if (note !== 0) {
-        // Som da trompa (Brass): Sawtooth com ataque médio e filtro um pouco mais aberto
-        createOsc('sawtooth', note, 0.4, 1.8, 0.12, 600);
-
-        // "Reverb/Delay" artificial: Toca a mesma nota de novo, mais baixo e com filtro fechado, ms depois
-        setTimeout(() => createOsc('sawtooth', note, 0.5, 2.0, 0.04, 300), 300);
-        setTimeout(() => createOsc('sine', note, 0.6, 2.0, 0.02, 200), 600);
-      }
-
-      // 4. VENTO FRIO DE HIGH HROTHGAR
-      // Um chiado contínuo e filtrado de fundo simulando a ventania
-      if (beatStep % 32 === 0) {
-        createNoise('bandpass', 6.0, 0.04, 400 + Math.random() * 300);
-      }
-
-      beatStep++;
-      musicTimers.push(setTimeout(engineRpg, tick));
-    }
-
-    function engineMusico() {
-      // ⚡ CYBERPUNK / DARK SYNTHWAVE: "The Mainframe Breach"
-      const bpm = 115; // Ritmo acelerado e tenso de perseguição
-      const tick = 60000 / (bpm * 4); // Semicolcheias (16th notes)
-
-      // ─── ESTRUTURA DINÂMICA DA FAIXA ───
-      // A música evolui ao longo de 4 secções (32 compassos totais)
-      const sectionLength = 128; // 128 ticks = 8 compassos por secção
-      const currentSection = Math.floor(beatStep / sectionLength) % 4; // 0: Intro, 1: Build, 2: Drop, 3: Breakdown
-      const stepInBar = beatStep % 16;
-      const barAbsolute = Math.floor(beatStep / 16);
-
-      // ─── PROGRESSÃO DE ACORDES (Ré Menor Escuro) ───
-      // Muda de acorde a cada 2 compassos
-      const prog = [
-        { root: 36.71, chord: [73.42, 110.00, 146.83, 174.61] }, // Dm9
-        { root: 29.14, chord: [58.27, 87.31, 116.54, 130.81] },  // Bbmaj7
-        { root: 43.65, chord: [87.31, 130.81, 174.61, 196.00] }, // Fadd9
-        { root: 32.70, chord: [65.41, 98.00, 130.81, 146.83] }   // Csus2
-      ];
-      const current = prog[Math.floor(barAbsolute / 2) % 4];
-
-      // ─── 1. BATERIA PESADA (Apenas no Build e no Drop) ───
-      if (currentSection >= 1 && currentSection !== 3) {
-        // Bumbo (Kick) - Esmagador nas cabeças do tempo
-        if (stepInBar === 0 || (currentSection === 2 && stepInBar === 10)) {
-          createOsc('sine', 55, 0.01, 0.4, 0.8, 150);
-          createOsc('square', 120, 0.01, 0.08, 0.3, 500); // Ataque do bumbo
-        }
-
-        // Tarola (Snare) - Explosiva e robótica
-        if (stepInBar === 8) {
-          createNoise('bandpass', 0.25, 0.6, 2000);
-          createNoise('highpass', 0.2, 0.4, 5000);
-          createOsc('triangle', 200, 0.01, 0.15, 0.5, 800);
-        }
-      }
-
-      // ─── 2. HI-HATS CONSTANTES ───
-      // Variação de volume (velocity) para dar "groove" humano
-      if (currentSection !== 0) {
-        const hatVol = stepInBar % 4 === 2 ? 0.3 : 0.1;
-        if (stepInBar % 2 === 0) {
-          createNoise('highpass', 0.05, hatVol, 8000);
-        }
-      }
-
-      // ─── 3. BASSLINE "ROLLING" (O Motor da Música) ───
-      // Semicolcheias contínuas, pulando uma nota para dar balanço
-      if (stepInBar !== 14 && currentSection !== 3) {
-        const bassFreq = current.root * 2;
-        // LFO Matemático: O filtro do baixo abre e fecha ciclicamente
-        const filterSweep = 300 + (Math.sin(beatStep / 16) + 1) * 500;
-
-        createOsc('sawtooth', bassFreq, 0.02, 0.15, 0.3, filterSweep);
-        createOsc('square', bassFreq * 1.01, 0.02, 0.15, 0.15, filterSweep * 0.8);
-      }
-
-      // ─── 4. ARPEGGIATOR SCI-FI (Entra no Build-up e Drop) ───
-      if (currentSection >= 1 && beatStep % 2 === 0) {
-        // Toca as notas do acorde atual numa sequência rápida
-        const arpNote = current.chord[(beatStep / 2) % 4];
-        createMoogOsc(arpNote * 2, 0.02, 0.15, 0.1, 0, 2500, 0.4);
-        createMoogOsc(arpNote * 4, 0.02, 0.10, 0.05, 5, 3000, 0.6); // Harmónico brilhante
-      }
-
-      // ─── 5. PADS ATMOSFÉRICOS (A Tensão) ───
-      // Acordes longos de fundo
-      if (stepInBar === 0 && beatStep % 32 === 0) {
-        const padVol = currentSection === 3 ? 0.15 : 0.06; // Mais alto no Breakdown
-        createStringPad(current.chord, 2.0, 4.0, padVol, 0.7);
-      }
-
-      // ─── 6. MELODIA PRINCIPAL (Sintetizador Lead no Drop) ───
-      if (currentSection === 2) {
-        // Motivo melódico minimalista
-        const leadMotif = [
-          [293.66, 0, 349.23, 0, 440.00, 0, 349.23, 0], // Motif Ré
-          [233.08, 0, 293.66, 0, 349.23, 0, 293.66, 0], // Motif Si Bemol
-        ];
-        // Escolhe o motif baseado no acorde atual
-        const motifIndex = (current === prog[0] || current === prog[3]) ? 0 : 1;
-
-        if (stepInBar % 2 === 0) {
-          const leadNote = leadMotif[motifIndex][stepInBar / 2];
-          if (leadNote > 0) {
-            // Voz principal rasgada (Moog)
-            createMoogOsc(leadNote * 2, 0.05, 0.4, 0.15, 3, 4000, 0.5);
-            // Voz secundária desafinada para dar largura estéreo (Chorus)
-            createMoogOsc(leadNote * 2.01, 0.05, 0.4, 0.1, -4, 4000, 0.5);
-          }
-        }
-      }
-
-      // ─── 7. EFEITOS DE TRANSIÇÃO (Impactos) ───
-      // Prato reverso antes do drop
-      if (currentSection === 1 && beatStep % sectionLength === sectionLength - 16) {
-        for (let i = 0; i < 16; i++) {
-          setTimeout(() => createNoise('highpass', 0.1 + (i * 0.05), 0.1, 10000 - (i * 300)), i * 30);
-        }
-      }
-      // Explosão (Crash) no início de secções pesadas
-      if ((currentSection === 1 || currentSection === 2) && beatStep % sectionLength === 0) {
-        createNoise('lowpass', 1.5, 0.3, 8000);
-        createNoise('highpass', 0.8, 0.2, 2000);
-      }
-
-      beatStep++;
-      musicTimers.push(setTimeout(engineMusico, tick));
-    }
+    
 
     function engineTrabalho() {
       // MIDNIGHT SAX v2.0 - 16 Bar Loop (Alta Complexidade, Baixa CPU)
@@ -5871,9 +4904,6 @@
       }
 
       if (currentMode === 'trabalho') engineTrabalho();
-      else if (currentMode === 'pai') enginePai();
-      else if (currentMode === 'rpg') engineRpg();
-      else if (currentMode === 'musico') engineMusico();
       else if (currentMode === 'interstellar') engineInterstellar();
     }
 
@@ -5884,8 +4914,6 @@
       if (timestamp - lastVinylFrame >= 80) { // ~12fps suficiente para barras
         _vinylBeat++;
         const mColor = MODOS[currentMode]?.color || 'var(--accent)';
-        const isMusico = currentMode === 'musico';
-        const isRpg = currentMode === 'rpg';
         const isInterstellar = currentMode === 'interstellar';
         mbarElements.forEach((b, i) => {
           let h;
@@ -5991,32 +5019,7 @@
     ];
 
     // Logs específicos do modo pai
-    const logsPaiMode = [
-      { text: "[sys] Fralda trocada com sucesso!", color: "#ff69b4", opacity: 0.7 },
-      { text: "> Isis sorriu. missão cumprida!", color: "#4ecdc4", opacity: 0.8 },
-      { text: "[warn] Ursinho perdido em operação...", color: "#ff6b6b", opacity: 0.6 },
-      { text: "> Ursinho resgatado. crise evitada.", color: "#39e97b", opacity: 0.8 },
-      { text: "[info] Mamadeira preparada (37°C exato)", color: "#f5a623", opacity: 0.6 },
-      { text: "> Café do pai: nível CRITICAL", color: "#8b4513", opacity: 0.8 },
-      { text: "[sys] Peppa Pig marathon iniciada...", color: "#ff69b4", opacity: 0.5 },
-      { text: "> 'Baby Shark' repetição #1000", color: "#61dafb", opacity: 0.7 },
-      { text: "> 'Baby Shark' repetição #1001", color: "#61dafb", opacity: 0.8 },
-      { text: "[warn] Negociação de paz com choro...", color: "#ff6b6b", opacity: 0.6 },
-      { text: "> Acordo alcançado: +1 mamadeira", color: "#4ecdc4", opacity: 0.8 },
-      { text: "[info] Codando durante soneca...", color: "#4ecdc4", opacity: 0.6 },
-      { text: "[sys] Horário do sono: batalha final", color: "#ff69b4", opacity: 0.5 },
-      { text: "> Isis dormiu. vitória alcançada!", color: "#39e97b", opacity: 0.8 },
-      { text: "[warn] Brinquedo espalhado: área afetada", color: "#ff6b6b", opacity: 0.6 },
-      { text: "> Operação limpeza: concluída", color: "#39e97b", opacity: 0.8 },
-      { text: "> Café duplicado. sobrevivência ON", color: "#8b4513", opacity: 0.8 },
-      { text: "[info] Foto fofura capturada com sucesso", color: "#ff69b4", opacity: 0.6 },
-      { text: "> Avó satisfeita com update", color: "#4ecdc4", opacity: 0.8 },
-      { text: "[sys] Contando carneirinhos... 1, 2, 3", color: "#f5a623", opacity: 0.5 },
-      { text: "> Pai também caindo de sono...", color: "#9b59b6", opacity: 0.8 },
-      { text: "[warn] Comida no chão: incidente crítico", color: "#ff6b6b", opacity: 0.6 },
-      { text: "[sys] Desenhos na parede detectados", color: "#ff69b4", opacity: 0.5 },
-      { text: "> Limpeza criativa: em andamento", color: "#4ecdc4", opacity: 0.8 },
-    ];
+    
 
     // Logs do modo Interestelar - falas do filme
     const logsInterstellar = [
@@ -6046,101 +5049,9 @@
       { text: "[COOPER] I'll be back.", color: "#c8b8ff", opacity: 0.8 }
     ];
 
-    // Logs do modo RPG - Skyrim e jogos medievais
-    const logsRPGMode = [
-      { text: "[DRAGONBORN] Fus Ro Dah!", color: "#d4af37", opacity: 0.9 },
-      { text: "[BARDO] *toca lira de forma épica*", color: "#8b4513", opacity: 0.7 },
-      { text: "[MAGO] *lança fireball* 42 de dano!", color: "#ff4500", opacity: 0.8 },
-      { text: "[GUERREIRO] Força 18 + 4 de armadura", color: "#c0c0c0", opacity: 0.7 },
-      { text: "[LADRÃO] *esgueira-se nas sombras*", color: "#4b0082", opacity: 0.6 },
-      { text: "[NPC] 'Arrow in the knee... de novo'", color: "#808080", opacity: 0.7 },
-      { text: "[DRAGÃO] *rugido intimidante*", color: "#ff6b35", opacity: 0.8 },
-      { text: "[MERCADOR] 'Esse espada custa 500 moedas'", color: "#ffd700", opacity: 0.7 },
-      { text: "[CLÉRIGO] *cura leve* 25 HP restaurados", color: "#ffffff", opacity: 0.8 },
-      { text: "[CAVALEIRO] *monta cavalo com armadura*", color: "#b87333", opacity: 0.7 },
-      { text: "[ELFO] *dispara flecha precisa* +15 de dano", color: "#228b22", opacity: 0.6 },
-      { text: "[ANÃO] *balança machado pesado* CRITICAL HIT!", color: "#cd853f", opacity: 0.8 },
-      { text: "[ORC] 'Força! Honra! Vitória!'", color: "#8b0000", opacity: 0.7 },
-      { text: "[MAGO NECRO] *levanta undead* servo criado", color: "#4b0082", opacity: 0.6 },
-      { text: "[ALQUIMISTA] *poção pronta* +50 HP por 2min", color: "#32cd32", opacity: 0.7 },
-      { text: "[FORGE] *martela metal* espada +2 criada", color: "#696969", opacity: 0.8 },
-      { text: "[GUARD] 'Wait... I know you...'", color: "#4682b4", opacity: 0.7 },
-      { text: "[JARL] 'Pela honra de Skyrim!'", color: "#d4af37", opacity: 0.9 },
-      { text: "[VILÃO] 'Você não pode me derrotar!'", color: "#8b0000", opacity: 0.8 },
-      { text: "[HERÓI] *desembainha espada lendária*", color: "#ffd700", opacity: 0.9 },
-      { text: "[GRIFO] *ataque aéreo* 35 de dano", color: "#8b7355", opacity: 0.7 },
-      { text: "[TROLL] *regeneração* +10 HP por turno", color: "#556b2f", opacity: 0.6 },
-      { text: "[ESQUELETO] *ossos rangentes* atacando!", color: "#f5f5dc", opacity: 0.7 },
-      { text: "[FADA] *magia arco-íris* buff +5 todos", color: "#ff69b4", opacity: 0.8 },
-      { text: "[GOBLIN] 'Shiny! Preciso disso!'", color: "#daa520", opacity: 0.7 },
-      { text: "[DRUIDA] *transformação* urso ativado", color: "#8fbc8f", opacity: 0.8 },
-      { text: "[PALADINO] *smite evil* 45 de dano sagrado", color: "#ffd700", opacity: 0.9 },
-      { text: "[ASSASSINO] *backstab* dano x3 crítico!", color: "#2f4f4f", opacity: 0.6 },
-      { text: "[BÁRBARO] *berseker* força +10 por 3 turnos", color: "#8b4513", opacity: 0.8 },
-      { text: "[FEITICEIRO] *invocação* demônio aparece", color: "#8b008b", opacity: 0.7 },
-      { text: "[RANGER] *rastreamento* pegadas encontradas", color: "#228b22", opacity: 0.6 },
-      { text: "[SAMURAI] 'Para honra! Para glória!'", color: "#dc143c", opacity: 0.8 },
-      { text: "[NINJA] *teleporte* crítico garantido", color: "#191970", opacity: 0.5 },
-      { text: "[MONGE] *soco chi* atordoamento 2 turnos", color: "#f4a460", opacity: 0.7 },
-      { text: "[PIRATA] 'Tesouro! Arrr!'", color: "#ff8c00", opacity: 0.8 },
-      { text: "[VIKING] 'Valhalla me espera!'", color: "#b22222", opacity: 0.9 },
-      { text: "[XAMÃ] *espírito ancestral* sabedoria +8", color: "#9370db", opacity: 0.7 },
-      { text: "[Cavaleiro] 'Pelo rei! Pela glória!'", color: "#4169e1", opacity: 0.8 },
-      { text: "[BRUXO] *maldição* -4 todos os stats", color: "#483d8b", opacity: 0.6 },
-      { text: "[TESOUREIRO] 'Ouro! Muito ouro!'", color: "#ffd700", opacity: 0.9 },
-      { text: "[EXPLORADOR] 'Mapa secreto encontrado!'", color: "#daa520", opacity: 0.7 },
-      { text: "[MESTRE] 'A jornada continua...'", color: "#d4af37", opacity: 0.8 }
-    ];
+    
 
-    // Logs do modo Músico - Rock, estúdio e música
-    const logsMusicoMode = [
-      { text: "[ROADIE] 'Cabo de guitarra trocado!'", color: "#ff007f", opacity: 0.7 },
-      { text: "[GUITARRISTA] *solo épico de 30 segundos*", color: "#00f3ff", opacity: 0.9 },
-      { text: "[BAIXISTA] *groove pesado* fundo em B", color: "#ff007f", opacity: 0.8 },
-      { text: "[BATERISTA] *rimshot* 1-2-3-4!", color: "#ffffff", opacity: 0.7 },
-      { text: "[VOCALISTA] 'Are you ready to ROCK?!'", color: "#00f3ff", opacity: 0.9 },
-      { text: "[TECLADISTA] *sintetizador* synth wave ativado", color: "#ff007f", opacity: 0.6 },
-      { text: "[PRODUTOR] 'Nível perfeito! Gravando!'", color: "#00f3ff", opacity: 0.8 },
-      { text: "[ENG. SOM] 'Equalização ajustada!'", color: "#ff007f", opacity: 0.7 },
-      { text: "[ROADIE] 'Amplificador em 11!'", color: "#ffffff", opacity: 0.8 },
-      { text: "[FÃ] 'MÚSICA MAIS LINDA DO MUNDO!'", color: "#00f3ff", opacity: 0.9 },
-      { text: "[GUITARRISTA] *power chord* distorção máxima", color: "#ff007f", opacity: 0.8 },
-      { text: "[BAIXISTA] *slap bass* funky groove", color: "#00f3ff", opacity: 0.7 },
-      { text: "[BATERISTA] *blast beat* 240 BPM!", color: "#ff007f", opacity: 0.6 },
-      { text: "[VOCALISTA] *scream* guturais potentes", color: "#ffffff", opacity: 0.8 },
-      { text: "[DJ] *beat drop* drop the bass!", color: "#00f3ff", opacity: 0.9 },
-      { text: "[ROADIE] 'Palco montado! Luzes prontas!'", color: "#ff007f", opacity: 0.7 },
-      { text: "[TECLADISTA] *piano* melopia emocionante", color: "#00f3ff", opacity: 0.8 },
-      { text: "[PRODUTOR] 'Take perfeito! Guardando!'", color: "#ff007f", opacity: 0.6 },
-      { text: "[ENG. SOM] 'Reverb adicionado!'", color: "#ffffff", opacity: 0.7 },
-      { text: "[GUITARRISTA] *tap* solo técnico rápido", color: "#00f3ff", opacity: 0.8 },
-      { text: "[BAIXISTA] *walking bass* linha melódica", color: "#ff007f", opacity: 0.7 },
-      { text: "[BATERISTA] *fill* bateria explosiva", color: "#00f3ff", opacity: 0.9 },
-      { text: "[VOCALISTA] *falsete* nota aguda perfeita", color: "#ff007f", opacity: 0.6 },
-      { text: "[SAXOFONISTA] *solo sax* jazz suave", color: "#ffffff", opacity: 0.8 },
-      { text: "[VIOLINISTA] *virtuose* concerto clássico", color: "#00f3ff", opacity: 0.7 },
-      { text: "[ROADIE] 'Infravermelho ajustado!'", color: "#ff007f", opacity: 0.8 },
-      { text: "[PRODUTOR] 'Compressão perfeita!'", color: "#00f3ff", opacity: 0.6 },
-      { text: "[ENG. SOM] 'Delay sincronizado!'", color: "#ff007f", opacity: 0.7 },
-      { text: "[GUITARRISTA] *harmonics* notas harmônicas", color: "#ffffff", opacity: 0.8 },
-      { text: "[BAIXISTA] *fretless* som suave", color: "#00f3ff", opacity: 0.9 },
-      { text: "[BATERISTA] *brushes* jazz delicado", color: "#ff007f", opacity: 0.6 },
-      { text: "[VOCALISTA] *harmony* harmonia perfeita", color: "#00f3ff", opacity: 0.7 },
-      { text: "[DJ] *scratch* turntablism", color: "#ff007f", opacity: 0.8 },
-      { text: "[ROADIE] 'Feedback eliminado!'", color: "#ffffff", opacity: 0.7 },
-      { text: "[PRODUTOR] 'Masterização finalizada!'", color: "#00f3ff", opacity: 0.9 },
-      { text: "[ENG. SOM] 'Monitor ajustado!'", color: "#ff007f", opacity: 0.6 },
-      { text: "[GUITARRISTA] *whammy* dive bomb!", color: "#00f3ff", opacity: 0.8 },
-      { text: "[BAIXISTA] *palm mute* metal pesado", color: "#ff007f", opacity: 0.7 },
-      { text: "[BATERISTA] *double kick* velocidade extrema", color: "#ffffff", opacity: 0.9 },
-      { text: "[VOCALISTA] *growl* death metal vocal", color: "#00f3ff", opacity: 0.6 },
-      { text: "[MÚSICO] 'Rock and roll nunca morre!'", color: "#ff007f", opacity: 0.8 },
-      { text: "[FÃ] 'Show incrível! Bis! Bis!'", color: "#00f3ff", opacity: 0.9 },
-      { text: "[PRODUTOR] 'Álbum pronto! Lançar!'", color: "#ff007f", opacity: 0.7 },
-      { text: "[ENG. SOM] 'Mix finalizado!'", color: "#ffffff", opacity: 0.8 },
-      { text: "[GUITARRISTA] *riff* riff memorável", color: "#00f3ff", opacity: 0.6 },
-      { text: "[MÚSICO] 'A música é nossa vida!'", color: "#ff007f", opacity: 0.9 }
-    ];
+    
 
     let logInterval;
     let terminalAtivo = true;
@@ -6159,14 +5070,8 @@
 
       // Escolhe o array de mensagens baseado no modo atual
       let logsAtuais;
-      if (document.body.classList.contains('pai-mode')) {
-        logsAtuais = logsPaiMode;
-      } else if (document.body.classList.contains('interstellar-mode')) {
+      if (document.body.classList.contains('interstellar-mode')) {
         logsAtuais = logsInterstellar;
-      } else if (document.body.classList.contains('rpg-mode')) {
-        logsAtuais = logsRPGMode;
-      } else if (document.body.classList.contains('musico-mode')) {
-        logsAtuais = logsMusicoMode;
       } else {
         logsAtuais = logsDivertidos;
       }

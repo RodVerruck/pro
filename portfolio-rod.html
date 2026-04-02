@@ -53,9 +53,29 @@
       background: var(--bg);
       font-family: var(--body);
       overflow-x: hidden;
-      cursor: none;
     }
 
+    /* Garante que o cursor customizado só apareça em dispositivos com mouse */
+    @media (pointer: fine) {
+
+      html,
+      body,
+      .clickable,
+      button,
+      a,
+      .fc-btn,
+      .tool-pill,
+      [role="button"] {
+        cursor: none !important;
+      }
+    }
+
+    @media (pointer: coarse),
+    (hover: none) {
+      #cur {
+        display: none !important;
+      }
+    }
 
     @keyframes shakeScreen {
       0% {
@@ -1284,6 +1304,10 @@
       transition: transform .15s;
     }
 
+    .projects-carousel {
+      display: contents;
+    }
+
     /* Bento Grid Mapping - Desktop (Baseado na Referência) */
     @media(min-width: 901px) {
       .bento {
@@ -1359,62 +1383,142 @@
     @media(max-width:900px) {
       .bento {
         grid-template-columns: repeat(6, 1fr);
-        grid-auto-rows: 74px;
+        grid-auto-rows: 64px;
         gap: 10px;
-        padding: 8px 16px 40px;
+        padding: 16px 16px 40px;
       }
 
       .c-hero {
         grid-column: span 6;
         grid-row: span 4;
+        padding: 24px 20px;
       }
 
-      .c-stack {
-        grid-column: span 6;
-        grid-row: span 3;
+      .hero-title {
+        font-size: 38px;
       }
 
       .c-years {
-        grid-column: span 3;
+        grid-column: span 2;
         grid-row: span 2;
       }
 
       .c-status {
-        grid-column: span 3;
+        grid-column: span 4;
         grid-row: span 2;
+        padding: 14px;
+      }
+
+      .status-title {
+        font-size: 11px;
+        white-space: nowrap;
+      }
+
+      .status-sub {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 10px;
       }
 
       .c-music {
-        grid-column: span 3;
+        grid-column: span 2;
         grid-row: span 2;
       }
 
       .c-terminal {
-        grid-column: span 3;
+        grid-column: span 4;
         grid-row: span 2;
       }
 
-      .c-proj-vant,
-      .c-proj-we,
-      .c-proj-calc,
-      .c-proj-rpa {
+      .term-body {
+        padding: 10px;
+        font-size: 10px;
+      }
+
+      .c-stack {
+        grid-column: span 6;
+        grid-row: span 2;
+        padding: 16px 16px 8px;
+      }
+
+      .tools-grid {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 8px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .tools-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .floating-stack .tool-pill {
+        padding: 4px 10px;
+        font-size: 10px;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+      }
+
+      .projects-carousel {
         grid-column: span 6;
         grid-row: span 3;
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        gap: 14px;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .projects-carousel .card {
+        flex: 0 0 88%;
+        scroll-snap-align: start;
+      }
+
+      .projects-carousel::-webkit-scrollbar {
+        display: none;
       }
 
       .c-about {
         grid-column: span 6;
         grid-row: span 3;
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .about-avatar {
+        width: 64px;
+        height: 64px;
+        font-size: 20px;
+        margin: 0 auto;
       }
 
       .c-skills {
         grid-column: span 6;
-        grid-row: span 4;
+        grid-row: span 3;
       }
 
       .c-contact {
         grid-column: span 6;
         grid-row: span 2;
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .contact-title {
+        font-size: 18px;
+      }
+
+      .contact-links {
+        justify-content: center;
       }
     }
 
@@ -1563,6 +1667,7 @@
     }
 
     @keyframes vhsGlitchLine {
+
       0% {
         top: 20%;
         opacity: 1;
@@ -2231,78 +2336,83 @@
       </div>
     </div>
 
-    <div class="card c-proj-vant clickable rev" onclick="openModal('vant')" tabindex="0" role="button">
-      <div class="proj-card-inner">
-        <div>
-          <div class="proj-num">01 — saas / ia</div>
-          <div class="proj-title">Vant AI App</div>
-          <div class="proj-desc">Plataforma SaaS de carreira. Planejamento, desenvolvimento e go-to-market de um produto
-            digital real com inteligência artificial.</div>
-          <span class="proj-status em-andamento">Em Andamento</span>
-          <a href="https://www.vant.app.br/" target="_blank" rel="noopener noreferrer" class="proj-link"
-            onclick="event.stopPropagation()">Conheça mais</a>
+    <div class="projects-carousel">
+      <div class="card c-proj-vant clickable rev" onclick="openModal('vant')" tabindex="0" role="button">
+        <div class="proj-card-inner">
+          <div>
+            <div class="proj-num">01 — saas / ia</div>
+            <div class="proj-title">Vant AI App</div>
+            <div class="proj-desc">Plataforma SaaS de carreira. Planejamento, desenvolvimento e go-to-market de um
+              produto
+              digital real com inteligência artificial.</div>
+            <span class="proj-status em-andamento">Em Andamento</span>
+            <a href="https://www.vant.app.br/" target="_blank" rel="noopener noreferrer" class="proj-link"
+              onclick="event.stopPropagation()">Conheça mais</a>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags"><span class="proj-tag">Next.js</span><span class="proj-tag">Produto</span></div>
+            <div class="proj-arrow">↗</div>
+          </div>
         </div>
-        <div class="proj-footer">
-          <div class="proj-tags"><span class="proj-tag">Next.js</span><span class="proj-tag">Produto</span></div>
-          <div class="proj-arrow">↗</div>
+      </div>
+
+      <div class="card c-proj-we clickable rev" onclick="openModal('weselect')" tabindex="0" role="button">
+        <div class="proj-card-inner">
+          <div>
+            <div class="proj-num">02 — hr tech</div>
+            <div class="proj-title">WeSelect RH</div>
+            <div class="proj-desc">Headhunter de bolso movido a IA. Filtra e qualifica currículos massivos de forma
+              inteligente, cortando ruído da triagem.</div>
+            <span class="proj-status local">Projeto Local</span>
+            <div style="font-family: var(--mono); font-size: 9px; color: var(--muted); margin-top: 6px;">Entre em
+              contato
+              para saber mais</div>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags"><span class="proj-tag">IA</span><span class="proj-tag">Automação</span></div>
+            <div class="proj-arrow">↗</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card c-proj-calc clickable rev" onclick="openModal('calculadora')" tabindex="0" role="button">
+        <div class="proj-card-inner">
+          <div>
+            <div class="proj-num">03 — ferramenta</div>
+            <div class="proj-title">Calculadora CLT vs PJ</div>
+            <div class="proj-desc">Cálculo em tempo real, blog, SEO técnico e monetização AdSense. No ar, útil e
+              indexada
+              organicamente.</div>
+            <span class="proj-status concluido">Concluído</span>
+            <a href="https://calculadora-cltvspj.vercel.app/" target="_blank" rel="noopener noreferrer"
+              class="proj-link" onclick="event.stopPropagation()">Conheça mais</a>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">SEO</span></div>
+            <div class="proj-arrow">↗</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card c-proj-rpa clickable rev" onclick="openModal('rpa')" tabindex="0" role="button">
+        <div class="proj-card-inner">
+          <div>
+            <div class="proj-num">04 — automação</div>
+            <div class="proj-title">Alertas de RPA</div>
+            <div class="proj-desc">Sistema de alertas em tempo real para automações corporativas. Monitoramento ativo de
+              processos RPA com notificações instantâneas de falhas e sucessos.</div>
+            <span class="proj-status local">Projeto Local</span>
+            <div style="font-family: var(--mono); font-size: 9px; color: var(--muted); margin-top: 6px;">Entre em
+              contato
+              para saber mais</div>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags"><span class="proj-tag">RPA</span><span class="proj-tag">MySQL</span></div>
+            <div class="proj-arrow">↗</div>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="card c-proj-we clickable rev" onclick="openModal('weselect')" tabindex="0" role="button">
-      <div class="proj-card-inner">
-        <div>
-          <div class="proj-num">02 — hr tech</div>
-          <div class="proj-title">WeSelect RH</div>
-          <div class="proj-desc">Headhunter de bolso movido a IA. Filtra e qualifica currículos massivos de forma
-            inteligente, cortando ruído da triagem.</div>
-          <span class="proj-status local">Projeto Local</span>
-          <div style="font-family: var(--mono); font-size: 9px; color: var(--muted); margin-top: 6px;">Entre em contato
-            para saber mais</div>
-        </div>
-        <div class="proj-footer">
-          <div class="proj-tags"><span class="proj-tag">IA</span><span class="proj-tag">Automação</span></div>
-          <div class="proj-arrow">↗</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card c-proj-calc clickable rev" onclick="openModal('calculadora')" tabindex="0" role="button">
-      <div class="proj-card-inner">
-        <div>
-          <div class="proj-num">03 — ferramenta</div>
-          <div class="proj-title">Calculadora CLT vs PJ</div>
-          <div class="proj-desc">Cálculo em tempo real, blog, SEO técnico e monetização AdSense. No ar, útil e indexada
-            organicamente.</div>
-          <span class="proj-status concluido">Concluído</span>
-          <a href="https://calculadora-cltvspj.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-link"
-            onclick="event.stopPropagation()">Conheça mais</a>
-        </div>
-        <div class="proj-footer">
-          <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">SEO</span></div>
-          <div class="proj-arrow">↗</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card c-proj-rpa clickable rev" onclick="openModal('rpa')" tabindex="0" role="button">
-      <div class="proj-card-inner">
-        <div>
-          <div class="proj-num">04 — automação</div>
-          <div class="proj-title">Alertas de RPA</div>
-          <div class="proj-desc">Sistema de alertas em tempo real para automações corporativas. Monitoramento ativo de
-            processos RPA com notificações instantâneas de falhas e sucessos.</div>
-          <span class="proj-status local">Projeto Local</span>
-          <div style="font-family: var(--mono); font-size: 9px; color: var(--muted); margin-top: 6px;">Entre em contato
-            para saber mais</div>
-        </div>
-        <div class="proj-footer">
-          <div class="proj-tags"><span class="proj-tag">RPA</span><span class="proj-tag">MySQL</span></div>
-          <div class="proj-arrow">↗</div>
-        </div>
-      </div>
-    </div>
-
 
     <div class="card c-skills rev">
       <div class="skills-title">Skills & Stack</div>
@@ -2336,7 +2446,8 @@
         <div class="about-text-default">
           <div class="about-hello">Oi, eu sou o Rodrigo 👋</div>
           <p class="about-bio"><strong>Suporte Técnico & Desenvolvedor</strong>. Especialista em desatar nós entre
-            Produto e Negócio. Otimizo processos com Python e SQL, e atualmente estou pavimentando minha transição para
+            Produto e Negócio. Otimizo processos com Python e SQL, e atualmente estou pavimentando minha transição
+            para
             o
             Front-end construindo ferramentas reais com IA.<br><span
               style="font-family:var(--mono);font-size:8px;opacity:0.3;">// check the datadog logs</span></p>
@@ -2347,7 +2458,8 @@
     <div class="card c-contact rev">
       <div class="contact-title">me chama.</div>
       <div class="contact-links">
-        <a href="mailto:rodrigoverruck@gmail.com" class="clink" onclick="snd('click')">📧 e-mail <span>↗</span></a>
+        <a href="mailto:rodrigoverruck@gmail.com" class="clink" onclick="snd('click')">📧 e-mail
+          <span>↗</span></a>
         <a href="https://www.linkedin.com/in/rodrigo-verruck-104b5a178/" target="_blank" class="clink"
           onclick="snd('click')">💼 linkedin
           <span>↗</span></a>
@@ -2462,6 +2574,12 @@
       }
     }
 
+    // Escape Hatch: Fecha o modal com a tecla ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.getElementById('modal').classList.contains('open')) {
+        closeModal();
+      }
+    });
 
     let audioCtx = null;
     let musicOscillators = [];

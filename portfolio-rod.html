@@ -2464,6 +2464,11 @@
 
 
     let audioCtx = null;
+    let musicOscillators = [];
+    let musicGainNode = null;
+    let musicNodes = [];
+    let musicTimers = [];
+    let beatStep = 0;
 
     function initAudio() {
       if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -2624,18 +2629,13 @@
       }
     }
 
-
-
     // Inicia quando a página carregar
     document.addEventListener('DOMContentLoaded', () => {
-
-      // Inicializa as barras de música
-      mbarElements = document.querySelectorAll('#music-bars .mbar');
 
       // ═══ SIMPLE MUSIC SYSTEM ═══
       let musicOn = false;
       let animFrameId = null;
-      let mbarElements = [];
+      let mbarElements = document.querySelectorAll('#music-bars .mbar');
 
       function toggleMusic() {
         initAudio();
@@ -2654,7 +2654,7 @@
           card.classList.remove('playing');
           icon.textContent = '';
           label.textContent = 'som desligado';
-          clearMusic();
+          clearMusic(true);
           snd('pop');
         }
       }
@@ -2662,6 +2662,7 @@
       function startMusicEngine() {
         if (!musicOn) return;
         animVinylLoop();
+        createRealMusic();
       }
 
       function clearMusic(stopAnimation = false) {
@@ -2672,6 +2673,294 @@
         if (mbarElements.length) {
           mbarElements.forEach(bar => bar.style.height = '4px');
         }
+        // Para os osciladores de música
+        stopRealMusic();
+      }
+
+      function createRealMusic() {
+        // MIDNIGHT SAX v2.0 - 16 Bar Loop (Alta Complexidade, Baixa CPU)
+        const bpm = 80;
+        const tick = 60000 / (bpm * 4); // Semicolcheias (~187.5ms)
+
+        // Expandimos o loop para 16 compassos para criar uma jornada musical mais longa
+        const bar = Math.floor(beatStep / 16) % 16;
+        const stepInBar = beatStep % 16;
+
+        // 1. RUÍDO DE VINIL E FOLEY (Texturas)
+        if (stepInBar === 0) {
+          createNoise('highpass', 3.0, 0.005, 4000);
+        }
+        // Foley: Pequeno sino de vento/cidade muito raro e com eco (Compasso 7 e 15)
+        if ((bar === 7 || bar === 15) && stepInBar === 8) {
+          createOsc('sine', 1200 + Math.random() * 400, 0.05, 2.0, 0.015, 3000);
+          setTimeout(() => createOsc('sine', 1500, 0.1, 1.5, 0.01, 2000), 200);
+        }
+
+        // Progressão Lo-fi R&B (Fm11 -> Cm11 -> Dbmaj9 -> Ebmaj9) repetida 4x
+        const progressions = [
+          { root: 43.65, chord: [174.61, 207.65, 261.63, 311.13] }, // Fm11
+          { root: 43.65, chord: [174.61, 207.65, 261.63, 311.13] },
+          { root: 32.70, chord: [130.81, 155.56, 196.00, 233.08] }, // Cm11
+          { root: 32.70, chord: [130.81, 155.56, 196.00, 233.08] },
+          { root: 34.65, chord: [138.59, 174.61, 207.65, 261.63] }, // Dbmaj9
+          { root: 34.65, chord: [138.59, 174.61, 207.65, 261.63] },
+          { root: 38.89, chord: [155.56, 196.00, 233.08, 277.18] }, // Ebmaj9
+          { root: 38.89, chord: [155.56, 196.00, 233.08, 277.18] }
+        ];
+        // Como temos 16 compassos, usamos módulo 8 para repetir a harmonia
+        const current = progressions[bar % 8];
+
+        // Agrupamento para poupar RAM e aplicar Swing
+        const isSwing = (stepInBar % 2 !== 0);
+        const swingDelay = isSwing ? 35 : 0; // Swing acentuado de R&B
+
+        setTimeout(() => {
+          // 2. BATERIA ORGÂNICA COM GHOST NOTES
+          // Bumbo principal e sub-bumbo
+          if (stepInBar === 0 || stepInBar === 11 || (bar % 4 === 3 && stepInBar === 8)) {
+            createOsc('sine', 45, 0.02, 0.4, 0.25, 100);
+            createNoise('lowpass', 0.1, 0.15, 150);
+          }
+          // Caixa/Snap com reverb implícito
+          if (stepInBar === 4 || stepInBar === 12) {
+            createNoise('bandpass', 0.05, 0.2, 2000);
+            createOsc('triangle', 400, 0.01, 0.05, 0.04);
+          }
+          // Ghost Note na caixa (Batida super fraca e fora de tempo)
+          if (stepInBar === 7 || stepInBar === 15) {
+            if (Math.random() < 0.4) createNoise('bandpass', 0.03, 0.05, 1500);
+          }
+
+          // Hi-hats dinâmicos
+          if (stepInBar % 2 === 0) {
+            const hatVol = (stepInBar === 4 || stepInBar === 12) ? 0.01 : 0.03;
+            createNoise('highpass', 0.05, hatVol, 6000);
+          } else if (Math.random() < 0.5) { // Hi-hat ghost note
+            createNoise('highpass', 0.03, 0.015, 7000);
+          }
+
+          // 3. SUB-BASS (Corte cirúrgico)
+          if (stepInBar === 0 || stepInBar === 11 || stepInBar === 14) {
+            let bassNote = current.root;
+            if (stepInBar === 14) bassNote = current.root * 1.5;
+            createOsc('sine', bassNote, 0.05, 0.5, 0.25 * 0.35, 200);
+          }
+
+          // 4. TECLADOS / RHODES COM FLOREIOS
+          if (stepInBar === 2 || (bar % 2 === 1 && stepInBar === 10)) {
+            const chordVol = (stepInBar === 2) ? 0.04 : 0.02;
+            current.chord.forEach(note => {
+              const vhsWarble = note * (1 + (Math.random() * 0.008 - 0.004)); // Desafinação Lo-Fi analógica
+              createOsc('triangle', vhsWarble, 0.02, 0.8, chordVol * 0.35, 600);
+            });
+          }
+          // Floreio de Piano (Arpejo cristalino apenas no compasso 3 e 11)
+          if ((bar === 3 || bar === 11) && stepInBar === 14) {
+            createOsc('sine', current.chord[2] * 2, 0.02, 0.6, 0.02 * 0.35, 1000);
+            setTimeout(() => createOsc('sine', current.chord[3] * 2, 0.02, 0.8, 0.02 * 0.35, 1200), 60);
+          }
+        }, swingDelay);
+
+        // 5. SOLO DE SAXOFONE DUPLO (16 Compassos)
+        // Estrutura de dados: b=bar, s=stepInBar, n=nota(Hz), d=duração, v=volume
+        const saxMelody = [
+          // Frase 1 (Calma, registro médio) - Compassos 4 a 7
+          { b: 4, s: 2, n: 349.23, d: 0.4, v: 0.12 }, // F4
+          { b: 4, s: 6, n: 415.30, d: 0.4, v: 0.13 }, // Ab4
+          { b: 4, s: 8, n: 466.16, d: 0.6, v: 0.14 }, // Bb4
+          { b: 5, s: 0, n: 523.25, d: 1.5, v: 0.15 }, // C5
+          { b: 5, s: 10, n: 466.16, d: 0.4, v: 0.12 }, // Bb4
+          { b: 6, s: 2, n: 415.30, d: 0.4, v: 0.13 }, // Ab4
+          { b: 6, s: 4, n: 349.23, d: 0.4, v: 0.12 }, // F4
+          { b: 6, s: 12, n: 311.13, d: 0.4, v: 0.10 }, // Eb4
+          { b: 7, s: 0, n: 349.23, d: 2.0, v: 0.13 }, // F4 (repousa)
+
+          // Frase 2 (Emotiva, registro agudo) - Compassos 12 a 15
+          { b: 12, s: 4, n: 523.25, d: 0.4, v: 0.13 }, // C5
+          { b: 12, s: 6, n: 622.25, d: 0.4, v: 0.14 }, // Eb5
+          { b: 12, s: 8, n: 698.46, d: 0.8, v: 0.16 }, // F5 (pico de emoção)
+          { b: 13, s: 0, n: 622.25, d: 1.2, v: 0.14 }, // Eb5
+          { b: 13, s: 12, n: 523.25, d: 0.4, v: 0.12 },// C5
+          { b: 14, s: 0, n: 466.16, d: 0.3, v: 0.13 }, // Bb4 (descida rápida)
+          { b: 14, s: 2, n: 415.30, d: 0.3, v: 0.12 }, // Ab4
+          { b: 14, s: 4, n: 349.23, d: 0.5, v: 0.13 }, // F4
+          { b: 15, s: 0, n: 349.23, d: 2.5, v: 0.14 }  // F4 (fade out com longo vibrato)
+        ];
+
+        // Procura se tem alguma nota de saxofone para o compasso e tick exato atual
+        const hit = saxMelody.find(m => m.b === bar && m.s === stepInBar);
+
+        if (hit) {
+          // Aciona o Sintetizador de Saxofone com as dinâmicas especificadas
+          createSaxOsc(hit.n, hit.d, hit.v * 0.35);
+          // Eco espacial nativo (zero custo extra de processamento / sem convolver)
+          setTimeout(() => createSaxOsc(hit.n, hit.d, hit.v * 0.35 * 0.25), 330);
+        }
+
+        // 2. TEXTURA RÍTMICA (Tick de Relógio de Quartzo - Som Limpo)
+        if (stepInBar % 4 === 0) {
+          // Substituído o 'noise' por uma onda 'triangle' (Sino minúsculo e cristalino)
+          createOsc('triangle', 3500, 0.005, 0.03, 0.015 * 0.35);
+        }
+
+        // 7. SWEEP DE TRANSIÇÃO (O Vento Grave)
+        // Cria expectativa para a virada do loop longo sem gerar chiado agudo
+        if (bar === 7 || bar === 15) {
+          if (stepInBar === 0) {
+            // Usando 'lowpass' para soar como um trovão distante em vez de estática
+            createNoise('lowpass', 4.0, 0.02, 250);
+          }
+        }
+
+        beatStep++;
+        musicTimers.push(setTimeout(createRealMusic, tick));
+      }
+
+      // Funções auxiliares necessárias
+      function createOsc(type, freq, attack, decay, vol, filterFreq) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        const now = audioCtx.currentTime;
+
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, now);
+
+        gain.gain.setValueAtTime(0, now);
+        gain.gain.linearRampToValueAtTime(vol * 0.35, now + attack); // Previne clipping digital
+        gain.gain.exponentialRampToValueAtTime(0.001, now + attack + decay);
+
+        if (filterFreq) {
+          const filter = audioCtx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(filterFreq, now);
+          osc.connect(filter);
+          filter.connect(gain);
+        } else {
+          osc.connect(gain);
+        }
+
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + attack + decay + 0.1);
+
+        musicNodes.push(osc);
+        osc.onended = () => {
+          const idx = musicNodes.indexOf(osc);
+          if (idx > -1) musicNodes.splice(idx, 1);
+        };
+      }
+
+      function createNoise(type, length, vol, filterFreq) {
+        if (!audioCtx) return;
+        const bufSize = audioCtx.sampleRate * length, buf = audioCtx.createBuffer(1, bufSize, audioCtx.sampleRate), data = buf.getChannelData(0);
+        for (let i = 0; i < bufSize; i++) data[i] = Math.random() * 2 - 1;
+        const noise = audioCtx.createBufferSource(), f = audioCtx.createBiquadFilter(), g = audioCtx.createGain();
+        noise.buffer = buf; f.type = type; f.frequency.value = filterFreq;
+        noise.connect(f); f.connect(g); g.connect(audioCtx.destination);
+
+        const now = audioCtx.currentTime;
+        g.gain.setValueAtTime(0, now);
+        g.gain.linearRampToValueAtTime(vol * 0.35, now + 0.05); // Previne clipping digital
+        g.gain.setTargetAtTime(0, now + 0.05, length / 3);
+
+        noise.start(now);
+        musicNodes.push(noise);
+        noise.onended = () => {
+          const index = musicNodes.indexOf(noise);
+          if (index > -1) musicNodes.splice(index, 1);
+        };
+      }
+
+      function createSaxOsc(freq, duration, vol) {
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+
+        // O corpo do som do sax (Sawtooth rica em harmônicos)
+        const osc = audioCtx.createOscillator();
+        osc.type = 'sawtooth';
+        osc.frequency.value = freq;
+
+        // O Sopro (Filtro que abre e fecha)
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.Q.value = 2.5; // Ressonância no "bocal"
+        filter.frequency.setValueAtTime(300, now);
+        filter.frequency.linearRampToValueAtTime(2500, now + 0.15); // O ar ganhando força
+        filter.frequency.exponentialRampToValueAtTime(600, now + duration);
+
+        // Vibrato Humano (LFO)
+        const lfo = audioCtx.createOscillator();
+        lfo.type = 'sine';
+        lfo.frequency.value = 5.5; // ~5.5Hz é o vibrato natural de um saxofonista
+        const lfoGain = audioCtx.createGain();
+        lfoGain.gain.setValueAtTime(0, now);
+        lfoGain.gain.linearRampToValueAtTime(15, now + 0.3); // O vibrato entra aos poucos
+
+        // Envelope de Volume Suavizado (Anti-Click)
+        const gain = audioCtx.createGain();
+        gain.gain.setValueAtTime(0, now);
+        gain.gain.linearRampToValueAtTime(vol * 0.35, now + 0.05); // Previne clipping digital
+        gain.gain.exponentialRampToValueAtTime(0.001, now + duration - 0.05);
+        gain.gain.linearRampToValueAtTime(0, now + duration); // Garante que a corda de áudio foi solta
+
+        // Roteamento
+        lfo.connect(lfoGain);
+        lfoGain.connect(osc.detune); // O LFO desafina a nota sutilmente
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start(now); osc.stop(now + duration + 0.1);
+        lfo.start(now); lfo.stop(now + duration + 0.1);
+
+        // Cleanup da memória
+        musicNodes.push(osc, lfo);
+        osc.onended = () => {
+          let idx = musicNodes.indexOf(osc); if (idx > -1) musicNodes.splice(idx, 1);
+          idx = musicNodes.indexOf(lfo); if (idx > -1) musicNodes.splice(idx, 1);
+        };
+      }
+
+      function stopRealMusic() {
+        // Limpa todos os timers
+        musicTimers.forEach(timer => clearTimeout(timer));
+        musicTimers = [];
+
+        // Para todos os osciladores e nodes
+        musicNodes.forEach(node => {
+          try {
+            if (node.stop) node.stop();
+            if (node.disconnect) node.disconnect();
+          } catch (e) { }
+        });
+        musicNodes = [];
+
+        // Para os osciladores antigos (para compatibilidade)
+        musicOscillators.forEach(osc => {
+          try {
+            osc.stop();
+            osc.disconnect();
+          } catch (e) { }
+        });
+        musicOscillators = [];
+
+        // Para o interval de acordes (se existir)
+        if (musicGainNode && musicGainNode.chordInterval) {
+          clearInterval(musicGainNode.chordInterval);
+        }
+
+        // Desconecta o gain node
+        if (musicGainNode) {
+          try {
+            musicGainNode.disconnect();
+          } catch (e) { }
+          musicGainNode = null;
+        }
+
+        // Reseta o beat step
+        beatStep = 0;
       }
 
       function animVinylLoop(timestamp = 0) {
@@ -2689,7 +2978,17 @@
       let lastVinylFrame = 0;
 
       // Music card click handler
-      document.getElementById('music-card')?.addEventListener('click', toggleMusic);
+      const musicCard = document.getElementById('music-card');
+      if (musicCard) {
+        musicCard.addEventListener('click', toggleMusic);
+        // Também adiciona suporte a teclado
+        musicCard.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleMusic();
+          }
+        });
+      }
 
       setTimeout(() => {
         // iniciarLogsDinamicos(); // Desativado: Função inexistente no escopo atual

@@ -3783,9 +3783,6 @@
 
       <div class="mode-controls">
         <button class="mc-btn active" tabindex="0" onclick="setMode('trabalho')" title="Modo Trabalho">💼</button>
-        <button class="mc-btn" tabindex="0" onclick="setMode('pai')" title="Pai da Isis">🍼</button>
-        <button class="mc-btn" tabindex="0" onclick="setMode('rpg')" title="Jogador de RPG">⚔️</button>
-        <button class="mc-btn" tabindex="0" onclick="setMode('musico')" title="Músico">🎸</button>
       </div>
     </div>
 
@@ -4278,11 +4275,9 @@
 
         if (_logoClickCount === 1) {
           // Clique simples - apenas um feedback sutil
-          snd('click');
-          toast('🤔 Hmm... tente clicar mais vezes...');
+          snd('click');  // toast removed
         } else if (_logoClickCount >= 2) {
-          _logoClickCount = 0;
-          toast('Hmm... nada aconteceu.');
+          _logoClickCount = 0;  // toast removed
         }
       }, 320);
     }
@@ -4369,13 +4364,11 @@
       if (currentMode !== 'trabalho') {
         if (now - _lastClickTime < 400) {
           // Duplo clique em outros modos
-          _lastClickTime = 0;
-          toast('⚠️ O buraco negro só se abre no Modo Trabalho. Mude para primeiro.');
+          _lastClickTime = 0;  // toast removed
           return;
         }
         _lastClickTime = now;
-        snd('ding');
-        toast('2+ anos. Duplo clique só funciona no Modo Trabalho.');
+        snd('ding');  // toast removed
         return;
       }
 
@@ -4386,8 +4379,7 @@
         return;
       }
       _lastClickTime = now;
-      snd('ding');
-      toast('2+ anos. Duplo clique para ver em anos-luz.');
+      snd('ding');  // toast removed
     }
 
     function toggleInterstellar() {
@@ -4427,9 +4419,7 @@
         document.getElementById('mode-title').textContent = 'Modo Interestelar';
         document.getElementById('mode-title').style.color = '#c8b8ff';
         document.getElementById('mode-desc').textContent =
-          'We must confront the reality of interstellar travel. O universo não se importa com os seus deadlines.';
-
-        toast('🪐 Bem-vindo ao outro lado do buraco negro.');
+          'We must confront the reality of interstellar travel. O universo não se importa com os seus deadlines.';  // toast removed
         snd('ding');
 
       } else {
@@ -4439,8 +4429,7 @@
         stopGravityEffect();
         stopLightYearCounter();
         currentMode = 'trabalho';
-        setMode('trabalho');
-        toast('🌍 Retorno à Terra confirmado.');
+        setMode('trabalho');  // toast removed
       }
     }
 
@@ -4604,9 +4593,7 @@
         activeBtn.classList.add('active');
         activeBtn.style.borderColor = m.color;
         activeBtn.style.boxShadow = `0 0 15px ${m.color}`;
-      }
-
-      toast(`Modo alterado: ${m.title}`);
+      }  // toast removed
     }
 
 
@@ -5018,9 +5005,7 @@
         document.getElementById('bsod-body').innerHTML = `
           Estamos coletando algumas informações sobre o erro e
           então reiniciaremos para você.
-          0% concluído`;
-
-        toast('💙 Sistema restaurado. Ufa.');
+          0% concluído`;  // toast removed
       }, 320);
     }
 
@@ -5930,8 +5915,7 @@
         lblNormal.textContent = `Tocando: ${MODOS[currentMode].title}`;
         lblNormal.style.display = 'inline';
         document.getElementById('music-card').classList.add('playing');
-        startMusicEngine();
-        toast('🎵 Som na caixa!');
+        startMusicEngine();  // toast removed
       } else {
         clearMusic();
         icnNormal.textContent = '🎵';
@@ -5940,8 +5924,7 @@
         lblNormal.style.display = 'inline';
         document.getElementById('music-card').classList.remove('playing');
         mbarElements.forEach(b => { b.style.height = '4px'; b.style.background = 'var(--accent)'; });
-        beep(440, .08, 'square', .1); setTimeout(() => beep(330, .1, 'square', .08), 70);
-        toast('🔇 silêncio');
+        beep(440, .08, 'square', .1); setTimeout(() => beep(330, .1, 'square', .08), 70);  // toast removed
       }
     });
 
